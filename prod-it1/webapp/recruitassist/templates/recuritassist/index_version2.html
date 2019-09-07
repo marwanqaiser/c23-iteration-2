@@ -1,0 +1,1161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Recruit Assist</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="" name="keywords">
+  <meta content="" name="description">
+  {% load staticfiles %}
+  <!-- Favicons -->
+  <link href="{% static 'recruitassist/img/cp4.png'%}" rel="icon">
+  <link href="{% static 'recruitassist/img/apple-touch-icon.png'%}" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700" rel="stylesheet">
+
+  <!-- Bootstrap CSS File -->
+  <link href="{% static 'recruitassist/lib/bootstrap/css/bootstrap.min.css'%}" rel="stylesheet">
+
+  <!-- Libraries CSS Files -->
+  <link href="{% static 'recruitassist/lib/font-awesome/css/font-awesome.min.css'%}" rel="stylesheet">
+  <link href="{% static 'recruitassist/lib/animate/animate.min.css'%}" rel="stylesheet">
+  <link href="{% static 'recruitassist/lib/ionicons/css/ionicons.min.css'%}" rel="stylesheet">
+  <link href="{% static 'recruitassist/lib/owlcarousel/assets/owl.carousel.min.css'%}" rel="stylesheet">
+  <link href="{% static 'recruitassist/lib/lightbox/css/lightbox.min.css'%}" rel="stylesheet">
+
+  <!-- Main Stylesheet File -->
+  <link href="css/style.css" rel="stylesheet">
+
+  <!-- =======================================================
+    Theme Name: BizPage
+    Theme URL: https://bootstrapmade.com/bizpage-bootstrap-business-template/
+    Author: BootstrapMade.com
+    License: https://bootstrapmade.com/license/
+  ======================================================= -->
+  <style>
+    .box_select {
+      width: 60%;
+      border-color: #337ab7;
+      color: #337ab7;
+      height: 70px;
+      padding: 16px;
+      margin: 16px;
+      align-items: center;
+      border-radius: 70px;
+    }
+    .search-location .form-group button {
+      background: transparent;
+      border: none;
+      position: absolute;
+      top: 50%;
+      right: 0;
+      -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+      transform: translateY(-50%);
+      width: 70px;
+      height: 70px;
+      border-radius: 50% 50% 50%;
+      background: #4DC7A0;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!--==========================
+    Header
+  ============================-->
+  <header id="header">
+    <div class="container-fluid">
+
+      <div id="logo" class="pull-left">
+        <h1><a href="#intro" class="scrollto">Recruit Assist</a></h1>
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <!-- <a href="#intro"><img src="img/logo.png" alt="" title="" /></a>-->
+      </div>
+
+      <nav id="nav-menu-container">
+        <ul class="nav-menu">
+          <li class="menu-active"><a href="#intro">Home</a></li>
+<!--          <li><a href="#about">About Us</a></li>-->
+          <li><a href="#services">Services</a></li>
+          <li><a href="#call-to-action">Seek For Training</a></li>
+<!--          <li><a href="#team">Team</a></li>-->
+<!--          <li class="menu-has-children"><a href="">Drop Down</a>-->
+<!--            <ul>-->
+<!--              <li><a href="#">Drop Down 1</a></li>-->
+<!--              <li><a href="#">Drop Down 3</a></li>-->
+<!--              <li><a href="#">Drop Down 4</a></li>-->
+<!--              <li><a href="#">Drop Down 5</a></li>-->
+<!--            </ul>-->
+<!--          </li>-->
+<!--          <li><a href="#contact">Contact</a></li>-->
+        </ul>
+      </nav><!-- #nav-menu-container -->
+    </div>
+  </header><!-- #header -->
+
+  <!--==========================
+    Intro Section
+  ============================-->
+  <section id="intro">
+    <div class="intro-container">
+      <div id="introCarousel" class="carousel  slide carousel-fade" data-ride="carousel">
+
+        <ol class="carousel-indicators"></ol>
+
+        <div class="carousel-inner" role="listbox">
+
+          <div class="carousel-item active">
+            <div class="carousel-background"><img src="{% static 'recruitassist/img/intro-carousel/train.jpg'%}" alt=""></div>
+            <div class="carousel-container">
+              <div class="carousel-content">
+                <h2>We are professional</h2>
+                <p>Our team focus on provide the training information</p>
+                <a href="#featured-services" class="btn-get-started scrollto">Get Started</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="carousel-item">
+            <div class="carousel-background"><img src="{% static 'recruitassist/img/intro-carousel/training-targets.jpg'%}" alt=""></div>
+            <div class="carousel-container">
+              <div class="carousel-content">
+                <h2>Training service</h2>
+                <p>Choose skill and location, then you could know the everything about training providers.</p>
+                <a href="#featured-services" class="btn-get-started scrollto">Get Started</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="carousel-item">
+            <div class="carousel-background"><img src="{% static 'recruitassist/img/intro-carousel/notebook-work-girl-computer-wallpaper.jpg'%}" alt=""></div>
+            <div class="carousel-container">
+              <div class="carousel-content">
+                <h2>Convinient Service</h2>
+                <p>With our website, you could view all information at home, all you need is just a device could connect the network.</p>
+                <a href="#featured-services" class="btn-get-started scrollto">Get Started</a>
+              </div>
+            </div>
+          </div>
+
+<!--          <div class="carousel-item">-->
+<!--            <div class="carousel-background"><img src="img/intro-carousel/4.jpg" alt=""></div>-->
+<!--            <div class="carousel-container">-->
+<!--              <div class="carousel-content">-->
+<!--                <h2>Nam libero tempore</h2>-->
+<!--                <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum.</p>-->
+<!--                <a href="#featured-services" class="btn-get-started scrollto">Get Started</a>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+
+        </div>
+
+        <a class="carousel-control-prev" href="#introCarousel" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon ion-chevron-left" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+
+        <a class="carousel-control-next" href="#introCarousel" role="button" data-slide="next">
+          <span class="carousel-control-next-icon ion-chevron-right" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+
+      </div>
+    </div>
+  </section><!-- #intro -->
+
+  <main id="main">
+
+    <!--==========================
+      Featured Services Section
+    ============================-->
+    <section id="featured-services">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-6 box">
+            <i class="ion-ios-bookmarks-outline"></i>
+            <h4 class="title"><a href="">Accredited training</a></h4>
+            <p class="description">be used for accredited training for which the participant will receive a statement of attainment at a minimum. </p>
+          </div>
+
+          <div class="col-lg-6 box box-bg">
+            <i class="ion-ios-stopwatch-outline"></i>
+            <h4 class="title"><a href="">Employer-required training</a></h4>
+            <p class="description">Like Barista training, Asbestos awareness, Manual handling training, Pre-employment food safety training, Pre-employment training with fitness components.</p>
+          </div>
+
+<!--          <div class="col-lg-4 box">-->
+<!--            <i class="ion-ios-heart-outline"></i>-->
+<!--            <h4 class="title"><a href="">Sed ut perspiciatis</a></h4>-->
+<!--            <p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>-->
+<!--          </div>-->
+
+        </div>
+      </div>
+    </section><!-- #featured-services -->
+
+    <!--==========================
+      About Us Section
+    ============================-->
+<!--    <section id="about">-->
+<!--      <div class="container">-->
+
+<!--        <header class="section-header">-->
+<!--          <h3>About Us</h3>-->
+<!--          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>-->
+<!--        </header>-->
+
+<!--        <div class="row about-cols">-->
+
+<!--          <div class="col-md-4 wow fadeInUp">-->
+<!--            <div class="about-col">-->
+<!--              <div class="img">-->
+<!--                <img src="img/about-mission.jpg" alt="" class="img-fluid">-->
+<!--                <div class="icon"><i class="ion-ios-speedometer-outline"></i></div>-->
+<!--              </div>-->
+<!--              <h2 class="title"><a href="#">Our Mission</a></h2>-->
+<!--              <p>-->
+<!--                Lorem ipsum dolor sit amet, consectetur elit, sed do eiusmod tempor ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.-->
+<!--              </p>-->
+<!--            </div>-->
+<!--          </div>-->
+
+<!--          <div class="col-md-4 wow fadeInUp" data-wow-delay="0.1s">-->
+<!--            <div class="about-col">-->
+<!--              <div class="img">-->
+<!--                <img src="img/about-plan.jpg" alt="" class="img-fluid">-->
+<!--                <div class="icon"><i class="ion-ios-list-outline"></i></div>-->
+<!--              </div>-->
+<!--              <h2 class="title"><a href="#">Our Plan</a></h2>-->
+<!--              <p>-->
+<!--                Sed ut perspiciatis unde omnis iste natus error sit voluptatem  doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.-->
+<!--              </p>-->
+<!--            </div>-->
+<!--          </div>-->
+
+<!--          <div class="col-md-4 wow fadeInUp" data-wow-delay="0.2s">-->
+<!--            <div class="about-col">-->
+<!--              <div class="img">-->
+<!--                <img src="img/about-vision.jpg" alt="" class="img-fluid">-->
+<!--                <div class="icon"><i class="ion-ios-eye-outline"></i></div>-->
+<!--              </div>-->
+<!--              <h2 class="title"><a href="#">Our Vision</a></h2>-->
+<!--              <p>-->
+<!--                Nemo enim ipsam voluptatem quia voluptas sit aut odit aut fugit, sed quia magni dolores eos qui ratione voluptatem sequi nesciunt Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet.-->
+<!--              </p>-->
+<!--            </div>-->
+<!--          </div>-->
+
+<!--        </div>-->
+
+<!--      </div>-->
+<!--    </section>&lt;!&ndash; #about &ndash;&gt;-->
+
+    <!--==========================
+      Services Section
+    ============================-->
+    <section id="services">
+      <div class="container">
+
+        <header class="section-header wow fadeInUp">
+          <h3>Services</h3>
+          <p>Our website could provide information about 2 kinds of training. </p>
+        </header>
+
+        <div class="row">
+
+          <div class="col-lg-6 col-md-6 box wow bounceInUp" data-wow-duration="1.4s">
+            <div class="icon"><i class="ion-ios-analytics-outline"></i></div>
+            <h4 class="title"><a href="">Find Training Provider</a></h4>
+            <p class="description">We could show the training provider's information based on the location and skills you choose</p>
+          </div>
+          <div class="col-lg-6 col-md-6 box wow bounceInUp" data-wow-duration="1.4s">
+            <div class="icon"><i class="ion-ios-bookmarks-outline"></i></div>
+            <h4 class="title"><a href="">Show shortage</a></h4>
+            <p class="description">We could show the location where need you most.</p>
+          </div>
+<!--          <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-duration="1.4s">-->
+<!--            <div class="icon"><i class="ion-ios-paper-outline"></i></div>-->
+<!--            <h4 class="title"><a href="">Sed ut perspiciatis</a></h4>-->
+<!--            <p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>-->
+<!--          </div>-->
+<!--          <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-delay="0.1s" data-wow-duration="1.4s">-->
+<!--            <div class="icon"><i class="ion-ios-speedometer-outline"></i></div>-->
+<!--            <h4 class="title"><a href="">Magni Dolores</a></h4>-->
+<!--            <p class="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>-->
+<!--          </div>-->
+<!--          <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-delay="0.1s" data-wow-duration="1.4s">-->
+<!--            <div class="icon"><i class="ion-ios-barcode-outline"></i></div>-->
+<!--            <h4 class="title"><a href="">Nemo Enim</a></h4>-->
+<!--            <p class="description">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque</p>-->
+<!--          </div>-->
+<!--          <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-delay="0.1s" data-wow-duration="1.4s">-->
+<!--            <div class="icon"><i class="ion-ios-people-outline"></i></div>-->
+<!--            <h4 class="title"><a href="">Eiusmod Tempor</a></h4>-->
+<!--            <p class="description">Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi</p>-->
+<!--          </div>-->
+
+        </div>
+
+      </div>
+    </section><!-- #services -->
+
+    <!--==========================
+      Call To Action Section
+    ============================-->
+    <section id="call-to-action" class="wow fadeIn">
+      <div class="container text-center">
+        <h3>Seek for training</h3>
+        <p> Choose skills you lack, then choose a location, we will show you training providers in that area for you!</p>
+<!--        <a class="cta-btn" href="#">Call To Action</a>-->
+        <label class="Main-skill">
+          <p style="font-size: 25px;"><span>Skills you are lack:</span></p>
+          <p style="font-size: 20px;"><input type="checkbox" class="english">English skills</p>
+          <p style="font-size: 20px;"><input type="checkbox" class="technical">Technical skills</p>
+          <p style="font-size: 20px;"><input type="checkbox" class="communication">Communication skills</p>
+          <p style="font-size: 20px;"><input type="checkbox" class="interview">Interview skills</p>
+        </label>
+        <form action="#" class="search-location mt-md-5">
+          <div class="row justify-content-center">
+            <div class="col-lg-10 align-items-end">
+              <div class="form-group">
+                <div class="form-field">
+                  <!--				                <input type="text" class="form-control" placeholder="Search location">-->
+                  <div class="dropdown">
+                    <select class="box_select">
+                      <option selected>Search location, e.g: Geelong</option>
+                      <option value="Airport West"> Airport West </option>
+                      <option value="Albert Park"> Albert park </option>
+                      <option value="Alexandra"> Alexandra </option>
+                      <option value="Altona"> Altona </option>
+                      <option value="Altona Meadows"> Altona Meadows </option>
+                      <option value="Anglesea"> Anglesea </option>
+                      <option value="Apollo Bay"> Apollo Bay </option>
+                      <option value="Ararat"> Ararat </option>
+                      <option value="Attwood"> Attwood </option>
+                      <option value="Avoca"> Avoca </option>
+                      <option value="Bacchus Marsh"> Bacchus Marsh </option>
+                      <option value="Bainrnsdale"> Bainrnsdale </option>
+                      <option value="Ballan"> Ballan </option>
+                      <option value="Ballarat"> Ballarat </option>
+                      <option value="Balwyn"> Balwyn </option>
+                      <option value="Bannockburn"> Bannockburn </option>
+                      <option value="Beechworth"> Beechworth </option>
+                      <option value="Blegrave"> Blegrave </option>
+                      <option value="Belmont"> Belmont </option>
+                      <option value="Benalla"> Benalla </option>
+                      <option value="Bendigo"> Bendigo </option>
+                      <option value="Berwick"> Berwick </option>
+                      <option value="Birchip"> Birchip </option>
+                      <option value="Blackburn"> Blackburn </option>
+                      <option value="Boort"> Boort </option>
+                      <option value="Boronia"> Boronia </option>
+                      <option value="Box Hill"> Box Hill </option>
+                      <option value="Briar Hill"> Briar Hill </option>
+                      <option value="Bright"> Bright </option>
+                      <option value="Broadford"> Broadford </option>
+                      <option value="Broadmeadows"> Broadmeadows </option>
+                      <option value="Brunswick"> Brunswick </option>
+                      <option value="Bundoora"> Bundoora </option>
+                      <option value="Bunyip"> Bunyip </option>
+                      <option value="Camberwell"> Camberwell </option>
+                      <option value="Campbellfield"> Campbellfield </option>
+                      <option value="Carlton"> Carlton </option>
+                      <option value="Casterton"> Casterton </option>
+                      <option value="Castlemaine"> Castlemaine </option>
+                      <option value="Chadestone"> Chadestone </option>
+                      <option value="Charlton"> Charlton </option>
+                      <option value="Chelsea"> Chelsea </option>
+                      <option value="Cheltenham"> Cheltenham </option>
+                      <option value="Churchill"> Churchill </option>
+                      <option value="Clayton"> Clayton </option>
+                      <option value="Clunes"> Clunes </option>
+                      <option value="Cobden"> Cobden </option>
+                      <option value="Cobram"> Cobram </option>
+                      <option value="Coburg"> Coburg </option>
+                      <option value="Cohuna"> Cohuna </option>
+                      <option value="Colac"> Colac </option>
+                      <option value="Collingwood"> Collingwood </option>
+                      <option value="Corio"> Coria </option>
+                      <option value="Corryong"> Corryong </option>
+                      <option value="Cowes"> Cowes </option>
+                      <option value="Craigieburn"> Craigieburn </option>
+                      <option value="Cranbourne"> Cranbourne </option>
+                      <option value="Cuogewa"> Cuogewa </option>
+                      <option value="Dandenong"> Dandenong </option>
+                      <option value="Daylesford"> Daylesford </option>
+                      <option value="Dockland"> Dockland </option>
+                      <option value="Donald"> Donald </option>
+                      <option value="Doncaster"> Doncaster </option>
+                      <option value="Doncaster East"> Doncaster East </option>
+                      <option value="Drouin"> Drouin </option>
+                      <option value="Drysdale"> Drysdale </option>
+                      <option value="East Geelong"> East Geelong </option>
+                      <option value="Echuca"> Echuca </option>
+                      <option value="Edenhope"> Edenhope </option>
+                      <option value="Edithvale"> Edithvale </option>
+                      <option value="Elmore"> Elmore </option>
+                      <option value="Elsternwick"> Elsternwick </option>
+                      <option value="Eltham"> Eltham </option>
+                      <option value="Emerald"> Emerald </option>
+                      <option value="Ensay"> Ensay </option>
+                      <option value="Epping"> Epping </option>
+                      <option value="Eskdale"> Eskdale </option>
+                      <option value="Essendon"> Essendon </option>
+                      <option value="Euroa"> Euroa </option>
+                      <option value="Fitzroy"> Fitzroy </option>
+                      <option value="Fitzory North"> Fitzory North </option>
+                      <option value="Flemington"> Flemington </option>
+                      <option value="Footscray"> Footscray </option>
+                      <option value="Foster"> Forster </option>
+                      <option value="Frankston"> Frankston </option>
+                      <option value="Geelong"> Geelong </option>
+                      <option value="Gisborne"> Gisborne </option>
+                      <option value="Glen Waverley"> Glen Waverley </option>
+                      <option value="Glenroy"> Glenroy </option>
+                      <option value="Greensborough"> Greensborough </option>
+                      <option value="Grovedale"> Grovedale </option>
+                      <option value="Hamilton"> Hamilton </option>
+                      <option value="Hastings"> Hastings </option>
+                      <option value="Hawthorn"> Hawthorn </option>
+                      <option value="Hawthorn East"> Hawthorn East </option>
+                      <option value="Healesville"> Healesville </option>
+                      <option value="Heathcote"> Heathcote </option>
+                      <option value="Heidelberg"> Heidelberg </option>
+                      <option value="Heywood"> Heywood </option>
+                      <option value="Horsham"> Horsham </option>
+                      <option value="Hurstbridge"> Hurstbridge </option>
+                      <option value="Inverloch"> Inverloch </option>
+                      <option value="Kensington"> Kensington </option>
+                      <option value="Kerang"> Kerang </option>
+                      <option value="Kilmore"> Kilmore </option>
+                      <option value="Kinglake"> Kinglake </option>
+                      <option value="Koo Wee Rup"> Koo Wee Rup </option>
+                      <option value="Kyabram"> Kyabram </option>
+                      <option value="Kyneton"> Kyneton </option>
+                      <option value="Lake Tyers"> Lake Tyers </option>
+                      <option value="Lake Entrance"> Lake Entrance </option>
+                      <option value="Lancefield"> Lancefield </option>
+                      <option value="Lara"> Lara </option>
+                      <option value="Leongatha"> Leongatha </option>
+                      <option value="Lilydale"> Lilydale </option>
+                      <option value="Lorne"> Lorne </option>
+                      <option value="Maffra"> Maffra </option>
+                      <option value="Maldon"> Maldon </option>
+                      <option value="Mallacoota"> Mallacoota </option>
+                      <option value="Mansfield"> Mansfield </option>
+                      <option value="Maryborough"> Maryborough </option>
+                      <option value="Marysville"> Marysville </option>
+                      <option value="Melbourne"> Melbourne </option>
+                      <option value="Melton"> Melton </option>
+                      <option value="Melton South"> Melton South </option>
+                      <option value="Merbein"> Merbein </option>
+                      <option value="Mildura"> Mildura </option>
+                      <option value="Mill Park"> Mill Park </option>
+                      <option value="Mitcham"> Mitcham </option>
+                      <option value="Moe"> Moe </option>
+                      <option value="Monbulk"> Monbulk </option>
+                      <option value="Moonee Ponds"> Moonee Ponds </option>
+                      <option value="Moorabbin"> moorabbin </option>
+                      <option value="Mooroopna"> Mooroopna </option>
+                      <option value="Mordialloc"> Mordialloc </option>
+                      <option value="Mornington"> Mornington </option>
+                      <option value="Morwell"> Morwell </option>
+                      <option value="Myrtleford"> Myrtleford </option>
+                      <option value="Narre Warren"> Narre Warren </option>
+                      <option value="Neerim South"> Neerim South </option>
+                      <option value="Newcomb"> Newcomb </option>
+                      <option value="Nhill"> Nhill </option>
+                      <option value="Noble Park"> Noble Park </option>
+                      <option value="Norlane"> Norlane </option>
+                      <option value="North Geelong"> North Geelong </option>
+                      <option value="North Melbourne"> North Melbourne </option>
+                      <option value="Northcote"> Northcote </option>
+                      <option value="Numurkah"> Numurkah </option>
+                      <option value="Oakleigh"> Oakleigh </option>
+                      <option value="Ocean Grove"> Ocean Grove </option>
+                      <option value="Omeo"> Omeo </option>
+                      <option value="Orbost"> Orbost </option>
+                      <option value="Ouyen"> Ouyen </option>
+                      <option value="Pakenham"> Pakeham </option>
+                      <option value="Port Fairy"> Port Fairy </option>
+                      <option value="Portarlington"> Portarlington </option>
+                      <option value="Portland"> Portland </option>
+                      <option value="Prahran"> Prahran </option>
+                      <option value="Preston"> Preston </option>
+                      <option value="Queenscliff"> Queenscliff </option>
+                      <option value="Red Cliffs"> Red Cliffs </option>
+                      <option value="Reservoir"> Reservoir </option>
+                      <option value="Richmond"> Richmond </option>
+                      <option value="Ringwood"> Ringwood </option>
+                      <option value="Robinvale"> Robinvale </option>
+                      <option value="Romsey"> Romsey </option>
+                      <option value="Rosebud"> Rosebud </option>
+                      <option value="Rosebud West"> Rosebud West </option>
+                      <option value="Rowville"> Rowville </option>
+                      <option value="Rutherglen"> Rutherglen </option>
+                      <option value="Sale"> Sale </option>
+                      <option value="San demo"> Sab demo </option>
+                      <option value="Sea Lake"> Sea Lake </option>
+                      <option value="Sebastopol"> Sebastopol </option>
+                      <option value="Seymour"> Seymour </option>
+                      <option value="Shepparton"> Shepparton </option>
+                      <option value="South Melbourne"> South Melbourne </option>
+                      <option value="Southbank"> Southbank </option>
+                      <option value="South Yarra"> South Yarra </option>
+                      <option value="Springvale"> Springvale </option>
+                      <option value="St Albans"> St Albans </option>
+                      <option value="St Arnaud"> St Arnaud </option>
+                      <option value="Stawell"> Stawell </option>
+                      <option value="Sunbury"> Sunbury </option>
+                      <option value="Sunshine"> Sunshine </option>
+                      <option value="Swan Hill"> Swan Hill </option>
+                      <option value="Swifts Creek"> Swifts Creek </option>
+                      <option value="Sydenham"> Sydenham </option>
+                      <option value="Tallangatta"> Tallangatta </option>
+                      <option value="Tarneit"> Tarneit </option>
+                      <option value="Tatura"> Tatura </option>
+                      <option value="Taylors Lakes"> Taylors Lakes </option>
+                      <option value="Terang"> Terang </option>
+                      <option value="Timboon"> Timboon </option>
+                      <option value="Torquay"> Torquay </option>
+                      <option value="Traralgon"> Traralgon </option>
+                      <option value="Tullamarine"> Tullamarine </option>
+                      <option value="Wallan"> Wallan </option>
+                      <option value="Walwa"> Walwa </option>
+                      <option value="Wangaratta"> Wangatatta </option>
+                      <option value="Wantirna South"> Wnatirna South </option>
+                      <option value="Warburton"> Warburton </option>
+                      <option value="Warracknabeal"> Warracknabeal </option>
+                      <option value="Warragul"> Warragul </option>
+                      <option value="Warrnambool"> Warrnambool </option>
+                      <option value="Watergardens"> Watergardens </option>
+                      <option value="Waurn Ponds"> Waurn Ponds </option>
+                      <option value="Wedderburn"> Wedderburn </option>
+                      <option value="Wendouree"> Wendouree </option>
+                      <option value="Werribee"> Werribee </option>
+                      <option value="Whittington"> Whittington </option>
+                      <option value="Whittlesea"> Whittlesea </option>
+                      <option value="Wodonga"> Wodonga </option>
+                      <option value="Wonthaggi"> Wonthaggi </option>
+                      <option value="Woodend"> Woodend </option>
+                      <option value="Wycheproof"> Wycheproof </option>
+                      <option value="Yarra Junction"> Yarra Junction </option>
+                      <option value="Yarram"> Yarram </option>
+                      <option value="Yarrawonga"> Yarrawonga </option>
+                      <option value="Yea"> Yea </option>
+                    </select>
+                  </div>
+                </div>
+                <button><span class="ion-ios-search"></span></button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </section><!-- #call-to-action -->
+
+    <!--==========================
+      Skills Section
+    ============================-->
+<!--    <section id="skills">-->
+<!--      <div class="container">-->
+
+<!--        <header class="section-header">-->
+<!--          <h3>Our Skills</h3>-->
+<!--          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip</p>-->
+<!--        </header>-->
+
+<!--        <div class="skills-content">-->
+
+<!--          <div class="progress">-->
+<!--            <div class="progress-bar bg-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">-->
+<!--              <span class="skill">HTML <i class="val">100%</i></span>-->
+<!--            </div>-->
+<!--          </div>-->
+
+<!--          <div class="progress">-->
+<!--            <div class="progress-bar bg-info" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">-->
+<!--              <span class="skill">CSS <i class="val">90%</i></span>-->
+<!--            </div>-->
+<!--          </div>-->
+
+<!--          <div class="progress">-->
+<!--            <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">-->
+<!--              <span class="skill">JavaScript <i class="val">75%</i></span>-->
+<!--            </div>-->
+<!--          </div>-->
+
+<!--          <div class="progress">-->
+<!--            <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100">-->
+<!--              <span class="skill">Photoshop <i class="val">55%</i></span>-->
+<!--            </div>-->
+<!--          </div>-->
+
+<!--        </div>-->
+
+<!--      </div>-->
+<!--    </section>-->
+
+<!--    &lt;!&ndash;==========================-->
+<!--      Facts Section-->
+<!--    ============================&ndash;&gt;-->
+<!--    <section id="facts"  class="wow fadeIn">-->
+<!--      <div class="container">-->
+
+<!--        <header class="section-header">-->
+<!--          <h3>Facts</h3>-->
+<!--          <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque</p>-->
+<!--        </header>-->
+
+<!--        <div class="row counters">-->
+
+<!--  				<div class="col-lg-3 col-6 text-center">-->
+<!--            <span data-toggle="counter-up">274</span>-->
+<!--            <p>Clients</p>-->
+<!--  				</div>-->
+
+<!--          <div class="col-lg-3 col-6 text-center">-->
+<!--            <span data-toggle="counter-up">421</span>-->
+<!--            <p>Projects</p>-->
+<!--  				</div>-->
+
+<!--          <div class="col-lg-3 col-6 text-center">-->
+<!--            <span data-toggle="counter-up">1,364</span>-->
+<!--            <p>Hours Of Support</p>-->
+<!--  				</div>-->
+
+<!--          <div class="col-lg-3 col-6 text-center">-->
+<!--            <span data-toggle="counter-up">18</span>-->
+<!--            <p>Hard Workers</p>-->
+<!--  				</div>-->
+
+<!--  			</div>-->
+
+<!--        <div class="facts-img">-->
+<!--          <img src="img/facts-img.png" alt="" class="img-fluid">-->
+<!--        </div>-->
+
+<!--      </div>-->
+<!--    </section>&lt;!&ndash; #facts &ndash;&gt;-->
+
+<!--    &lt;!&ndash;==========================-->
+<!--      Portfolio Section-->
+<!--    ============================&ndash;&gt;-->
+<!--    <section id="portfolio"  class="section-bg" >-->
+<!--      <div class="container">-->
+
+<!--        <header class="section-header">-->
+<!--          <h3 class="section-title">Our Portfolio</h3>-->
+<!--        </header>-->
+
+<!--        <div class="row">-->
+<!--          <div class="col-lg-12">-->
+<!--            <ul id="portfolio-flters">-->
+<!--              <li data-filter="*" class="filter-active">All</li>-->
+<!--              <li data-filter=".filter-app">App</li>-->
+<!--              <li data-filter=".filter-card">Card</li>-->
+<!--              <li data-filter=".filter-web">Web</li>-->
+<!--            </ul>-->
+<!--          </div>-->
+<!--        </div>-->
+
+<!--        <div class="row portfolio-container">-->
+
+<!--          <div class="col-lg-4 col-md-6 portfolio-item filter-app wow fadeInUp">-->
+<!--            <div class="portfolio-wrap">-->
+<!--              <figure>-->
+<!--                <img src="img/portfolio/app1.jpg" class="img-fluid" alt="">-->
+<!--                <a href="img/portfolio/app1.jpg" data-lightbox="portfolio" data-title="App 1" class="link-preview" title="Preview"><i class="ion ion-eye"></i></a>-->
+<!--                <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>-->
+<!--              </figure>-->
+
+<!--              <div class="portfolio-info">-->
+<!--                <h4><a href="#">App 1</a></h4>-->
+<!--                <p>App</p>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+
+<!--          <div class="col-lg-4 col-md-6 portfolio-item filter-web wow fadeInUp" data-wow-delay="0.1s">-->
+<!--            <div class="portfolio-wrap">-->
+<!--              <figure>-->
+<!--                <img src="img/portfolio/web3.jpg" class="img-fluid" alt="">-->
+<!--                <a href="img/portfolio/web3.jpg" class="link-preview" data-lightbox="portfolio" data-title="Web 3" title="Preview"><i class="ion ion-eye"></i></a>-->
+<!--                <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>-->
+<!--              </figure>-->
+
+<!--              <div class="portfolio-info">-->
+<!--                <h4><a href="#">Web 3</a></h4>-->
+<!--                <p>Web</p>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+
+<!--          <div class="col-lg-4 col-md-6 portfolio-item filter-app wow fadeInUp" data-wow-delay="0.2s">-->
+<!--            <div class="portfolio-wrap">-->
+<!--              <figure>-->
+<!--                <img src="img/portfolio/app2.jpg" class="img-fluid" alt="">-->
+<!--                <a href="img/portfolio/app2.jpg" class="link-preview" data-lightbox="portfolio" data-title="App 2" title="Preview"><i class="ion ion-eye"></i></a>-->
+<!--                <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>-->
+<!--              </figure>-->
+
+<!--              <div class="portfolio-info">-->
+<!--                <h4><a href="#">App 2</a></h4>-->
+<!--                <p>App</p>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+
+<!--          <div class="col-lg-4 col-md-6 portfolio-item filter-card wow fadeInUp">-->
+<!--            <div class="portfolio-wrap">-->
+<!--              <figure>-->
+<!--                <img src="img/portfolio/card2.jpg" class="img-fluid" alt="">-->
+<!--                <a href="img/portfolio/card2.jpg" class="link-preview" data-lightbox="portfolio" data-title="Card 2" title="Preview"><i class="ion ion-eye"></i></a>-->
+<!--                <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>-->
+<!--              </figure>-->
+
+<!--              <div class="portfolio-info">-->
+<!--                <h4><a href="#">Card 2</a></h4>-->
+<!--                <p>Card</p>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+
+<!--          <div class="col-lg-4 col-md-6 portfolio-item filter-web wow fadeInUp" data-wow-delay="0.1s">-->
+<!--            <div class="portfolio-wrap">-->
+<!--              <figure>-->
+<!--                <img src="img/portfolio/web2.jpg" class="img-fluid" alt="">-->
+<!--                <a href="img/portfolio/web2.jpg" class="link-preview" data-lightbox="portfolio" data-title="Web 2" title="Preview"><i class="ion ion-eye"></i></a>-->
+<!--                <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>-->
+<!--              </figure>-->
+
+<!--              <div class="portfolio-info">-->
+<!--                <h4><a href="#">Web 2</a></h4>-->
+<!--                <p>Web</p>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+
+<!--          <div class="col-lg-4 col-md-6 portfolio-item filter-app wow fadeInUp" data-wow-delay="0.2s">-->
+<!--            <div class="portfolio-wrap">-->
+<!--              <figure>-->
+<!--                <img src="img/portfolio/app3.jpg" class="img-fluid" alt="">-->
+<!--                <a href="img/portfolio/app3.jpg" class="link-preview" data-lightbox="portfolio" data-title="App 3" title="Preview"><i class="ion ion-eye"></i></a>-->
+<!--                <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>-->
+<!--              </figure>-->
+
+<!--              <div class="portfolio-info">-->
+<!--                <h4><a href="#">App 3</a></h4>-->
+<!--                <p>App</p>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+
+<!--          <div class="col-lg-4 col-md-6 portfolio-item filter-card wow fadeInUp">-->
+<!--            <div class="portfolio-wrap">-->
+<!--              <figure>-->
+<!--                <img src="img/portfolio/card1.jpg" class="img-fluid" alt="">-->
+<!--                <a href="img/portfolio/card1.jpg" class="link-preview" data-lightbox="portfolio" data-title="Card 1" title="Preview"><i class="ion ion-eye"></i></a>-->
+<!--                <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>-->
+<!--              </figure>-->
+
+<!--              <div class="portfolio-info">-->
+<!--                <h4><a href="#">Card 1</a></h4>-->
+<!--                <p>Card</p>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+
+<!--          <div class="col-lg-4 col-md-6 portfolio-item filter-card wow fadeInUp" data-wow-delay="0.1s">-->
+<!--            <div class="portfolio-wrap">-->
+<!--              <figure>-->
+<!--                <img src="img/portfolio/card3.jpg" class="img-fluid" alt="">-->
+<!--                <a href="img/portfolio/card3.jpg" class="link-preview" data-lightbox="portfolio" data-title="Card 3" title="Preview"><i class="ion ion-eye"></i></a>-->
+<!--                <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>-->
+<!--              </figure>-->
+
+<!--              <div class="portfolio-info">-->
+<!--                <h4><a href="#">Card 3</a></h4>-->
+<!--                <p>Card</p>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+
+<!--          <div class="col-lg-4 col-md-6 portfolio-item filter-web wow fadeInUp" data-wow-delay="0.2s">-->
+<!--            <div class="portfolio-wrap">-->
+<!--              <figure>-->
+<!--                <img src="img/portfolio/web1.jpg" class="img-fluid" alt="">-->
+<!--                <a href="img/portfolio/web1.jpg" class="link-preview" data-lightbox="portfolio" data-title="Web 1" title="Preview"><i class="ion ion-eye"></i></a>-->
+<!--                <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>-->
+<!--              </figure>-->
+
+<!--              <div class="portfolio-info">-->
+<!--                <h4><a href="#">Web 1</a></h4>-->
+<!--                <p>Web</p>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+
+<!--        </div>-->
+
+<!--      </div>-->
+<!--    </section>&lt;!&ndash; #portfolio &ndash;&gt;-->
+
+<!--    &lt;!&ndash;==========================-->
+<!--      Clients Section-->
+<!--    ============================&ndash;&gt;-->
+<!--    <section id="clients" class="wow fadeInUp">-->
+<!--      <div class="container">-->
+
+<!--        <header class="section-header">-->
+<!--          <h3>Our Clients</h3>-->
+<!--        </header>-->
+
+<!--        <div class="owl-carousel clients-carousel">-->
+<!--          <img src="img/clients/client-1.png" alt="">-->
+<!--          <img src="img/clients/client-2.png" alt="">-->
+<!--          <img src="img/clients/client-3.png" alt="">-->
+<!--          <img src="img/clients/client-4.png" alt="">-->
+<!--          <img src="img/clients/client-5.png" alt="">-->
+<!--          <img src="img/clients/client-6.png" alt="">-->
+<!--          <img src="img/clients/client-7.png" alt="">-->
+<!--          <img src="img/clients/client-8.png" alt="">-->
+<!--        </div>-->
+
+<!--      </div>-->
+<!--    </section>&lt;!&ndash; #clients &ndash;&gt;-->
+
+<!--    &lt;!&ndash;==========================-->
+<!--      Clients Section-->
+<!--    ============================&ndash;&gt;-->
+<!--    <section id="testimonials" class="section-bg wow fadeInUp">-->
+<!--      <div class="container">-->
+
+<!--        <header class="section-header">-->
+<!--          <h3>Testimonials</h3>-->
+<!--        </header>-->
+
+<!--        <div class="owl-carousel testimonials-carousel">-->
+
+<!--          <div class="testimonial-item">-->
+<!--            <img src="img/testimonial-1.jpg" class="testimonial-img" alt="">-->
+<!--            <h3>Saul Goodman</h3>-->
+<!--            <h4>Ceo &amp; Founder</h4>-->
+<!--            <p>-->
+<!--              <img src="img/quote-sign-left.png" class="quote-sign-left" alt="">-->
+<!--              Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.-->
+<!--              <img src="img/quote-sign-right.png" class="quote-sign-right" alt="">-->
+<!--            </p>-->
+<!--          </div>-->
+
+<!--          <div class="testimonial-item">-->
+<!--            <img src="img/testimonial-2.jpg" class="testimonial-img" alt="">-->
+<!--            <h3>Sara Wilsson</h3>-->
+<!--            <h4>Designer</h4>-->
+<!--            <p>-->
+<!--              <img src="img/quote-sign-left.png" class="quote-sign-left" alt="">-->
+<!--              Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.-->
+<!--              <img src="img/quote-sign-right.png" class="quote-sign-right" alt="">-->
+<!--            </p>-->
+<!--          </div>-->
+
+<!--          <div class="testimonial-item">-->
+<!--            <img src="img/testimonial-3.jpg" class="testimonial-img" alt="">-->
+<!--            <h3>Jena Karlis</h3>-->
+<!--            <h4>Store Owner</h4>-->
+<!--            <p>-->
+<!--              <img src="img/quote-sign-left.png" class="quote-sign-left" alt="">-->
+<!--              Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.-->
+<!--              <img src="img/quote-sign-right.png" class="quote-sign-right" alt="">-->
+<!--            </p>-->
+<!--          </div>-->
+
+<!--          <div class="testimonial-item">-->
+<!--            <img src="img/testimonial-4.jpg" class="testimonial-img" alt="">-->
+<!--            <h3>Matt Brandon</h3>-->
+<!--            <h4>Freelancer</h4>-->
+<!--            <p>-->
+<!--              <img src="img/quote-sign-left.png" class="quote-sign-left" alt="">-->
+<!--              Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.-->
+<!--              <img src="img/quote-sign-right.png" class="quote-sign-right" alt="">-->
+<!--            </p>-->
+<!--          </div>-->
+
+<!--          <div class="testimonial-item">-->
+<!--            <img src="img/testimonial-5.jpg" class="testimonial-img" alt="">-->
+<!--            <h3>John Larson</h3>-->
+<!--            <h4>Entrepreneur</h4>-->
+<!--            <p>-->
+<!--              <img src="img/quote-sign-left.png" class="quote-sign-left" alt="">-->
+<!--              Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.-->
+<!--              <img src="img/quote-sign-right.png" class="quote-sign-right" alt="">-->
+<!--            </p>-->
+<!--          </div>-->
+
+<!--        </div>-->
+
+<!--      </div>-->
+<!--    </section>&lt;!&ndash; #testimonials &ndash;&gt;-->
+
+<!--    &lt;!&ndash;==========================-->
+<!--      Team Section-->
+<!--    ============================&ndash;&gt;-->
+<!--    <section id="team">-->
+<!--      <div class="container">-->
+<!--        <div class="section-header wow fadeInUp">-->
+<!--          <h3>Team</h3>-->
+<!--          <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque</p>-->
+<!--        </div>-->
+
+<!--        <div class="row">-->
+
+<!--          <div class="col-lg-3 col-md-6 wow fadeInUp">-->
+<!--            <div class="member">-->
+<!--              <img src="img/team-1.jpg" class="img-fluid" alt="">-->
+<!--              <div class="member-info">-->
+<!--                <div class="member-info-content">-->
+<!--                  <h4>Walter White</h4>-->
+<!--                  <span>Chief Executive Officer</span>-->
+<!--                  <div class="social">-->
+<!--                    <a href=""><i class="fa fa-twitter"></i></a>-->
+<!--                    <a href=""><i class="fa fa-facebook"></i></a>-->
+<!--                    <a href=""><i class="fa fa-google-plus"></i></a>-->
+<!--                    <a href=""><i class="fa fa-linkedin"></i></a>-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+
+<!--          <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">-->
+<!--            <div class="member">-->
+<!--              <img src="img/team-2.jpg" class="img-fluid" alt="">-->
+<!--              <div class="member-info">-->
+<!--                <div class="member-info-content">-->
+<!--                  <h4>Sarah Jhonson</h4>-->
+<!--                  <span>Product Manager</span>-->
+<!--                  <div class="social">-->
+<!--                    <a href=""><i class="fa fa-twitter"></i></a>-->
+<!--                    <a href=""><i class="fa fa-facebook"></i></a>-->
+<!--                    <a href=""><i class="fa fa-google-plus"></i></a>-->
+<!--                    <a href=""><i class="fa fa-linkedin"></i></a>-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+
+<!--          <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.2s">-->
+<!--            <div class="member">-->
+<!--              <img src="img/team-3.jpg" class="img-fluid" alt="">-->
+<!--              <div class="member-info">-->
+<!--                <div class="member-info-content">-->
+<!--                  <h4>William Anderson</h4>-->
+<!--                  <span>CTO</span>-->
+<!--                  <div class="social">-->
+<!--                    <a href=""><i class="fa fa-twitter"></i></a>-->
+<!--                    <a href=""><i class="fa fa-facebook"></i></a>-->
+<!--                    <a href=""><i class="fa fa-google-plus"></i></a>-->
+<!--                    <a href=""><i class="fa fa-linkedin"></i></a>-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+
+<!--          <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">-->
+<!--            <div class="member">-->
+<!--              <img src="img/team-4.jpg" class="img-fluid" alt="">-->
+<!--              <div class="member-info">-->
+<!--                <div class="member-info-content">-->
+<!--                  <h4>Amanda Jepson</h4>-->
+<!--                  <span>Accountant</span>-->
+<!--                  <div class="social">-->
+<!--                    <a href=""><i class="fa fa-twitter"></i></a>-->
+<!--                    <a href=""><i class="fa fa-facebook"></i></a>-->
+<!--                    <a href=""><i class="fa fa-google-plus"></i></a>-->
+<!--                    <a href=""><i class="fa fa-linkedin"></i></a>-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+
+<!--        </div>-->
+
+<!--      </div>-->
+<!--    </section>&lt;!&ndash; #team &ndash;&gt;-->
+
+<!--    &lt;!&ndash;==========================-->
+<!--      Contact Section-->
+<!--    ============================&ndash;&gt;-->
+<!--    <section id="contact" class="section-bg wow fadeInUp">-->
+<!--      <div class="container">-->
+
+<!--        <div class="section-header">-->
+<!--          <h3>Contact Us</h3>-->
+<!--          <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque</p>-->
+<!--        </div>-->
+
+<!--        <div class="row contact-info">-->
+
+<!--          <div class="col-md-4">-->
+<!--            <div class="contact-address">-->
+<!--              <i class="ion-ios-location-outline"></i>-->
+<!--              <h3>Address</h3>-->
+<!--              <address>A108 Adam Street, NY 535022, USA</address>-->
+<!--            </div>-->
+<!--          </div>-->
+
+<!--          <div class="col-md-4">-->
+<!--            <div class="contact-phone">-->
+<!--              <i class="ion-ios-telephone-outline"></i>-->
+<!--              <h3>Phone Number</h3>-->
+<!--              <p><a href="tel:+155895548855">+1 5589 55488 55</a></p>-->
+<!--            </div>-->
+<!--          </div>-->
+
+<!--          <div class="col-md-4">-->
+<!--            <div class="contact-email">-->
+<!--              <i class="ion-ios-email-outline"></i>-->
+<!--              <h3>Email</h3>-->
+<!--              <p><a href="mailto:info@example.com">info@example.com</a></p>-->
+<!--            </div>-->
+<!--          </div>-->
+
+<!--        </div>-->
+
+<!--        <div class="form">-->
+<!--          <div id="sendmessage">Your message has been sent. Thank you!</div>-->
+<!--          <div id="errormessage"></div>-->
+<!--          <form action="" method="post" role="form" class="contactForm">-->
+<!--            <div class="form-row">-->
+<!--              <div class="form-group col-md-6">-->
+<!--                <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />-->
+<!--                <div class="validation"></div>-->
+<!--              </div>-->
+<!--              <div class="form-group col-md-6">-->
+<!--                <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />-->
+<!--                <div class="validation"></div>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--            <div class="form-group">-->
+<!--              <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />-->
+<!--              <div class="validation"></div>-->
+<!--            </div>-->
+<!--            <div class="form-group">-->
+<!--              <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>-->
+<!--              <div class="validation"></div>-->
+<!--            </div>-->
+<!--            <div class="text-center"><button type="submit">Send Message</button></div>-->
+<!--          </form>-->
+<!--        </div>-->
+
+<!--      </div>-->
+<!--    </section>&lt;!&ndash; #contact &ndash;&gt;-->
+
+<!--  </main>-->
+
+<!--  &lt;!&ndash;==========================-->
+<!--    Footer-->
+<!--  ============================&ndash;&gt;-->
+<!--  <footer id="footer">-->
+<!--    <div class="footer-top">-->
+<!--      <div class="container">-->
+<!--        <div class="row">-->
+
+<!--          <div class="col-lg-3 col-md-6 footer-info">-->
+<!--            <h3>BizPage</h3>-->
+<!--            <p>Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna derita valies darta donna mare fermentum iaculis eu non diam phasellus. Scelerisque felis imperdiet proin fermentum leo. Amet volutpat consequat mauris nunc congue.</p>-->
+<!--          </div>-->
+
+<!--          <div class="col-lg-3 col-md-6 footer-links">-->
+<!--            <h4>Useful Links</h4>-->
+<!--            <ul>-->
+<!--              <li><i class="ion-ios-arrow-right"></i> <a href="#">Home</a></li>-->
+<!--              <li><i class="ion-ios-arrow-right"></i> <a href="#">About us</a></li>-->
+<!--              <li><i class="ion-ios-arrow-right"></i> <a href="#">Services</a></li>-->
+<!--              <li><i class="ion-ios-arrow-right"></i> <a href="#">Terms of service</a></li>-->
+<!--              <li><i class="ion-ios-arrow-right"></i> <a href="#">Privacy policy</a></li>-->
+<!--            </ul>-->
+<!--          </div>-->
+
+<!--          <div class="col-lg-3 col-md-6 footer-contact">-->
+<!--            <h4>Contact Us</h4>-->
+<!--            <p>-->
+<!--              A108 Adam Street <br>-->
+<!--              New York, NY 535022<br>-->
+<!--              United States <br>-->
+<!--              <strong>Phone:</strong> +1 5589 55488 55<br>-->
+<!--              <strong>Email:</strong> info@example.com<br>-->
+<!--            </p>-->
+
+<!--            <div class="social-links">-->
+<!--              <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>-->
+<!--              <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>-->
+<!--              <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>-->
+<!--              <a href="#" class="google-plus"><i class="fa fa-google-plus"></i></a>-->
+<!--              <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>-->
+<!--            </div>-->
+
+<!--          </div>-->
+
+<!--          <div class="col-lg-3 col-md-6 footer-newsletter">-->
+<!--            <h4>Our Newsletter</h4>-->
+<!--            <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna veniam enim veniam illum dolore legam minim quorum culpa amet magna export quem marada parida nodela caramase seza.</p>-->
+<!--            <form action="" method="post">-->
+<!--              <input type="email" name="email"><input type="submit"  value="Subscribe">-->
+<!--            </form>-->
+<!--          </div>-->
+
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+
+    <div class="container">
+      <div class="copyright">
+        &copy; <strong>Recruit Assist - 2019</strong>.
+      </div>
+      <div class="credits">
+        <!--
+          All the links in the footer should remain intact.
+          You can delete the links only if you purchased the pro version.
+          Licensing information: https://bootstrapmade.com/license/
+          Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=BizPage
+        -->
+<!--        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>-->
+      </div>
+    </div>
+  </footer><!-- #footer -->
+
+  <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+  <!-- Uncomment below i you want to use a preloader -->
+  <!-- <div id="preloader"></div> -->
+
+  <!-- JavaScript Libraries -->
+  <script src="{% static 'recruitassist/lib/jquery/jquery.min.js'%}"></script>
+  <script src="{% static 'recruitassist/lib/jquery/jquery-migrate.min.js'%}"></script>
+  <script src="{% static 'recruitassist/lib/bootstrap/js/bootstrap.bundle.min.js'%}"></script>
+  <script src="{% static 'recruitassist/lib/easing/easing.min.js'%}"></script>
+  <script src="{% static 'recruitassist/lib/superfish/hoverIntent.js'%}"></script>
+  <script src="{% static 'recruitassist/lib/superfish/superfish.min.js'%}"></script>
+  <script src="{% static 'recruitassist/lib/wow/wow.min.js'%}"></script>
+  <script src="{% static 'recruitassist/lib/waypoints/waypoints.min.js'%}"></script>
+  <script src="{% static 'recruitassist/lib/counterup/counterup.min.js'%}"></script>
+  <script src="{% static 'recruitassist/lib/owlcarousel/owl.carousel.min.js'%}"></script>
+  <script src="{% static 'recruitassist/lib/isotope/isotope.pkgd.min.js'%}"></script>
+  <script src="{% static 'recruitassist/lib/lightbox/js/lightbox.min.js'%}"></script>
+  <script src="{% static 'recruitassist/lib/touchSwipe/jquery.touchSwipe.min.js'%}"></script>
+  <!-- Contact Form JavaScript File -->
+  <script src="{% static 'recruitassist/contactform/contactform.js'%}"></script>
+
+  <!-- Template Main Javascript File -->
+  <script src="{% static 'recruitassist/js/main.js'%}"></script>
+
+</body>
+</html>

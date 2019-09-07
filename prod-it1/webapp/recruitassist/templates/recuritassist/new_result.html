@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title></title>
+    {% load staticfiles %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--&lt;!&ndash;===============================================================================================&ndash;&gt;	-->
+    <!--	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>-->
+    <!--&lt;!&ndash;===============================================================================================&ndash;&gt;-->
+    <!--	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">-->
+    <!--&lt;!&ndash;===============================================================================================&ndash;&gt;-->
+    <!--	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">-->
+    <!--&lt;!&ndash;===============================================================================================&ndash;&gt;-->
+    <!--	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">-->
+    <!--&lt;!&ndash;===============================================================================================&ndash;&gt;-->
+    <!--	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">-->
+    <!--&lt;!&ndash;===============================================================================================&ndash;&gt;-->
+    <!--	<link rel="stylesheet" type="text/css" href="vendor/perfect-scrollbar/perfect-scrollbar.css">-->
+    <!--&lt;!&ndash;===============================================================================================&ndash;&gt;-->
+    
+    <link href="{% static 'recruitassist/lib/bootstrap/css/bootstrap.min.css'%}" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700" rel="stylesheet">
+    
+    <!-- Bootstrap CSS File -->
+   
+    <!-- Libraries CSS Files -->
+    <link href="{% static 'recruitassist/lib/font-awesome/css/font-awesome.min.css'%}" rel="stylesheet">
+    <link href="{% static 'recruitassist/lib/animate/animate.min.css'%}" rel="stylesheet">
+    <link href="{% static 'recruitassist/lib/ionicons/css/ionicons.min.css'%}" rel="stylesheet">
+    <link href="{% static 'recruitassist/lib/owlcarousel/assets/owl.carousel.min.css'%}" rel="stylesheet">
+    <link href="{% static 'recruitassist/lib/lightbox/css/lightbox.min.css'%}" rel="stylesheet">
+    <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="{% static 'recruitassist/css/main.css'%}"> 	   
+    <link rel="stylesheet" type="text/css" href="{% static 'recruitassist/css/style.css'%}">
+    <style>
+        .container-table100 {
+            background-image: url("{% static 'recruitassist/img/intro-carousel/512711.jpg'%}");
+        }
+    </style>
+</head>
+<body>
+<!--==========================
+  Header
+============================-->
+<header style="background: #0b0b0b" id="header">
+    <div class="container-fluid">
+
+        <div id="logo" class="pull-left">
+            <h1><a href="/Homepage-IE.html" class="scrollto">Recruit Assist</a></h1>
+            <!-- Uncomment below if you prefer to use an image logo -->
+            <!-- <a href="#intro"><img src="img/logo.png" alt="" title="" /></a>-->
+        </div>
+
+        <nav id="nav-menu-container">
+            <ul class="nav-menu">
+                <li class="menu-active"><a href="/Homepage-IE.html">Home</a></li>
+            </ul>
+        </nav><!-- #nav-menu-container -->
+    </div>
+</header><!-- #header -->
+
+<section id="intro">
+	<!--<div class="carousel-background"> -->
+    <div class="container-table100">       
+	<div class="container">
+		<p>	<br>
+		<br></p>
+                   <h4 style="color:white">Our Recomendation:</h4>
+    {% block content%}
+        {{ service.msg }}
+
+        {% endblock %}
+               
+    <div class="table-repsonsive">
+	<table class=table>
+                    <thead>
+                    <tr class="table100-head">
+                        <th class="column1">Institute</th>
+                        <th class="column2">URL</th>
+                        <th class="column3">Contact</th>
+                        <th class="column4">Email</th>
+                        <th class="column5">Street</th>
+                        <th class="column6">Suburb</th>
+                        <th class="column7">State</th>
+                        <th class="column8">Postcode</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                     {% for b in obj %}
+                    <tr>
+                        <td class="column1">{{b.SITE_NAME}}</td>
+                        <td class="column2"><a href="{{b.URL}}">{{ b.URL }}</a></td>
+                        <td class="column3">{{ b.CONTACT }}</td>
+                        <td class="column4">{{ b.EMAIL_ADDRESS }}</td>
+                        <td class="column5">{{ b.ADDRESS }}</td>
+                        <td class="column6">{{ b.SITE_SUBURB }}</td>
+                        <td class="column7">{{ b.STATE }}</td>
+                        <td class="column8">{{ b.POSTCODE }}</td>
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            </div>
+            </div>
+</section>
+
+
+
+<script src="{% static 'recruitassist/lib/jquery/jquery.min.js'%}"></script>
+<script src="{% static 'recruitassist/lib/jquery/jquery-migrate.min.js'%}"></script>
+<script src="{% static 'recruitassist/lib/bootstrap/js/bootstrap.bundle.min.js'%}"></script>
+<script src="{% static 'recruitassist/lib/easing/easing.min.js'%}"></script>
+<script src="{% static 'recruitassist/lib/superfish/hoverIntent.js'%}"></script>
+<script src="{% static 'recruitassist/lib/superfish/superfish.min.js'%}"></script>
+<script src="{% static 'recruitassist/lib/wow/wow.min.js'%}"></script>
+<script src="{% static 'recruitassist/lib/waypoints/waypoints.min.js'%}"></script>
+<script src="{% static 'recruitassist/lib/counterup/counterup.min.js'%}"></script>
+<script src="{% static 'recruitassist/lib/owlcarousel/owl.carousel.min.js'%}"></script>
+<script src="{% static 'recruitassist/lib/isotope/isotope.pkgd.min.js'%}"></script>
+<script src="{% static 'recruitassist/lib/lightbox/js/lightbox.min.js'%}"></script>
+<script src="{% static 'recruitassist/lib/touchSwipe/jquery.touchSwipe.min.js'%}"></script>
+<!-- Contact Form JavaScript File -->
+<script src="{% static 'recruitassist/contactform/contactform.js'%}"></script>
+
+<!-- Template Main Javascript File -->
+<script src="{% static 'recruitassist/js/main.js'%}"></script>
+<script src="{% static 'recruitassist/js/main_table.js'%}"></script>
+
+</body>
+</html>
