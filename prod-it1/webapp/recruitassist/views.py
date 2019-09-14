@@ -235,34 +235,25 @@ def listprovider(request):
 def location_choose(request): #This function used in the first one show the job shortage in one location
     context = {}
     dict = {}
-    result = {}
+    totaljobs=0
     print(request.POST)
     location_name = request.POST.get('suburb')
     print(location_name)
     # Could add some jobs you think is okay to the list, which is used to make comparing
     # I removed business because it is too board and too many jobs about it, you could search for the amount on adzuna before add
-    job_list = ["IT", "Accounting", "Medicine", "Engineering", "Marketing", "Nursing", "Property", "Retail", "Food",
-                "Cleaning", "Teaching", "Security","Doctor"]
+    job_list = ["ICT", "Accounting", "Health", "Engineering", "Marketing", "Finance", "Science", "Business",
+                "Education","Arts"]
     # put work title in what=""
     # put location in where=""
     # please do some research about how the api works for the full-time job only
     for job in job_list:
-        url = "https://api.adzuna.com/v1/api/jobs/au/search/1?app_id=4cb38e73&app_key=ca142ad047eb88bae578bdca2a3eef4f&where=" + location_name +"&results_per_page=20&what=" + job + "&content-type=application/json"
+        url = "https://api.adzuna.com/v1/api/jobs/au/search/1?app_id=4cb38e73&app_key=ca142ad047eb88bae578bdca2a3eef4f&where=" + location_name +"&what=" + job + "&content-type=application/json"
         data = requests.get(url)
         dict = json.loads(s=data.text)
         context[job] = dict['count'] #get the number of jobs
-    sort_list = sorted(context.items(), key=lambda x: x[1], reverse=True)
-    job_count = []
-    job_name = []
-    for item in sort_list:
-        job_name.append(item[0])
-        job_count.append(item[1])
-    for i in range(0,8):
-        result[job_name[i]] = job_count[i]
-    # dict_slice = lambda adict, start, end: {k: adict[k] for k in adict.keys()[start:end]}
-    # Pass the data to js
-    # return render(request, 'recuritassist/Homepage-IE.html', {'job_count':job_count, 'job_name':job_name})
-    return HttpResponse(json.dumps(result))
+        totaljobs+=dict['count']
+    print(totaljobs)
+    return HttpResponse(json.dumps(context))
 
 @csrf_exempt
 def top_jobs(request): #This function used in the second one show top 10 suburb best for the job you choose
@@ -282,20 +273,9 @@ def top_jobs(request): #This function used in the second one show top 10 suburb 
         data = requests.get(url)
         dict = json.loads(s=data.text)
         context[location] = dict['count'] #get the number of jobs in each area
-    sort_list = sorted(context.items(), key=lambda x: x[1], reverse=True)
-    print(sort_list)
-    location_job_count = []
-    location_name = []
-    for item in sort_list:
-        location_job_count.append(item[1])
-        print(location_name)
-        location_name.append(item[0])
-    for i in range(0,10):
 
-        result[location_name[i]] = location_job_count[i]
-    print(len(result))
     # new_dict2 = {v: k for k, v in context.items()}
     # # dict_slice = lambda adict, start, end: {k: adict[k] for k in adict.keys()[start:end]}
     # result = dict_slice(context,0,10) #The first 10 place is shown, index 0-9
     # Pass the data to js
-    return HttpResponse(json.dumps(result))
+    return HttpResponse(json.dumps(context))

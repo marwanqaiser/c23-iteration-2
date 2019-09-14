@@ -37,12 +37,12 @@ $('#location_submit').click(function() {
 
             animationEnabled: true,
             title: {
-                text: "Most job shortages in location you want to know!"
+                text: "Number of Available Jobs!"
             },
             data: [{
                 type: "pie",
                 startAngle: 240,
-                yValueFormatString: "##0.0\"\"",
+                yValueFormatString: "##0\"\"",
                 indexLabel: "{label} {y}",
                 dataPoints: [
                     {y: dic_count[0], label: dic_name[0]},
@@ -51,7 +51,10 @@ $('#location_submit').click(function() {
                     {y: dic_count[3] , label: dic_name[3]},
                     {y: dic_count[4] , label: dic_name[4]},
                     {y: dic_count[5] , label: dic_name[5]},
-                    {y: dic_count[6] , label: dic_name[6]}
+                    {y: dic_count[6] , label: dic_name[6]},
+                    {y: dic_count[7] , label: dic_name[7]},
+                    {y: dic_count[8] , label: dic_name[8]},
+                    {y: dic_count[9] , label: dic_name[9]}
                 ]
             }]
         });
