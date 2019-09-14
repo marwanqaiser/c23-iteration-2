@@ -10,8 +10,11 @@ urlpatterns = [
     url(r'^ShowService.html',views.service, name= 'service'),
     url(r'^about_us.html',views.about_us, name= 'about_us'),
     url(r'^listprovider/',views.listprovider, name= 'listprovider'),
-
-
+    url(r'^quiz.html/',views.quiz, name= 'quiz'),
+    url(r'^quiz_result/',views.quiz_result, name= 'quiz_result'),
+    url(r'^location_choose/',views.location_choose, name= 'location_choose'),
+    url(r'^top_jobs/',views.top_jobs, name= 'top_jobs'),
+#try to keep the naming same..avoids confusion
 
 ]
 

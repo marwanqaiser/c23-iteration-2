@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '7d773sjvlj1_r+z@qh@zstggih5a&xgw^e=q$upn5$rw%&e)23'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['www.recruitassist.me', '127.0.0.1']
 
