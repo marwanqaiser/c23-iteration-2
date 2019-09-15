@@ -121,6 +121,16 @@
             opacity: 0.8;
             display:none;
         }
+
+#chartContainer_jobs_without_mel {
+            height: 400px;
+            width: 600px;
+            margin:auto;
+            position: relative;
+            opacity: 0.8;
+            display:none;
+        }
+
   </style>
 </head>
 
@@ -208,7 +218,7 @@
             </div>
           </div>
 
-<!--          <div class="carousel-item">-->
+          <div class="carousel-item">-->
 <!--            <div class="carousel-background"><img src="{% static 'recruitassist/img/intro-carousel/training-targets.jpg'%}" alt=""></div>-->
 <!--            <div class="carousel-container">-->
 <!--              <div class="carousel-content">-->
@@ -232,7 +242,7 @@
 
      <!--   </div>
 
-<!--        <a class="carousel-control-prev" href="#introCarousel" role="button" data-slide="prev">-->
+       <a class="carousel-control-prev" href="#introCarousel" role="button" data-slide="prev">-->
 <!--          <span class="carousel-control-prev-icon ion-chevron-left" aria-hidden="true"></span>-->
 <!--          <span class="sr-only">Previous</span>-->
 <!--        </a>-->
@@ -244,9 +254,9 @@
 
  <!--     </div>
     </div>
-  </section><!-- #intro -->
+  </section> #intro -->
 
-   <section id="portfolio"  class="section-bg" >
+   <section id="portfolio"  class="section-bg">
       <div class="container">
 
 
@@ -270,8 +280,8 @@
           <div class="col-lg-4 col-md-6 portfolio-item filter-app wow fadeInUp">
             <div class="portfolio-wrap">
               <figure>
-                <img src="img/portfolio/app1.jpg" class="img-fluid" alt="">
-                <a href="img/portfolio/app1.jpg" data-lightbox="portfolio" data-title="App 1" class="link-preview" title="Preview"><i class="ion ion-eye"></i></a>
+                <img src="{% static 'recruitassist/img/portfolio/test1.jpg'%}" class="img-fluid" alt="">
+                <a href="{% static 'recruitassist/img/portfolio/app1.jpg'%}" data-lightbox="portfolio" data-title="App 1" class="link-preview" title="Preview"><i class="ion ion-eye"></i></a>
                 <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
               </figure>
 
@@ -286,7 +296,7 @@
           <div class="col-lg-4 col-md-6 portfolio-item filter-app wow fadeInUp" data-wow-delay="0.2s">
             <div class="portfolio-wrap">
               <figure>
-                <img src="img/portfolio/app2.jpg" class="img-fluid" alt="">
+                <img src="{% static 'recruitassist/img/portfolio/test2.jpg'%}" class="img-fluid" alt="">
                 <a href="img/portfolio/app2.jpg" class="link-preview" data-lightbox="portfolio" data-title="App 2" title="Preview"><i class="ion ion-eye"></i></a>
                 <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
               </figure>
@@ -302,7 +312,7 @@
           <div class="col-lg-4 col-md-6 portfolio-item filter-web wow fadeInUp" data-wow-delay="0.1s">
             <div class="portfolio-wrap">
               <figure>
-                <img src="img/portfolio/web3.jpg" class="img-fluid" alt="">
+                <img src="{% static 'recruitassist/img/portfolio/test3.jpg'%}" class="img-fluid" alt="">
                 <a href="img/portfolio/web3.jpg" class="link-preview" data-lightbox="portfolio" data-title="Web 1" title="Preview"><i class="ion ion-eye"></i></a>
                 <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
               </figure>
@@ -317,7 +327,7 @@
               <div class="col-lg-4 col-md-6 portfolio-item filter-web wow fadeInUp" data-wow-delay="0.1s">
             <div class="portfolio-wrap">
               <figure>
-                <img src="img/portfolio/web3.jpg" class="img-fluid" alt="">
+                <img src="{% static 'recruitassist/img/portfolio/test4.jpg'%}" class="img-fluid" alt="">
                 <a href="img/portfolio/web3.jpg" class="link-preview" data-lightbox="portfolio" data-title="Web 2" title="Preview"><i class="ion ion-eye"></i></a>
                 <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
               </figure>
@@ -333,7 +343,7 @@
           <div class="col-lg-4 col-md-6 portfolio-item filter-card wow fadeInUp">
             <div class="portfolio-wrap">
               <figure>
-                <img src="img/portfolio/card2.jpg" class="img-fluid" alt="">
+                <img src="{% static 'recruitassist/img/portfolio/test5.jpg'%}" class="img-fluid" alt="">
                 <a href="img/portfolio/card2.jpg" class="link-preview" data-lightbox="portfolio" data-title="Card 2" title="Preview"><i class="ion ion-eye"></i></a>
                 <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
               </figure>
@@ -434,7 +444,7 @@
 
  <div class="container" class="wow fadeIn">
 
-             <div id="chartContainer" style="position: relative"></div>
+
 
             <div id="2nd_function" style="padding:80px;position: relative;display:block;">
            <h3>Top 10 place for your career </h3>
@@ -464,13 +474,15 @@
                                     </datalist>
                                 </div>
                               </div>
-                                <button  id="job_submit" style="width:10%;background:#18d26e;border-radius: 50px;"><span class="ion-ios-search"></span></button>
+                                <button  id="job_submit" style="width:20%;background:#18d26e;border-radius: 50px;color:#fff"><span>With Mel</span></button>
+                                <button  id="job_submit_without_mel" style="width:20%;background:#18d26e;border-radius: 50px;color:#fff"><span>Without Mel</span></button>
                               </div>
                           </div>
                     </form>
                     <iframe id="iframe_2" name="iframe_2" style="display:none;"></iframe>
                 </div>
           <div id="chartContainer_jobs" style="position: relative"></div>
+          <div id="chartContainer_jobs_without_mel" style="position: relative"></div>
                 </div>
 
     </section><!-- #call-to-action -->
@@ -809,7 +821,7 @@
                     </form>
 
         <div class="facts-img">
-          <img src="img/facts-img.png" alt="" class="img-fluid">
+          <img src="{% static 'recruitassist/img/facts-img.png'%}" alt="" class="img-fluid">
         </div>
 
       </div>
@@ -1066,6 +1078,7 @@
                     </form>
                     <iframe id="is_frame" name="the_iframe" style="display:none;"></iframe>
               </div>
+            <div id="chartContainer" style="position: relative"></div>
             </div>
               </section>
 
@@ -1095,8 +1108,8 @@
   <!--pie chart for the 1st function-->
   <script src="{% static 'recruitassist/js/adzuna_location.js'%}"></script>
 <!--  pie chart for the 2nd function-->
+  <script src="{% static 'recruitassist/js/adzuna_jobs_whitout_mel.js'%}"></script>
   <script src="{% static 'recruitassist/js/adzuna_jobs.js'%}"></script>
-
 <!--  <script>-->
 <!--      $("#location_chooose").submit(function () {-->
 

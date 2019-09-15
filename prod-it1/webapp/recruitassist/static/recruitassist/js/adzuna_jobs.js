@@ -7,6 +7,8 @@ $('#job_submit').click(function() {
             click: true
         },
         success: function (data) {
+        console.log("test")
+            alert("Please wait till the result appears.")
             var location_count = new Array()
             var location_name = new Array()
             var len = new Array()
@@ -22,7 +24,16 @@ $('#job_submit').click(function() {
             console.log(location_name)
 
             var x = document.getElementById("chartContainer_jobs");
+            var y = document.getElementById("chartContainer_jobs_without_mel");
             console.log(x.style.display)
+
+        // hide the previous result
+        if (y.style.display == "block"){
+            console.log("hide the previous graph")
+            y.style.display = "none";
+        }
+
+        //show the result if first time run
         if ((x.style.display == "") || (x.style.display == "none")){
             console.log("get in if")
             x.style.display = "block";
@@ -37,7 +48,7 @@ $('#job_submit').click(function() {
 
             animationEnabled: true,
             title: {
-                text: "Top 10 best suburb for " + $("#job_input").val()
+                text: "Top 10 best suburb(including Melbourne regions) for " + $("#job_input").val()
             },
             data: [{
                 type: "pie",
@@ -51,7 +62,10 @@ $('#job_submit').click(function() {
                     {y: location_count[3] , label: location_name[3]},
                     {y: location_count[4] , label: location_name[4]},
                     {y: location_count[5] , label: location_name[5]},
-                    {y: location_count[6] , label: location_name[6]}
+                    {y: location_count[6] , label: location_name[6]},
+                    {y: location_count[7] , label: location_name[7]},
+                    {y: location_count[8] , label: location_name[8]},
+                    {y: location_count[9] , label: location_name[9]}
                 ]
             }]
         });

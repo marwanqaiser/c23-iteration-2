@@ -273,9 +273,42 @@ def top_jobs(request): #This function used in the second one show top 10 suburb 
         data = requests.get(url)
         dict = json.loads(s=data.text)
         context[location] = dict['count'] #get the number of jobs in each area
-
     # new_dict2 = {v: k for k, v in context.items()}
-    # # dict_slice = lambda adict, start, end: {k: adict[k] for k in adict.keys()[start:end]}
+    # dict_slice = lambda adict, start, end: {k: adict[k] for k in adict.keys()[start:end]}
     # result = dict_slice(context,0,10) #The first 10 place is shown, index 0-9
+    temp = sorted(context.items(), key=lambda x: x[1], reverse=True)
+    for i in range(0,10):
+        result[temp[i][0]] = temp[i][1]
+    print(result)
     # Pass the data to js
-    return HttpResponse(json.dumps(context))
+    return HttpResponse(json.dumps(result))
+
+@csrf_exempt
+def top_jobs_without_mel(request): #This function used in the second one show top 10 suburb best for the job you choose
+    context = {}
+    dict = {}
+    result = {}
+    print(request.POST)
+    job_name = request.POST.get('jobs')
+    # Could add some locations you think is okay to the list, which is used to make comparing
+    # i remore Melbourne and Geelong because there are too many data for geelong mel and mel cbd
+    location_list = [ "Bendigo", "Anglesea", "Echuca", "Dunkeld", "Cheltenham",
+                     "Torquay",
+                     "Rosebud", "Moyarra", "Flinders", "Elsternwick", "Flemington", "Winchelsea", "Sunbury",
+                     "Kensington", "Belmont", "South Geelong", "North Geelong", "Corio", "Waurn Ponds", "Newcomb", "Epsom",
+                     "Flora Hill", "East Bendigo", "Strathfieldsaye"]
+
+    for location in location_list:
+        url = "https://api.adzuna.com/v1/api/jobs/au/search/1?app_id=4cb38e73&app_key=ca142ad047eb88bae578bdca2a3eef4f&where=" + location + "&results_per_page=20&what=" + job_name + "&content-type=application/json"
+        data = requests.get(url)
+        dict = json.loads(s=data.text)
+        context[location] = dict['count']  # get the number of jobs in each area
+    # new_dict2 = {v: k for k, v in context.items()}
+    # dict_slice = lambda adict, start, end: {k: adict[k] for k in adict.keys()[start:end]}
+    # result = dict_slice(context,0,10) #The first 10 place is shown, index 0-9
+    temp = sorted(context.items(), key=lambda x: x[1], reverse=True)
+    for i in range(0, 10):
+        result[temp[i][0]] = temp[i][1]
+    print(result)
+    # Pass the data to js
+    return HttpResponse(json.dumps(result))
