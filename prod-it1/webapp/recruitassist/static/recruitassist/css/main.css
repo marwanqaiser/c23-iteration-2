@@ -254,27 +254,35 @@ tbody tr:hover {
   }
   table tbody tr td:nth-child(1):before {
     content: "Name";
+    color:black;
   }
   table tbody tr td:nth-child(2):before {
     content: "URL";
+    color:black;
   }
   table tbody tr td:nth-child(3):before {
     content: "Contact";
+    color:black;
   }
   table tbody tr td:nth-child(4):before {
     content: "Email";
+    color:black;
   }
   table tbody tr td:nth-child(5):before {
     content: "Street";
+    color:black;
   }
   table tbody tr td:nth-child(6):before {
     content: "Suburb";
+    color:black;
   }
   table tbody tr td:nth-child(7):before {
     content: "State";
+    color:black;
   }
   table tbody tr td:nth-child(8):before {
     content: "Postcode";
+    color:black;
   }
 
   .column4,

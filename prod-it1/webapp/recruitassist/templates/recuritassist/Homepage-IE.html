@@ -64,7 +64,7 @@
 #Shortage {
     background: linear-gradient(rgba(0, 200,0, 0.1), rgba(197, 0, 10, 0.1)), url("{% static 'recruitassist/img/scenic-view-of-snowcapped-mountains-against-blue-sky-740670351-598783ea03f402001065a152.jpg'%}") fixed center center;
     background-size: cover;
-    padding: 60px 0;
+    padding: 100px 0;
 }
 #Shortage h3 {
   color: #fff;
@@ -261,7 +261,7 @@
 
 
         <header class="section-header">
-          <h3 class="section-title">Want to improve your chances of employment in Victoria </h3>
+          <h3 class="section-title" style="padding:60px; color:#fff">Want to improve your chances of employment in Victoria </h3>
         </header>
 
         <div class="row">
@@ -286,7 +286,7 @@
               </figure>
 
               <div class="portfolio-info">
-                <h4><a href="#">Top Skills!</a></h4>
+                <h4><a href="#team">Top Skills!</a></h4>
                 <p>Find out about skills that employers are looking for</p>
               </div>
             </div>
@@ -302,7 +302,7 @@
               </figure>
 
               <div class="portfolio-info">
-                <h4><a href="/quiz.html" class="btn-get-started scrollto">Unsure about yourself?</a></h4>
+                <h4><a href="/quiz_new.html" class="btn-get-started scrollto">Unsure about yourself?</a></h4>
                 <p>Get started now to find out about skills that you can learn</p>
               </div>
             </div>
@@ -333,7 +333,7 @@
               </figure>
 
               <div class="portfolio-info">
-                <h4><a href="#" class="btn-get-started scrollto">Top suburbs by profession</a></h4>
+                <h4><a href="#top10_container" class="btn-get-started scrollto">Top suburbs by profession</a></h4>
                 <p>See where your profession is needed the most</p>
               </div>
             </div>
@@ -361,8 +361,8 @@
       </div>
     </section><!-- #portfolio -->
 
-  <section id="team">
-          <div class="container">
+  <section id="team" >
+          <div class="container wow fadeInUp">
             <div class="section-header wow fadeInUp">
               <h3>Skills that can land you a dream job!</h3>
               <p>Click images below to find out more!</p>
@@ -421,11 +421,11 @@
 
 
             </div>
-            <div class="wow fadeInUp" data-wow-delay="0.4s">
-            <div class="search-btn">
-               <a href="#call-to-action" class="btn-get-started scrollto">Search Training Institutes</a>
-            </div>
-            </div>
+<!--            <div class="wow fadeInUp" data-wow-delay="0.4s">-->
+<!--            <div class="search-btn">-->
+<!--               <a href="#call-to-action" class="btn-get-started scrollto">Search Training Institutes</a>-->
+<!--            </div>-->
+<!--            </div>-->
           </div>
         </section>
 
@@ -442,7 +442,7 @@
     ============================-->
     <section id="call-to-action" class="wow fadeIn">
 
- <div class="container" class="wow fadeIn">
+ <div class="container" id="top10_container" class="wow fadeIn">
 
 
 
@@ -458,7 +458,12 @@
                             			<div class="col-lg-10 align-items-end">
 		        				<div class="form-group">
 		          				<div class="form-field">
-
+<!--                                    Idk why Django will send 2 data to backend, and the data is not work as I want, I try to fix it-->
+<!--                                    Using js to change the value of inbox based on if checked, it value changed but it send Yes to backend first time-->
+<!--                                    send No to backend, not work-->
+<!--                                    So i used 2 input box, using radio, this function seems worked.-->
+                                    <p style="font-size: 20px;"><input type="radio" id="withMel" name="withMel" value="Yes">Including Melbourne region</p>
+                                    <p style="font-size: 20px;"><input type="radio" id="without_Mel" name="withMel" value="Yes">Excluding Melbourne region</p>
                                     <input style="width: 50%;height: 50%;padding: 8px 32px;border-radius: 50px" list="jobs" name="jobs" id="job_input" placeholder="e.g IT" required pattern="[a-zA-Z\s]+">
                                     <datalist id="jobs">
                                             <option value="IT"> IT </option>
@@ -474,8 +479,8 @@
                                     </datalist>
                                 </div>
                               </div>
-                                <button  id="job_submit" style="width:20%;background:#18d26e;border-radius: 50px;color:#fff"><span>With Mel</span></button>
-                                <button  id="job_submit_without_mel" style="width:20%;background:#18d26e;border-radius: 50px;color:#fff"><span>Without Mel</span></button>
+                                <button  id="job_submit" style="width:20%;background:#18d26e;border-radius: 50px;color:#fff"><span>Search</span></button>
+<!--                                <button  id="job_submit_without_mel" style="width:20%;background:#18d26e;border-radius: 50px;color:#fff"><span>Without Mel</span></button>-->
                               </div>
                           </div>
                     </form>
@@ -486,52 +491,6 @@
                 </div>
 
     </section><!-- #call-to-action -->
-
-  <section id="featured-services">
-      <div class="container">
-             <header class="section-header wow fadeInUp">
-          <h3 style="color:white">Available Training Services</h3>
-
-        </header>
-
-        <div class="row">
-
-          <div class="col-lg-6 box">
-            <i class="ion-ios-bookmarks-outline"></i>
-            <h4 class="title"><a>Accredited training</a></h4>
-            <p class="description">These services be used for improving English language and Communication skills </p>
-                                  <br>
-                    <p>Some of them are as follows: </p>
-                    <br>
-                     <p>• Certificate I,II, in English Proficiency </p>
-                     <p>• Certificate III,IV in Spoken and Written English </p>
-                     <p>• Certificate II in Basic English for Speakers of Other Languages </p>
-                     <p>• Conduct workplace communication </p>
-                     <p>• Implement effective communication techniques</p>
-          </div>
-
-          <div class="col-lg-6 box ">
-            <i class="ion-ios-stopwatch-outline"></i>
-            <h4 class="title"><a>Employer-required training</a></h4>
-            <p class="description">These non-accredited courses focus on equipping the students with a specific knowledge and skill set that might be required by the employer for a job</p>
-            <br>
-                    <p>Some examples such courses are:</p>
-                    <br>
-                    <p>• Certificate II in Engineering Studies</p>
-                    <p>• Certificate IV in Leadership and Management</p>
-                    <p>• Certificate III in Automotive Sales (Parts)</p>
-                    <p>• Certificate IV in Work Health and Safety</p>
-          </div>
-
-<!--          <div class="col-lg-4 box">-->
-<!--            <i class="ion-ios-heart-outline"></i>-->
-<!--            <h4 class="title"><a href="">Sed ut perspiciatis</a></h4>-->
-<!--            <p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>-->
-<!--          </div>-->
-
-        </div>
-      </div>
-    </section><!-- #featured-services -->
 
       <!--==========================
       Facts Section
@@ -582,10 +541,9 @@
                 <label class="Main-skill"></label>
                     <p><span>Please select the skills you want to acquire:</span></p>
                     <a style="color:black"><input type="checkbox" name= "english"class="english"  >English skills</a>
-                    <a style="color:black"><input type="checkbox" name="technical" class="technical">Technical skills</a>
 					<a style="color:black"><input type="checkbox" name="commuincation" class="communication">Communication skills</a>
                     <a style="color:black"><input type="checkbox" name= "interview" class="interview">Interview skills</a>
-
+                    <p></p>
                                     <input style="width: 50%;height: 50%;padding: 8px 32px;border-radius: 50px" list="provider" name="suburb" placeholder="e.g Geelong" required pattern="[a-zA-Z\s]+">
                                     <datalist id="provider">
                                             <option value="Airport West"> Airport West </option>

@@ -60,20 +60,54 @@
     </div>
 </header><!-- #header -->
 
+
+<section id="featured-services" style="padding:150px">
+      <div class="container">
+             <header class="section-header wow fadeInUp">
+          <h3 style="color:white">Our recommendation</h3>
+
+        </header>
+
+        <div class="row">
+
+          <div class="col-lg-12 box">
+            <i class="ion-ios-bookmarks-outline"></i>
+            <h4 class="title"><a>Accredited training</a></h4>
+            <p class="description">These services be used for improving English language and Communication skills </p>
+                                  <br>
+                    <p>Some of them are as follows: </p>
+                    <br>
+                     <p>• Certificate I,II, in English Proficiency </p>
+                     <p>• Certificate III,IV in Spoken and Written English </p>
+                     <p>• Certificate II in Basic English for Speakers of Other Languages </p>
+                     <p>• Conduct workplace communication </p>
+                     <p>• Implement effective communication techniques</p>
+          </div>
+
+<!--          <div class="col-lg-4 box">-->
+<!--            <i class="ion-ios-heart-outline"></i>-->
+<!--            <h4 class="title"><a href="">Sed ut perspiciatis</a></h4>-->
+<!--            <p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>-->
+<!--          </div>-->
+
+        </div>
+      </div>
+    </section><!-- #featured-services -->
+
 <section id="intro">
 	<!--<div class="carousel-background"> -->
     <div class="container-table100">       
 	<div class="container">
 		<p>	<br>
 		<br></p>
-                   <h4 style="color:white">Our Recomendation:</h4>
-    <p style="color:white">
-        {% block content%}
-        {{ service.msg }}
+<!--                   <h4 style="color:white">Our Recomendation:</h4>-->
+<!--    <p style="color:white">-->
+<!--        {% block content%}-->
+<!--        {{ service.msg }}-->
 
-        {% endblock %}
-         </p>
-    <div class="table-repsonsive">
+<!--        {% endblock %}-->
+<!--         </p>-->
+    <div class="table-repsonsive" >
 	<table class=table>
                     <thead>
                     <tr class="table100-head">
@@ -89,7 +123,7 @@
                     </thead>
                     <tbody>
                      {% for b in obj %}
-                    <tr>
+                    <tr style="color:black">
                         <td class="column1">{{b.SITE_NAME}}</td>
                         <td class="column2"><a href="{{b.URL}}" target="_blank">{{ b.URL }}</a></td>
                         <td class="column3">{{ b.CONTACT }}</td>
@@ -130,7 +164,7 @@
                     </thead>
                     <tbody>
                      {% for b in nearby %}
-                    <tr>
+                    <tr style="color:black">
                         <td class="column1">{{b.SITE_NAME}}</td>
                         <td class="column2"><a href="{{b.URL}}">{{ b.URL }}</a></td>
                         <td class="column3">{{ b.CONTACT }}</td>

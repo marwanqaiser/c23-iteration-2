@@ -1,14 +1,29 @@
 $('#job_submit').click(function() {
+//    if($("#withMel").is(':checked'))
+//    $("#withMel").value = 'Yes';  // checked
+//    else
+//    $("#withMel").value = 'No';  // unchecked
+//    console.log($("#withMel").val())
+    var withmel = document.getElementsByName("withMel");
+    var withmel_result = "Yes"
+    if (withmel[0].checked) {
+        withmel_result = 'Yes';
+    }
+    else {
+        withmel_result = 'No'
+    }
+    alert("Please wait till the result appears.")
     $.ajax({
         url: "top_jobs/",
         method: 'POST',
         data: {
             jobs: $("#job_input").val(),
+            withMel : withmel_result,
             click: true
         },
         success: function (data) {
         console.log("test")
-            alert("Please wait till the result appears.")
+
             var location_count = new Array()
             var location_name = new Array()
             var len = new Array()
@@ -48,7 +63,7 @@ $('#job_submit').click(function() {
 
             animationEnabled: true,
             title: {
-                text: "Top 10 best suburb(including Melbourne regions) for " + $("#job_input").val()
+                text: "Top 10 best suburb for " + $("#job_input").val()
             },
             data: [{
                 type: "pie",

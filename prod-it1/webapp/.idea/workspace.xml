@@ -16,9 +16,8 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
-    <option name="width" value="1400" />
-    <option name="height" value="820" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
   <component name="ProjectId" id="1QV2NVWaVL1Vtqrb7xVc1PBjWjB" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -28,12 +27,12 @@
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Moazam\Documents\c23-iteration2\c23-iteration-2\prod-it1\webapp\recruitassist\static\recruitassist\img\intro-carousel" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\73745\Documents\GitHub\c23-iteration-2\prod-it1\webapp\recruitassist\static\recruitassist\js" />
       <recent name="C:\Users\73745\Documents\GitHub\c23-iteration-2\prod-it1\webapp\recruitassist\static\recruitassist\img" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Moazam\Documents\c23-iteration2\c23-iteration-2\prod-it1\webapp\recruitassist\static\recruitassist\img\intro-carousel" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -85,5 +84,18 @@
   </component>
   <component name="UnknownFeatures">
     <option featureType="com.intellij.fileTypeFactory" implementationName="*.js" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
