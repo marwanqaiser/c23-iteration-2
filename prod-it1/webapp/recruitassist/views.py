@@ -1,8 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse
 # Create your views here.
-from django.shortcuts import render_to_response
-from django.template.context import RequestContext
 from django.http import HttpResponse, HttpResponseRedirect
 from django.views.decorators.csrf import csrf_exempt
 from .models import Providers
@@ -307,20 +304,10 @@ def listprovider(request):
 
 @csrf_exempt
 def location_choose(request): #This function used in the first one show the job shortage in one location
-    context = {}
-    dict = {}
     result = {}
     totaljobs=0
-    print(request.POST)
     location_name = request.POST.get('suburb')
-    print(location_name)
-    # Could add some jobs you think is okay to the list, which is used to make comparing
-    # I removed business because it is too board and too many jobs about it, you could search for the amount on adzuna before add
-    job_list = ["ICT", "Accounting", "Health", "Engineering", "Marketing", "Finance", "Science", "Business",
-                "Education","Arts"]
-    # put work title in what=""
-    # put location in where=""
-    # please do some research about how the api works for the full-time job only
+
     totaljobs= access_jobs(location_name)
 
     temp = sorted(totaljobs.items(), key=lambda x: x[1], reverse=True)

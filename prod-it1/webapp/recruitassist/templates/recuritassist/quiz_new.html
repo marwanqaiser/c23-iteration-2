@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Contact V3</title>
+  <title>Recruit Assist</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
   {% load staticfiles %}
@@ -295,13 +295,14 @@
                 </div>
               </div>
             </div>
-                <p style="font-weight: bold;font-size: 25px; padding:5px">Not satisfied?</p>
-                        <a href="quiz.html" class="btn-get-started scrollto">Do Agian!</a>
+
+                <p style="font-size: 25px; padding:5px">Not satisfied?</p>
+                        <a href="/quiz_new.html" class="btn-get-started scrollto">Start Again</a>
 <!--                I put location choose out of the quiz form, I think this seems more make sense, based on the result then decide whether imput location to search.-->
 <!--                This button will submit the form, so it's not good to put the one button for js function and turn to the new page.-->
 				<form action="/listprovider/" class="search-location mt-md-5" method="post">{% csrf_token %}
 				<div class="wow fadeInUp" data-wow-delay="0.4s">
-				<p style="font-size: 25px;color: #fff"><span>Choose Your Location: </span></p>
+				<p style="font-size: 25px;color: #fff"><span>Interested? Select a location to find the closet training institute: </span></p>
                                     <input style="width: 50%;height: 50%;padding: 8px 32px;border-radius: 50px" list="provider" name="suburb" placeholder="e.g Geelong" required pattern="[a-zA-Z\s]+">
                                     <datalist id="provider">
                                             <option value="Airport West"> Airport West </option>
@@ -538,7 +539,7 @@
     margin: 10px;
     color: #fff;
     background: #18d26e;"><span>View Providers</span></button>
-                       <a href="/Homepage-IE.html" class="btn-get-started scrollto">Back Homepage</a>
+                       <a href="/Homepage-IE.html" class="btn-get-started scrollto">Back</a>
                     </div>
                 </div>
 				</div>
