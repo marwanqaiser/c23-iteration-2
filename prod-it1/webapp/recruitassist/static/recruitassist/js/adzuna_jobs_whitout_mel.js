@@ -1,13 +1,15 @@
 $('#job_submit_without_mel').click(function() {
+
+    var box = $(".box:checked").val();
     $.ajax({
         url: "top_jobs_without_mel/",
         method: 'POST',
         data: {
             jobs: $("#job_input").val(),
-            click: true
+            area: box
         },
         success: function (data) {
-            alert("Please wait till the result appears.")
+
             var location_count = new Array()
             var location_name = new Array()
             var len = new Array()
@@ -42,29 +44,23 @@ $('#job_submit_without_mel').click(function() {
                 alert("Oops！This place seems doesn't have job shortage! Do you want to try other place?")
         }
         else {
+        var dps1 = [];
+        for(var i = 0; i < location_count.length; i++) {
+        dps1.push({y: location_count[i], label: location_name[i]});
+
+        }
         var chart_jobs_without_mel = new CanvasJS.Chart("chartContainer_jobs_without_mel", {
 
             animationEnabled: true,
             title: {
-                text: "Top 10 best suburb(excluding Melbourne regions) for " + $("#job_input").val()
+                text: "Top 10 best suburb for " + $("#job_input").val()
             },
             data: [{
                 type: "pie",
                 startAngle: 240,
-                yValueFormatString: "##0.0\"\"",
+                yValueFormatString: "##0\"\"",
                 indexLabel: "{label} {y}",
-                dataPoints: [
-                    {y: location_count[0], label: location_name[0]},
-                    {y: location_count[1] , label: location_name[1]},
-                    {y: location_count[2] , label: location_name[2]},
-                    {y: location_count[3] , label: location_name[3]},
-                    {y: location_count[4] , label: location_name[4]},
-                    {y: location_count[5] , label: location_name[5]},
-                    {y: location_count[6] , label: location_name[6]},
-                    {y: location_count[7] , label: location_name[7]},
-                    {y: location_count[8] , label: location_name[8]},
-                    {y: location_count[9] , label: location_name[9]}
-                ]
+                dataPoints: dps1
             }]
         });
 

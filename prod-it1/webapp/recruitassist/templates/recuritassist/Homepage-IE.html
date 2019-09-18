@@ -494,34 +494,30 @@
          <h3 >Job shortages </h3>
           <p style="font-size:25px;font-weight:800;">Choose a location and see the job shortages in this area</p>
 
-          <form action="top_jobs/" class="search-location mt-md-5" method="post" target="iframe_2">{% csrf_token %}
+          <form id="top_jobs_without_mel" class="search-location mt-md-5" method="post" target="iframe_2">{% csrf_token %}
 
 
                                     	<div class="row justify-content-center">
 
                             			<div class="col-lg-10 align-items-end">
-                                            <a style="font-size: 18px;"><input type="radio" id="withMel" name="withMel" value="Yes">Including Melbourne region</a>
-                                    <a style="font-size: 18px;"><input type="radio" id="without_Mel" name="withMel" value="Yes">Excluding Melbourne region</a>
+                                            <a style="font-size: 18px;"><input type="radio" class="box" name="box" value="Melb">Including Melbourne region</a>
+                                    <a style="font-size: 18px;"><input type="radio" class="box" name="box" value="noMelb">Excluding Melbourne region</a>
 		        				<div class="form-group">
 		          				<div class="form-field">
 
                                     <input style="width: 50%;height: 50%;padding: 8px 32px;border-radius: 50px" list="jobs" name="jobs" id="job_input" placeholder="e.g IT" required pattern="[a-zA-Z\s]+">
                                     <datalist id="jobs">
                                             <option value="IT"> IT </option>
-                                            <option value="Accounting"> Accounting </option>
+                                            <option value="Accountant"> Accountant </option>
                                             <option value="Doctor"> Doctor </option>
-                                            <option value="Engineering"> Engineering </option>
+                                            <option value="Engineer"> Engineer </option>
                                             <option value="Lawyer"> Lawyer </option>
-                                            <option value="Medicine"> Medicine </option>
-                                            <option value="Marketing"> Marketing </option>
-                                            <option value="Nursing"> Nursing </option>
-                                            <option value="Property"> Property </option>
-                                            <option value="Retail"> Retail </option>
+
                                     </datalist>
 
                                 </div>
                               </div>
-                                <button id="job_submit" style="width:10%;background:#18d26e;border-radius: 50px;"><span class="ion-ios-search"></span></button>
+                                <button id="job_submit_without_mel" style="width:10%;background:#18d26e;border-radius: 50px;"><span class="ion-ios-search"></span></button>
                               </div>
                           </div>
                     </form>

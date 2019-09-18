@@ -7,7 +7,8 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.views.decorators.csrf import csrf_exempt
 from .models import Providers
 import requests
-import json
+import json,os
+from django.conf import settings
 
 
 
@@ -31,6 +32,75 @@ def about_us (request):
 
 def quiz(request):
     return render(request, 'recuritassist/quiz.html')   # this returns the  quiz.html page back to the website
+
+def access_jobs(suburb):
+    all_jobs=[]
+    dict_of_jobs={}
+    file_path = os.path.join(settings.BASE_DIR, 'recruitassist/api_data.txt')
+    with open(file_path, 'r') as filehandle:
+        for line in filehandle:
+            # remove linebreak which is the last character of the string
+            j = line[:-1]
+            # add item to the list
+            all_jobs.append(j)
+
+
+    count=0
+    for job in all_jobs:
+        jd=job.split(',')
+        if jd[1]== suburb and (jd[0]!= 'Unknown' and jd[0]!='Property Jobs' and jd[0]!='Hospitality & Catering Jobs'
+                               and jd[0]!='Part time Jobs') :
+            if jd[0] not  in dict_of_jobs:
+                dict_of_jobs[jd[0]]=1
+            else:
+                dict_of_jobs[jd[0]]+=1
+
+    return (dict_of_jobs)
+
+def top_suburbs(job_name,flag):
+    all_jobs=[]
+    dict_of_jobs={}
+    file_path = os.path.join(settings.BASE_DIR, 'recruitassist/api_data.txt')
+    with open(file_path, 'r') as filehandle:
+        for line in filehandle:
+            # remove linebreak which is the last character of the string
+            j = line[:-1]
+            # add item to the list
+            all_jobs.append(j)
+
+
+    if flag=='MELB':
+
+        count=0
+        for job in all_jobs:
+            jd=job.split(',')
+            vacanay=jd[2]
+            vacanay=vacanay.upper()
+
+            if job_name.upper() in vacanay and (jd[0]!= 'Unknown' and jd[0]!='Property Jobs' and jd[0]!='Hospitality & Catering Jobs' and
+                                      jd[0]!='Customer Services Jobs' and jd[0]!='Part time Jobs') :
+                if jd[0] not in dict_of_jobs:
+                    dict_of_jobs[jd[1]]=1
+                else:
+                    dict_of_jobs[jd[1]]+=1
+
+    else:
+
+        count=0
+        for job in all_jobs:
+            jd=job.split(',')
+            vacanay=jd[2]
+            vacanay=vacanay.upper()
+
+            if job_name.upper() in vacanay and jd[1]!='Melbourne'and (jd[0]!= 'Unknown' and jd[0]!='Property Jobs' and jd[0]!='Hospitality & Catering Jobs' and
+                                      jd[0]!='Customer Services Jobs' and jd[0]!='Part time Jobs') :
+                if jd[0] not in dict_of_jobs:
+                    dict_of_jobs[jd[1]]=1
+                else:
+                    dict_of_jobs[jd[1]]+=1
+    print("final",dict_of_jobs)
+    return (dict_of_jobs)
+
 
 def quiz_new(request):
     return render(request, 'recuritassist/quiz_new.html')   # this returns the  quiz.html page back to the website
@@ -234,10 +304,12 @@ def listprovider(request):
     else:
         return render(request,'recuritassist/new_result.html',{'obj':list_of_obj, 'service':service, 'nearby': list_of_nearby})
 
+
 @csrf_exempt
 def location_choose(request): #This function used in the first one show the job shortage in one location
     context = {}
     dict = {}
+    result = {}
     totaljobs=0
     print(request.POST)
     location_name = request.POST.get('suburb')
@@ -249,131 +321,85 @@ def location_choose(request): #This function used in the first one show the job 
     # put work title in what=""
     # put location in where=""
     # please do some research about how the api works for the full-time job only
-    for job in job_list:
-        url = "https://api.adzuna.com/v1/api/jobs/au/search/1?app_id=4cb38e73&app_key=ca142ad047eb88bae578bdca2a3eef4f&where=" + location_name +"&what=" + job + "&content-type=application/json"
-        data = requests.get(url)
-        dict = json.loads(s=data.text)
-        context[job] = dict['count'] #get the number of jobs
-        totaljobs+=dict['count']
-    print(totaljobs)
-    return HttpResponse(json.dumps(context))
+    totaljobs= access_jobs(location_name)
+
+    temp = sorted(totaljobs.items(), key=lambda x: x[1], reverse=True)
+    print(temp)
+    for i in range(0,len(temp)):
+        result[temp[i][0]] = temp[i][1]
+    print(result)
+
+    return HttpResponse(json.dumps(result))
 
 @csrf_exempt
 def top_jobs(request): #This function used in the second one show top 10 suburb best for the job you choose
     context = {}
     dict = {}
     result = {}
-    # the whole list without melbourne regions is like this
-    # because it is too long I think we dont need use the whole list, just randomly pick 30 suburbs from it.
-    # using this function:
-    # import random
-    # random.shuffle(location_without_mel)
-    # print(new[:30])
-    # location_without_mel = ['Alexandra', 'Anglesea', 'Apollo Bay', 'Ararat', 'Attwood', 'Avoca', 'Bacchus Marsh', 'Ballan', 'Ballarat',
-    #                         'Balwyn', 'Bannockburn', 'Beechworth', 'Belgrave', 'Belmont', 'Benalla', 'Bendigo', 'Berwick', 'Birchip',
-    #                         'Blackburn', 'Boort', 'Briar Hill', 'Bright', 'Broadford', 'Brunswick', 'Bunyip', 'Camberwell',
-    #                         'Casterton', 'Castlemaine', 'Charlton', 'Cheltenham', 'Churchill', 'Clunes', 'Cobden', 'Cobram', 'Coburg',
-    #                         'Cohuna', 'Colac', 'Collingwood', 'Coria', 'Corryong', 'Cowes', 'Cuogewa', 'Daylesford', 'Donald',
-    #                         'Doncaster', 'Doncaster East', 'Drouin', 'Drysdale', 'East Geelong', 'Echuca', 'Edenhope', 'Edithvale',
-    #                         'Elmore', 'Elsternwick', 'Eltham', 'Ensay', 'Eskdale', 'Euroa', 'Fitzroy', 'Fitzroy North', 'Forster',
-    #                         'Geelong', 'Gisborne', 'Glenroy', 'Grovedale', 'Hamilton', 'Hastings', 'Hawthorn', 'Hawthorn East',
-    #                         'Healesville', 'Heathcote', 'Heywood', 'Horsham', 'Inverloch', 'Kerang', 'Kilmore', 'Kinglake',
-    #                         'Koo Wee Rup', 'Kyabram', 'Kyneton', 'Lake Tyers ', 'Lake Entrance', 'Lancefield', 'Lara', 'Leongatha',
-    #                         'Lorne', 'Maffra', 'Maldon', 'Mallacoota', 'Mansfield', 'Maryborough', 'Marysville', 'Melbourne', 'Melton',
-    #                         'Melton South', 'Merbein', 'Mildura', 'Mill Park', 'Mitcham', 'Moe', 'Monbulk', 'Moonee Ponds', 'moorabbin',
-    #                         'Mooroopna', 'Mordialloc', 'Morwell', 'Myrtleford', 'Neerim South', 'Newcomb', 'Nhill', 'Noble Park',
-    #                         'Norlane', 'North Geelong', 'Northcote', 'Numurkah', 'Ocean Grove', 'Omeo', 'Orbost', 'Ouyen', 'Pakeham',
-    #                         'Port Fairy', 'Portarlington', 'Portland', 'Prahran', 'Preston', 'Queenscliff', 'Red Cliffs', 'Reservoir',
-    #                         'Robinvale', 'Romsey', 'Rosebud West', 'Rowville', 'Rutherglen', 'Sale', 'sab demo', 'Sea Lake',
-    #                         'Sebastopol', 'Seymour', 'Shepparton', 'St Albans', 'St Arnaud', 'Stawell', 'Sunbury', 'Swan Hill',
-    #                         'Swifts Creek', 'Sydenham', 'Tallangatta', 'Tarneit', 'Tatura', 'Terang', 'Timboon', 'Torquay',
-    #                         'Traralgon', 'Wallan', 'Walwa', 'Wangatatta', 'Warburton', 'Warracknabeal', 'Warragul', 'Warrnambool',
-    #                         'Watergardens', 'Warun Ponds', 'Wedderburn', 'Wendouree', 'Whittington', 'Whittlesea', 'Wodonga',
-    #                         'Wonthaggi', 'Woodend', 'Wycheproof', 'Yarra Junction', 'Yarram', 'Yarrawonga', 'Yea']
-
-    location_without_mel = ['Moonee Ponds', 'Maffra', 'Rutherglen', 'Leongatha', 'Mooroopna', 'Mill Park', 'Yarrawonga', 'Sydenham',
-                            'Queenscliff', 'Whittington', 'Elmore', 'East Geelong', 'Corryong', 'Mallacoota', 'Swan Hill', 'Sunbury',
-                            'St Albans', 'North Geelong', 'Wonthaggi', 'Stawell', 'Casterton', 'Heywood', 'Elsternwick', 'Doncaster',
-                            'Cobden', 'Ballarat', 'Koo Wee Rup', 'Cowes', 'Romsey', 'Cheltenham']
-    print(request.POST)
-    job_name = request.POST.get('jobs')
-    with_Mel = request.POST.get('withMel')
-    Without_Mel = request.POST.get('without_Mel')
-    # Could add some locations you think is okay to the list, which is used to make comparing
-    # i remore Melbourne and Geelong because there are too many data for geelong mel and mel cbd
-    if with_Mel == 'Yes':
-        print(with_Mel)
-        print("into yes")
-        # because the whole list is too long so here only keep the old one
-        location_list = ["Airport West", "Balwyn", "Bendigo", "Anglesea", "Berwick", "Box Hill", "Brunswick", "Cheltenham", "Clayton",
-                    "Caulfield", "Dandenong", "Docklands","Elsternwick","Flemington","Frankston","Caulfield","Kensington","Lilydale"
-                         ,"Carlton","Mornington","North Geelong","North Melbourne","Pakenham","South bank","South yarra","St kilda","Springvale","Richmond"]
-
-        for location in location_list:
-            url = "https://api.adzuna.com/v1/api/jobs/au/search/1?app_id=4cb38e73&app_key=ca142ad047eb88bae578bdca2a3eef4f&where=" + location +"&results_per_page=20&what=" + job_name + "&content-type=application/json"
-            data = requests.get(url)
-            dict = json.loads(s=data.text)
-            context[location] = dict['count'] #get the number of jobs in each area
-        # new_dict2 = {v: k for k, v in context.items()}
-        # dict_slice = lambda adict, start, end: {k: adict[k] for k in adict.keys()[start:end]}
-        # result = dict_slice(context,0,10) #The first 10 place is shown, index 0-9
-        temp = sorted(context.items(), key=lambda x: x[1], reverse=True)
-        for i in range(0,10):
-            result[temp[i][0]] = temp[i][1]
-        print(result)
-        # Pass the data to js
-        return HttpResponse(json.dumps(result))
-
-    if with_Mel != 'Yes':
-        print("start without mel")
-        result_without_mel = {}
-        context_new = {}
-        for new_location in location_without_mel:
-            new_url = "https://api.adzuna.com/v1/api/jobs/au/search/1?app_id=4cb38e73&app_key=ca142ad047eb88bae578bdca2a3eef4f&where=" + new_location + "&results_per_page=20&what=" + job_name + "&content-type=application/json"
-            new_data = requests.get(new_url)
-            new_dict = json.loads(s=new_data.text)
-            context_new[new_location] = new_dict['count']  # get the number of jobs in each area
-        # new_dict2 = {v: k for k, v in context.items()}
-        # dict_slice = lambda adict, start, end: {k: adict[k] for k in adict.keys()[start:end]}
-        # result = dict_slice(context,0,10) #The first 10 place is shown, index 0-9
-        print("new context_new")
-        print(context_new)
-        temp_new = sorted(context_new.items(), key=lambda x: x[1], reverse=True)
-        print("new temp_new")
-        print(temp_new)
-        for i in range(0, 10):
-            result_without_mel[temp_new[i][0]] = temp_new[i][1]
-        print(result_without_mel)
-
-        # Pass the data to js
-        return HttpResponse(json.dumps(result_without_mel))
-
-@csrf_exempt
-def top_jobs_without_mel(request): #This function used in the second one show top 10 suburb best for the job you choose
-    context = {}
-    dict = {}
-    result = {}
     print(request.POST)
     job_name = request.POST.get('jobs')
     # Could add some locations you think is okay to the list, which is used to make comparing
     # i remore Melbourne and Geelong because there are too many data for geelong mel and mel cbd
-    location_list = [ "Bendigo", "Anglesea", "Echuca", "Dunkeld", "Cheltenham",
-                     "Torquay",
-                     "Rosebud", "Moyarra", "Flinders", "Elsternwick", "Flemington", "Winchelsea", "Sunbury",
-                     "Kensington", "Belmont", "South Geelong", "North Geelong", "Corio", "Waurn Ponds", "Newcomb", "Epsom",
-                     "Flora Hill", "East Bendigo", "Strathfieldsaye"]
+
+    location_list = ["Airport West", "Albert Park", "Alexandra", "Altona", "Altona Meadows", "Anglesea", "Apollo Bay",
+                     "Ararat", "Attwood", "Avoca", "Bacchus Marsh", "Ballan", "Ballarat", "Balwyn", "Bannockburn",
+                     "Beechworth", "Belgrave", "Belmont", "Benalla", "Bendigo", "Berwick", "Birchip", "Blackburn",
+                     "Boort", "Boronia", "Box Hill", "Briar Hill", "Bright", "Broadford", "Broadmeadows", "Brunswick",
+                     "Bundoora", "Bunyip", "Camberwell", "Campbellfield", "Carlton", "Casterton", "Castlemaine",
+                     "Chadestone", "Charlton", "Chelsea", "Cheltenham", "Churchill", "Clayton", "Clunes", "Cobden",
+                     "Cobram", "Coburg", "Cohuna", "Colac", "Collingwood", "Coria", "Corryong", "Cowes", "Craigieburn",
+                     "Cranbourne", "Cuogewa", "Dandenong", "Daylesford", "Docklands", "Donald", "Doncaster", "Doncaster East",
+                     "Drouin", "Drysdale", "East Geelong", "Echuca", "Edenhope", "Edithvale", "Elmore", "Elsternwick",
+                     "Eltham", "Emerald", "Ensay", "Epping", "Eskdale", "Essendon", "Euroa", "Fitzroy", "Fitzroy North",
+                     "Flemington", "Footscray", "Forster", "Frankston", "Geelong", "Gisborne", "Glen Waverley", "Glenroy",
+                     "Greensborough", "Grovedale", "Hamilton", "Hastings", "Hawthorn", "Hawthorn East", "Healesville",
+                     "Heathcote", "Heidelberg", "Heywood", "Horsham", "Hurstbridge", "Inverloch", "Kensington", "Kerang",
+                     "Kilmore", "Kinglake", "Koo Wee Rup", "Kyabram", "Kyneton", "Lake Tyers ", "Lake Entrance", "Lancefield",
+                     "Lara", "Leongatha", "Lilydale", "Lorne", "Maffra", "Maldon", "Mallacoota", "Mansfield", "Maryborough",
+                     "Marysville", "Melbourne", "Melton", "Melton South", "Merbein", "Mildura", "Mill Park", "Mitcham", "Moe",
+                     "Monbulk", "Moonee Ponds", "moorabbin", "Mooroopna", "Mordialloc", "Mornington", "Morwell", "Myrtleford",
+                     "Narre Warren", "Neerim South", "Newcomb", "Nhill", "Noble Park", "Norlane", "North Geelong", "North Melbourne",
+                     "Northcote", "Numurkah", "Oakleigh", "Ocean Grove", "Omeo", "Orbost", "Ouyen", "Pakeham", "Port Fairy",
+                     "Portarlington", "Portland", "Prahran", "Preston", "Queenscliff", "Red Cliffs", "Reservoir", "Richmond",
+                     "Ringwood", "Robinvale", "Romsey", "Rosebud", "Rosebud West", "Rowville", "Rutherglen", "Sale",
+                     "sab demo", "Sea Lake", "Sebastopol", "Seymour", "Shepparton", "South Melbourne", "Southbank",
+                     "South Yarra", "Springvale", "St Albans", "St Arnaud", "Stawell", "Sunbury", "Sunshine", "Swan Hill",
+                     "Swifts Creek", "Sydenham", "Tallangatta", "Tarneit", "Tatura", "Taylors Lakes", "Terang", "Timboon",
+                     "Torquay", "Traralgon", "Tullamarine", "Wallan", "Walwa", "Wangatatta", "Wantirna South", "Warburton",
+                     "Warracknabeal", "Warragul", "Warrnambool", "Watergardens", "Warun Ponds", "Wedderburn", "Wendouree",
+                     "Werribee", "Whittington", "Whittlesea", "Wodonga", "Wonthaggi", "Woodend", "Wycheproof", "Yarra Junction", "Yarram", "Yarrawonga", "Yea"]
 
     for location in location_list:
-        url = "https://api.adzuna.com/v1/api/jobs/au/search/1?app_id=4cb38e73&app_key=ca142ad047eb88bae578bdca2a3eef4f&where=" + location + "&results_per_page=20&what=" + job_name + "&content-type=application/json"
+        url = "https://api.adzuna.com/v1/api/jobs/au/search/1?app_id=4cb38e73&app_key=ca142ad047eb88bae578bdca2a3eef4f&where=" + location +"&results_per_page=20&what=" + job_name + "&content-type=application/json"
         data = requests.get(url)
         dict = json.loads(s=data.text)
-        context[location] = dict['count']  # get the number of jobs in each area
+        context[location] = dict['count'] #get the number of jobs in each area
     # new_dict2 = {v: k for k, v in context.items()}
     # dict_slice = lambda adict, start, end: {k: adict[k] for k in adict.keys()[start:end]}
     # result = dict_slice(context,0,10) #The first 10 place is shown, index 0-9
     temp = sorted(context.items(), key=lambda x: x[1], reverse=True)
-    for i in range(0, 10):
+    for i in range(0,10):
         result[temp[i][0]] = temp[i][1]
     print(result)
     # Pass the data to js
     return HttpResponse(json.dumps(result))
+
+@csrf_exempt
+def top_jobs_without_mel(request): #This function used in the second one show top 10 suburb best for the job you choose
+    flag= "MELB"
+    if (request.POST.get('area')) == "noMelb":
+        flag="no"
+
+    result = {}
+    print(request.POST)
+    job_name = request.POST.get('jobs')
+    print(job_name)
+    totaljobs=  top_suburbs(job_name,flag)
+    temp = sorted(totaljobs.items(), key=lambda x: x[1], reverse=True)
+
+    for i in range(0,len(temp)):
+        result[temp[i][0]] = temp[i][1]
+    print(result)
+    print("here")
+    return HttpResponse(json.dumps(result))
+

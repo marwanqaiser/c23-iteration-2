@@ -14,7 +14,7 @@ urlpatterns = [
     url(r'^quiz_new.html/',views.quiz_new, name= 'quiz_new'),
     url(r'^quiz_result/',views.quiz_result, name= 'quiz_result'),
     url(r'^location_choose/',views.location_choose, name= 'location_choose'),
-    url(r'^top_jobs/',views.top_jobs, name= 'top_jobs'),
+    #url(r'^top_jobs/',views.top_jobs, name= 'top_jobs'),
     url(r'^top_jobs_without_mel/',views.top_jobs_without_mel, name= 'top_jobs_without_mel'),
 #try to keep the naming same..avoids confusion
 
