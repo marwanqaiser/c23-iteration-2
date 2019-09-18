@@ -281,8 +281,8 @@
             <div class="portfolio-wrap">
               <figure>
                 <img src="{% static 'recruitassist/img/portfolio/test1.jpg'%}" class="img-fluid" alt="">
-                <a href="{% static 'recruitassist/img/portfolio/app1.jpg'%}" data-lightbox="portfolio" data-title="App 1" class="link-preview" title="Preview"><i class="ion ion-eye"></i></a>
-                <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
+                <a href="{% static 'recruitassist/img/portfolio/test1.jpg'%}" data-lightbox="portfolio" data-title="App 1" class="link-preview" title="Preview"><i class="ion ion-eye"></i></a>
+<!--                <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>-->
               </figure>
 
               <div class="portfolio-info">
@@ -297,8 +297,8 @@
             <div class="portfolio-wrap">
               <figure>
                 <img src="{% static 'recruitassist/img/portfolio/test2.jpg'%}" class="img-fluid" alt="">
-                <a href="img/portfolio/app2.jpg" class="link-preview" data-lightbox="portfolio" data-title="App 2" title="Preview"><i class="ion ion-eye"></i></a>
-                <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
+                <a href="{% static 'recruitassist/img/portfolio/test2.jpg'%}" class="link-preview" data-lightbox="portfolio" data-title="App 2" title="Preview"><i class="ion ion-eye"></i></a>
+<!--                <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>-->
               </figure>
 
               <div class="portfolio-info">
@@ -313,8 +313,8 @@
             <div class="portfolio-wrap">
               <figure>
                 <img src="{% static 'recruitassist/img/portfolio/test3.jpg'%}" class="img-fluid" alt="">
-                <a href="img/portfolio/web3.jpg" class="link-preview" data-lightbox="portfolio" data-title="Web 1" title="Preview"><i class="ion ion-eye"></i></a>
-                <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
+                <a href="{% static 'recruitassist/img/portfolio/test3.jpg'%}" class="link-preview" data-lightbox="portfolio" data-title="Web 1" title="Preview"><i class="ion ion-eye"></i></a>
+<!--                <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>-->
               </figure>
 
               <div class="portfolio-info">
@@ -328,8 +328,8 @@
             <div class="portfolio-wrap">
               <figure>
                 <img src="{% static 'recruitassist/img/portfolio/test4.jpg'%}" class="img-fluid" alt="">
-                <a href="img/portfolio/web3.jpg" class="link-preview" data-lightbox="portfolio" data-title="Web 2" title="Preview"><i class="ion ion-eye"></i></a>
-                <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
+                <a href="{% static 'recruitassist/img/portfolio/test4.jpg'%}" class="link-preview" data-lightbox="portfolio" data-title="Web 2" title="Preview"><i class="ion ion-eye"></i></a>
+<!--                <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>-->
               </figure>
 
               <div class="portfolio-info">
@@ -344,8 +344,8 @@
             <div class="portfolio-wrap">
               <figure>
                 <img src="{% static 'recruitassist/img/portfolio/test5.jpg'%}" class="img-fluid" alt="">
-                <a href="img/portfolio/card2.jpg" class="link-preview" data-lightbox="portfolio" data-title="Card 2" title="Preview"><i class="ion ion-eye"></i></a>
-                <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
+                <a href="{% static 'recruitassist/img/portfolio/test5.jpg'%}" class="link-preview" data-lightbox="portfolio" data-title="Card 2" title="Preview"><i class="ion ion-eye"></i></a>
+<!--                <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>-->
               </figure>
 
               <div class="portfolio-info">
@@ -446,9 +446,53 @@
 
 
 
-            <div id="2nd_function" style="padding:80px;position: relative;display:block;">
-           <h3>Top 10 place for your career </h3>
-          <p>Choose a job you want and see the top 10 place for your job</p>
+<!--            <div id="2nd_function" style="padding:80px;position: relative;display:block;">-->
+<!--           <h3>Top 10 place for your career </h3>-->
+<!--          <p>Choose a job you want and see the top 10 place for your job</p>-->
+
+<!--          <form action="top_jobs/" class="search-location mt-md-5" method="post" target="iframe_2">{% csrf_token %}-->
+
+
+<!--                                    	<div class="row justify-content-center">-->
+
+<!--                            			<div class="col-lg-10 align-items-end">-->
+<!--		        				<div class="form-group">-->
+<!--		          				<div class="form-field">-->
+<!--&lt;!&ndash;                                    Idk why Django will send 2 data to backend, and the data is not work as I want, I try to fix it&ndash;&gt;-->
+<!--&lt;!&ndash;                                    Using js to change the value of inbox based on if checked, it value changed but it send Yes to backend first time&ndash;&gt;-->
+<!--&lt;!&ndash;                                    send No to backend, not work&ndash;&gt;-->
+<!--&lt;!&ndash;                                    So i used 2 input box, using radio, this function seems worked.&ndash;&gt;-->
+<!--                                    <p style="font-size: 20px;"><input type="radio" id="withMel" name="withMel" value="Yes">Including Melbourne region</p>-->
+<!--                                    <p style="font-size: 20px;"><input type="radio" id="without_Mel" name="withMel" value="Yes">Excluding Melbourne region</p>-->
+<!--                                    <input style="width: 50%;height: 50%;padding: 8px 32px;border-radius: 50px" list="jobs" name="jobs" id="job_input" placeholder="e.g IT" required pattern="[a-zA-Z\s]+">-->
+<!--                                    <datalist id="jobs">-->
+<!--                                            <option value="IT"> IT </option>-->
+<!--                                            <option value="Accounting"> Accounting </option>-->
+<!--                                            <option value="Doctor"> Doctor </option>-->
+<!--                                            <option value="Engineering"> Engineering </option>-->
+<!--                                            <option value="Lawyer"> Lawyer </option>-->
+<!--                                            <option value="Medicine"> Medicine </option>-->
+<!--                                            <option value="Marketing"> Marketing </option>-->
+<!--                                            <option value="Nursing"> Nursing </option>-->
+<!--                                            <option value="Property"> Property </option>-->
+<!--                                            <option value="Retail"> Retail </option>-->
+<!--                                    </datalist>-->
+<!--                                </div>-->
+<!--                              </div>-->
+<!--                                <button  id="job_submit" style="width:20%;background:#18d26e;border-radius: 50px;color:#fff"><span>Search</span></button>-->
+<!--&lt;!&ndash;                                <button  id="job_submit_without_mel" style="width:20%;background:#18d26e;border-radius: 50px;color:#fff"><span>Without Mel</span></button>&ndash;&gt;-->
+<!--                              </div>-->
+<!--                          </div>-->
+<!--                    </form>-->
+<!--                    <iframe id="iframe_2" name="iframe_2" style="display:none;"></iframe>-->
+<!--                </div>-->
+<!--          <div id="chartContainer_jobs" style="position: relative"></div>-->
+<!--          <div id="chartContainer_jobs_without_mel" style="position: relative"></div>-->
+<!--                </div>-->
+    <div class="container text-center">
+          <div id="2nd_function" style="padding:50px;display:block;">
+         <h3 >Job shortages </h3>
+          <p style="font-size:25px;font-weight:800;">Choose a location and see the job shortages in this area</p>
 
           <form action="top_jobs/" class="search-location mt-md-5" method="post" target="iframe_2">{% csrf_token %}
 
@@ -456,14 +500,11 @@
                                     	<div class="row justify-content-center">
 
                             			<div class="col-lg-10 align-items-end">
+                                            <a style="font-size: 18px;"><input type="radio" id="withMel" name="withMel" value="Yes">Including Melbourne region</a>
+                                    <a style="font-size: 18px;"><input type="radio" id="without_Mel" name="withMel" value="Yes">Excluding Melbourne region</a>
 		        				<div class="form-group">
 		          				<div class="form-field">
-<!--                                    Idk why Django will send 2 data to backend, and the data is not work as I want, I try to fix it-->
-<!--                                    Using js to change the value of inbox based on if checked, it value changed but it send Yes to backend first time-->
-<!--                                    send No to backend, not work-->
-<!--                                    So i used 2 input box, using radio, this function seems worked.-->
-                                    <p style="font-size: 20px;"><input type="radio" id="withMel" name="withMel" value="Yes">Including Melbourne region</p>
-                                    <p style="font-size: 20px;"><input type="radio" id="without_Mel" name="withMel" value="Yes">Excluding Melbourne region</p>
+
                                     <input style="width: 50%;height: 50%;padding: 8px 32px;border-radius: 50px" list="jobs" name="jobs" id="job_input" placeholder="e.g IT" required pattern="[a-zA-Z\s]+">
                                     <datalist id="jobs">
                                             <option value="IT"> IT </option>
@@ -477,19 +518,19 @@
                                             <option value="Property"> Property </option>
                                             <option value="Retail"> Retail </option>
                                     </datalist>
+
                                 </div>
                               </div>
-                                <button  id="job_submit" style="width:20%;background:#18d26e;border-radius: 50px;color:#fff"><span>Search</span></button>
-<!--                                <button  id="job_submit_without_mel" style="width:20%;background:#18d26e;border-radius: 50px;color:#fff"><span>Without Mel</span></button>-->
+                                <button id="job_submit" style="width:10%;background:#18d26e;border-radius: 50px;"><span class="ion-ios-search"></span></button>
                               </div>
                           </div>
                     </form>
                     <iframe id="iframe_2" name="iframe_2" style="display:none;"></iframe>
-                </div>
-          <div id="chartContainer_jobs" style="position: relative"></div>
-          <div id="chartContainer_jobs_without_mel" style="position: relative"></div>
-                </div>
-
+              </div>
+            <div id="chartContainer_jobs" style="position: relative"></div>
+            <div id="chartContainer_jobs_without_mel" style="position: relative"></div>
+            </div>
+ </div>
     </section><!-- #call-to-action -->
 
       <!--==========================
@@ -539,7 +580,7 @@
 
                  <div class="container text-center">
                 <label class="Main-skill"></label>
-                    <p><span>Please select the skills you want to acquire:</span></p>
+                    <p style="color:black; font-weight:900;font-size:20px;"><span>Please select the skills you want to acquire:</span></p>
                     <a style="color:black"><input type="checkbox" name= "english"class="english"  >English skills</a>
 					<a style="color:black"><input type="checkbox" name="commuincation" class="communication">Communication skills</a>
                     <a style="color:black"><input type="checkbox" name= "interview" class="interview">Interview skills</a>

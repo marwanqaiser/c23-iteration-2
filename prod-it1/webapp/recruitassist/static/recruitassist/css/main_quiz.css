@@ -68,7 +68,6 @@ p {
 	font-family: Poppins-Regular;
 	font-size: 14px;
 	line-height: 1.7;
-	color: #666666;
 	margin: 0px;
 }
 
@@ -144,7 +143,7 @@ iframe {
   justify-content: center;
   align-items: center;
   padding: 100px;
-  background: rgba(93, 152, 215, 0.74);
+  background: rgba(16, 16, 16, 0.74);
   
 }
 
