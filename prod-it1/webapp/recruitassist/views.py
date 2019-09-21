@@ -34,7 +34,7 @@ def access_jobs(suburb):
     all_jobs=[]
     dict_of_jobs={}
     file_path = os.path.join(settings.BASE_DIR, 'recruitassist/api_data.txt')
-    with open(file_path, 'r') as filehandle:
+    with open(file_path, 'r', encoding='utf-8') as filehandle:
         for line in filehandle:
             # remove linebreak which is the last character of the string
             j = line[:-1]
@@ -58,13 +58,14 @@ def top_suburbs(job_name,flag):
     all_jobs=[]
     dict_of_jobs={}
     file_path = os.path.join(settings.BASE_DIR, 'recruitassist/api_data.txt')
-    with open(file_path, 'r') as filehandle:
+    with open(file_path, 'r',encoding='utf-8') as filehandle:
         for line in filehandle:
             # remove linebreak which is the last character of the string
             j = line[:-1]
             # add item to the list
             all_jobs.append(j)
 
+    t=job_name.split(' ')
 
     if flag=='MELB':
 
@@ -73,13 +74,14 @@ def top_suburbs(job_name,flag):
             jd=job.split(',')
             vacanay=jd[2]
             vacanay=vacanay.upper()
+            for vac in t:
 
-            if job_name.upper() in vacanay and (jd[0]!= 'Unknown' and jd[0]!='Property Jobs' and jd[0]!='Hospitality & Catering Jobs' and
-                                      jd[0]!='Customer Services Jobs' and jd[0]!='Part time Jobs') :
-                if jd[0] not in dict_of_jobs:
-                    dict_of_jobs[jd[1]]=1
-                else:
-                    dict_of_jobs[jd[1]]+=1
+                if vac.upper() in vacanay and (jd[0]!= 'Unknown' and jd[0]!='Property Jobs' and jd[0]!='Hospitality & Catering Jobs' and
+                                          jd[0]!='Customer Services Jobs' and jd[0]!='Part time Jobs') :
+                    if jd[1] not in dict_of_jobs:
+                        dict_of_jobs[jd[1]]=1
+                    else:
+                        dict_of_jobs[jd[1]]+=1
 
     else:
 
@@ -88,14 +90,15 @@ def top_suburbs(job_name,flag):
             jd=job.split(',')
             vacanay=jd[2]
             vacanay=vacanay.upper()
-
-            if job_name.upper() in vacanay and jd[1]!='Melbourne'and (jd[0]!= 'Unknown' and jd[0]!='Property Jobs' and jd[0]!='Hospitality & Catering Jobs' and
+            for vac in t:
+                if vac.upper() in vacanay and jd[1]!='Melbourne'and (jd[0]!= 'Unknown' and jd[0]!='Property Jobs' and jd[0]!='Hospitality & Catering Jobs' and
                                       jd[0]!='Customer Services Jobs' and jd[0]!='Part time Jobs') :
-                if jd[0] not in dict_of_jobs:
-                    dict_of_jobs[jd[1]]=1
-                else:
-                    dict_of_jobs[jd[1]]+=1
+                    if jd[1] not in dict_of_jobs:
+                        dict_of_jobs[jd[1]]=1
+                    else:
+                        dict_of_jobs[jd[1]]+=1
     print("final",dict_of_jobs)
+
     return (dict_of_jobs)
 
 
@@ -328,51 +331,11 @@ def top_jobs(request): #This function used in the second one show top 10 suburb 
     # Could add some locations you think is okay to the list, which is used to make comparing
     # i remore Melbourne and Geelong because there are too many data for geelong mel and mel cbd
 
-    location_list = ["Airport West", "Albert Park", "Alexandra", "Altona", "Altona Meadows", "Anglesea", "Apollo Bay",
-                     "Ararat", "Attwood", "Avoca", "Bacchus Marsh", "Ballan", "Ballarat", "Balwyn", "Bannockburn",
-                     "Beechworth", "Belgrave", "Belmont", "Benalla", "Bendigo", "Berwick", "Birchip", "Blackburn",
-                     "Boort", "Boronia", "Box Hill", "Briar Hill", "Bright", "Broadford", "Broadmeadows", "Brunswick",
-                     "Bundoora", "Bunyip", "Camberwell", "Campbellfield", "Carlton", "Casterton", "Castlemaine",
-                     "Chadestone", "Charlton", "Chelsea", "Cheltenham", "Churchill", "Clayton", "Clunes", "Cobden",
-                     "Cobram", "Coburg", "Cohuna", "Colac", "Collingwood", "Coria", "Corryong", "Cowes", "Craigieburn",
-                     "Cranbourne", "Cuogewa", "Dandenong", "Daylesford", "Docklands", "Donald", "Doncaster", "Doncaster East",
-                     "Drouin", "Drysdale", "East Geelong", "Echuca", "Edenhope", "Edithvale", "Elmore", "Elsternwick",
-                     "Eltham", "Emerald", "Ensay", "Epping", "Eskdale", "Essendon", "Euroa", "Fitzroy", "Fitzroy North",
-                     "Flemington", "Footscray", "Forster", "Frankston", "Geelong", "Gisborne", "Glen Waverley", "Glenroy",
-                     "Greensborough", "Grovedale", "Hamilton", "Hastings", "Hawthorn", "Hawthorn East", "Healesville",
-                     "Heathcote", "Heidelberg", "Heywood", "Horsham", "Hurstbridge", "Inverloch", "Kensington", "Kerang",
-                     "Kilmore", "Kinglake", "Koo Wee Rup", "Kyabram", "Kyneton", "Lake Tyers ", "Lake Entrance", "Lancefield",
-                     "Lara", "Leongatha", "Lilydale", "Lorne", "Maffra", "Maldon", "Mallacoota", "Mansfield", "Maryborough",
-                     "Marysville", "Melbourne", "Melton", "Melton South", "Merbein", "Mildura", "Mill Park", "Mitcham", "Moe",
-                     "Monbulk", "Moonee Ponds", "moorabbin", "Mooroopna", "Mordialloc", "Mornington", "Morwell", "Myrtleford",
-                     "Narre Warren", "Neerim South", "Newcomb", "Nhill", "Noble Park", "Norlane", "North Geelong", "North Melbourne",
-                     "Northcote", "Numurkah", "Oakleigh", "Ocean Grove", "Omeo", "Orbost", "Ouyen", "Pakeham", "Port Fairy",
-                     "Portarlington", "Portland", "Prahran", "Preston", "Queenscliff", "Red Cliffs", "Reservoir", "Richmond",
-                     "Ringwood", "Robinvale", "Romsey", "Rosebud", "Rosebud West", "Rowville", "Rutherglen", "Sale",
-                     "sab demo", "Sea Lake", "Sebastopol", "Seymour", "Shepparton", "South Melbourne", "Southbank",
-                     "South Yarra", "Springvale", "St Albans", "St Arnaud", "Stawell", "Sunbury", "Sunshine", "Swan Hill",
-                     "Swifts Creek", "Sydenham", "Tallangatta", "Tarneit", "Tatura", "Taylors Lakes", "Terang", "Timboon",
-                     "Torquay", "Traralgon", "Tullamarine", "Wallan", "Walwa", "Wangatatta", "Wantirna South", "Warburton",
-                     "Warracknabeal", "Warragul", "Warrnambool", "Watergardens", "Warun Ponds", "Wedderburn", "Wendouree",
-                     "Werribee", "Whittington", "Whittlesea", "Wodonga", "Wonthaggi", "Woodend", "Wycheproof", "Yarra Junction", "Yarram", "Yarrawonga", "Yea"]
-
-    for location in location_list:
-        url = "https://api.adzuna.com/v1/api/jobs/au/search/1?app_id=4cb38e73&app_key=ca142ad047eb88bae578bdca2a3eef4f&where=" + location +"&results_per_page=20&what=" + job_name + "&content-type=application/json"
-        data = requests.get(url)
-        dict = json.loads(s=data.text)
-        context[location] = dict['count'] #get the number of jobs in each area
-    # new_dict2 = {v: k for k, v in context.items()}
-    # dict_slice = lambda adict, start, end: {k: adict[k] for k in adict.keys()[start:end]}
-    # result = dict_slice(context,0,10) #The first 10 place is shown, index 0-9
-    temp = sorted(context.items(), key=lambda x: x[1], reverse=True)
-    for i in range(0,10):
-        result[temp[i][0]] = temp[i][1]
-    print(result)
-    # Pass the data to js
-    return HttpResponse(json.dumps(result))
 
 @csrf_exempt
 def top_jobs_without_mel(request): #This function used in the second one show top 10 suburb best for the job you choose
+
+
     flag= "MELB"
     if (request.POST.get('area')) == "noMelb":
         flag="no"
@@ -383,9 +346,13 @@ def top_jobs_without_mel(request): #This function used in the second one show to
     print(job_name)
     totaljobs=  top_suburbs(job_name,flag)
     temp = sorted(totaljobs.items(), key=lambda x: x[1], reverse=True)
-
-    for i in range(0,len(temp)):
-        result[temp[i][0]] = temp[i][1]
+    print ("sorted",temp)
+    if len(temp) > 10:
+        for i in range(0,10):
+            result[temp[i][0]] = temp[i][1]
+    else:
+        for i in range(0,len(temp)):
+            result[temp[i][0]] = temp[i][1]
     print(result)
     print("here")
     return HttpResponse(json.dumps(result))

@@ -64,7 +64,7 @@
 #Shortage {
     background: linear-gradient(rgba(0, 200,0, 0.1), rgba(197, 0, 10, 0.1)), url("{% static 'recruitassist/img/scenic-view-of-snowcapped-mountains-against-blue-sky-740670351-598783ea03f402001065a152.jpg'%}") fixed center center;
     background-size: cover;
-    padding: 100px 0;
+    padding: 210px 0;
 }
 #Shortage h3 {
   color: #fff;
@@ -143,16 +143,12 @@
     <div class="container-fluid">
 
       <div id="logo" class="pull-left">
-        <h1><a href="#intro" class="scrollto">Recruit Assist</a></h1>
+        <h1><a href="/" class="scrollto">Recruit Assist</a></h1>
         <!-- Uncomment below if you prefer to use an image logo -->
         <!-- <a href="#intro"><img src="img/logo.png" alt="" title="" /></a>-->
       </div>
 
-      <nav id="nav-menu-container">
-        <ul class="nav-menu">
 
-        </ul>
-      </nav><!-- #nav-menu-container -->
     </div>
   </header><!-- #header -->
 
@@ -343,18 +339,16 @@
     ============================-->
     <section id="call-to-action" class="wow fadeIn">
 
- <div class="container" id="top10_container" class="wow fadeIn">
 
+    <div class="container text-center" id="top10_container">
 
-    <div class="container text-center">
-          <div id="2nd_function" style="padding:150px;display:block;">
-                      <header class="section-header">
+          <header class="section-header">
           <h3>Top Places for your profession  </h3>
 
-        </header>
-
+            </header>
           <p>See where are you needed the most!</p>
 
+           <div id="2nd_function">
           <form id="top_jobs_without_mel" class="search-location mt-md-5" method="post" target="iframe_2">{% csrf_token %}
 
 
@@ -380,14 +374,16 @@
                               </div>
                                 <button id="job_submit_without_mel" style="width:10%;background:#18d26e;border-radius: 50px;"><span class="ion-ios-search"></span></button>
                               </div>
-                          </div>
-                    </form>
+
                     <iframe id="iframe_2" name="iframe_2" style="display:none;"></iframe>
-              </div>
-            <div id="chartContainer_jobs" style="position: relative"></div>
-            <div id="chartContainer_jobs_without_mel" style="position: relative"></div>
+
+            <div id="chartContainer_jobs" ></div>
+            <div id="chartContainer_jobs_without_mel"></div>
+                                                    </div>
+                    </form>
             </div>
- </div>
+          </div>
+
     </section><!-- #call-to-action -->
 
       <!--==========================
@@ -690,13 +686,13 @@
 
 
       <div class="container text-center">
-          <div id="1st_function" style="padding:100px;display:block;">
-                              <header class="section-header">
-          <h3>Area with skill Shortages </h3>
 
+          <header class="section-header">
+          <h3>Area with skill Shortages </h3>
         </header>
 
           <p>Choose a location and see the skill shortages in the area</p>
+            <div id="1st_function" >
 
           <form id="location_choose" class="search-location mt-md-5" method="post" target="the_iframe">{% csrf_token %}
 
@@ -934,15 +930,17 @@
                               </div>
                                 <button id="location_submit" style="width:10%;background:#18d26e;border-radius: 50px;"><span class="ion-ios-search"></span></button>
                               </div>
-                          </div>
-                    </form>
+
                     <iframe id="is_frame" name="the_iframe" style="display:none;"></iframe>
-              </div>
-            <div id="chartContainer" style="position: relative"></div>
+
+            <div id="chartContainer" ></div>
+
+                              </div>
+                    </form>
             </div>
-              </section>
+          </div>
 
-
+    </section><!--
     <div class="container">
       <div class="copyright">
         &copy; <strong>Recruit Assist - 2019</strong>.

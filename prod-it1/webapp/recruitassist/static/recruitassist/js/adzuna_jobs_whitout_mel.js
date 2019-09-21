@@ -53,7 +53,7 @@ $('#job_submit_without_mel').click(function() {
 
             animationEnabled: true,
             title: {
-                text: "Top 10 best suburb for " + $("#job_input").val()
+                text: "Top suburbs for " + $("#job_input").val()
             },
             data: [{
                 type: "pie",
