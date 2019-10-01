@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Recruit Assist</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="" name="keywords">
+  <meta content="" name="description">
+  {% load staticfiles %}
+  <!-- Favicons -->
+  <link href="{% static 'recruitassist/img/cp4.png'%}" rel="icon">
+  <link href="{% static 'recruitassist/img/apple-touch-icon.png'%}" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700" rel="stylesheet">
+
+  <!-- Bootstrap CSS File -->
+  <link href="{% static 'recruitassist/lib/bootstrap/css/bootstrap.min.css'%}" rel="stylesheet">
+
+  <!-- Libraries CSS Files -->
+  <link href="{% static 'recruitassist/lib/font-awesome/css/font-awesome.min.css'%}" rel="stylesheet">
+  <link href="{% static 'recruitassist/lib/animate/animate.min.css'%}" rel="stylesheet">
+  <link href="{% static 'recruitassist/lib/ionicons/css/ionicons.min.css'%}" rel="stylesheet">
+  <link href="{% static 'recruitassist/lib/owlcarousel/assets/owl.carousel.min.css'%}" rel="stylesheet">
+  <link href="{% static 'recruitassist/lib/lightbox/css/lightbox.min.css'%}" rel="stylesheet">
+
+  <!-- Main Stylesheet File -->
+  <link href="{% static 'recruitassist/css/style.css'%}" rel="stylesheet">
+
+  <!-- =======================================================
+    Theme Name: BizPage
+    Theme URL: https://bootstrapmade.com/bizpage-bootstrap-business-template/
+    Author: BootstrapMade.com
+    License: https://bootstrapmade.com/license/
+  ======================================================= -->
+  <style>
+    .box_select {
+      width: 60%;
+      border-color: #337ab7;
+      color: #337ab7;
+      height: 70px;
+      padding: 16px;
+      margin: 16px;
+      align-items: center;
+      border-radius: 70px;
+    }
+    .search-location .form-group button {
+      background: transparent;
+      border: none;
+      position: absolute;
+      top: 50%;
+      right: 0;
+      -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+      transform: translateY(-50%);
+      width: 70px;
+      height: 70px;
+      border-radius: 50% 50% 50%;
+      background: #4DC7A0;
+    }
+    /* Shortage Section
+--------------------------------*/
+
+#Shortage {
+    background: linear-gradient(rgba(0, 200,0, 0.1), rgba(197, 0, 10, 0.1)), url("{% static 'recruitassist/img/scenic-view-of-snowcapped-mountains-against-blue-sky-740670351-598783ea03f402001065a152.jpg'%}") fixed center center;
+    background-size: cover;
+    padding: 210px 0;
+}
+#Shortage h3 {
+  color: #fff;
+  font-size: 30px;
+  font-weight: 700;
+  padding: 40px;
+}
+
+#Shortage p {
+  color: #fff;
+}
+
+#Shortage a {
+  color: black;
+}
+
+#Shortage .cta-btn {
+  font-family: "Montserrat", sans-serif;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 8px 28px;
+  border-radius: 25px;
+  transition: 0.5s;
+  margin-top: 10px;
+  border: 2px solid #fff;
+  color: #fff;
+}
+
+#Shortage .cta-btn:hover {
+  background: #18d26e;
+  border: 2px solid #18d26e;
+}
+
+/* Shortage Section
+--------------------------------*/
+
+#chartContainer {
+            height: 400px;
+            width: 1200px;
+            margin:auto;
+            position: relative;
+            opacity: 0.8;
+        }
+
+#chartContainer_jobs {
+            height: 400px;
+            width: 1200px;
+            margin:auto;
+            position: relative;
+            opacity: 0.8;
+            display:none;
+        }
+
+#chartContainer_jobs_without_mel {
+            height: 400px;
+            width: 1200px;
+            margin:auto;
+            position: relative;
+            opacity: 0.8;
+
+        }
+
+  </style>
+</head>
+
+<body>
+
+  <!--==========================
+    Header
+  ============================-->
+  <header id="header">
+    <div class="container-fluid">
+
+      <div id="logo" class="pull-left">
+        <h1><a href="#" class="scrollto">Recruit Assist</a></h1>
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <!-- <a href="#intro"><img src="img/logo.png" alt="" title="" /></a>-->
+      </div>
+
+
+    </div>
+  </header><!-- #header -->
+
+
+   <section id="portfolio"  class="section-bg">
+      <div class="container">
+
+
+        <header class="section-header">
+          <h3 class="section-title" style="padding:60px; color:#fff">Want to improve your chances of employment in Victoria </h3>
+        </header>
+
+        <div class="row portfolio-container">
+
+            <div class="col-lg-6 col-md-12 portfolio-item filter-app wow fadeInUp" data-wow-delay="0.2s">
+            <div class="portfolio-wrap">
+              <figure>
+                <img src="{% static 'recruitassist/img/portfolio/test2.jpg'%}" class="img-fluid" alt="">
+<!--                <a href="/Homepage_skill.html/" class="link-preview" data-lightbox="portfolio" data-title="App 2" title="Preview"><i class="ion ion-eye"></i></a>-->
+<!--                <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>-->
+              </figure>
+
+              <div class="portfolio-info">
+                <h4><a href="/Homepage_skill.html/" class="btn-get-started scrollto">How to improve skills?</a></h4>
+                <p>Find how to improve your shortage skills!</p>
+              </div>
+            </div>
+          </div>
+
+           <div class="col-lg-6 col-md-12 portfolio-item filter-web wow fadeInUp" data-wow-delay="0.1s">
+            <div class="portfolio-wrap">
+              <figure>
+                <img src="{% static 'recruitassist/img/portfolio/test4.jpg'%}" class="img-fluid" alt="">
+<!--                <a href="/Homepage_job.html/" class="link-preview" data-lightbox="portfolio" data-title="Web 2" title="Preview"><i class="ion ion-eye"></i></a>-->
+<!--                <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>-->
+              </figure>
+
+              <div class="portfolio-info">
+                <h4><a href="/Homepage_job.html/" class="btn-get-started scrollto">Find more job information!</a></h4>
+                <p>See more information like job shortages or salary level!</p>
+              </div>
+            </div>
+          </div>
+
+
+
+
+        </div>
+
+      </div>
+    </section><!-- #portfolio -->
+
+  <section id="team">
+          <div class="container wow fadeInUp">
+            <div class="section-header wow fadeInUp">
+              <h3>Quick Access</h3>
+
+            </div>
+
+            <div class="row">
+
+              <div class="col-lg-3 col-md-6 wow fadeInUp">
+                <a href="/Homepage_skill.html#facts"><span style="font-size:20px; font-weight:600">Find providers</span></a>
+              </div>
+
+             <div class="col-lg-3 col-md-6 wow fadeInUp">
+                <a href="/Homepage_job.html#Shortage"><span style="font-size:20px; font-weight:600">Find Job shortages</span></a>
+              </div>
+
+              <div class="col-lg-3 col-md-6 wow fadeInUp">
+                <a href="/Homepage_job.html#call-to-action"><span style="font-size:20px; font-weight:600">Find Top suburbs</span></a>
+              </div>
+
+              <div class="col-lg-3 col-md-6 wow fadeInUp">
+                <a href="/Homepage_job.html#Salary"><span style="font-size:20px; font-weight:600">Find Salary levels</span></a>
+              </div>
+
+
+            </div>
+<!--            <div class="wow fadeInUp" data-wow-delay="0.4s">-->
+<!--            <div class="search-btn">-->
+<!--               <a href="#call-to-action" class="btn-get-started scrollto">Search Training Institutes</a>-->
+<!--            </div>-->
+<!--            </div>-->
+          </div>
+        </section>
+
+
+  <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+  <!-- Uncomment below i you want to use a preloader -->
+  <!-- <div id="preloader"></div> -->
+
+  <!-- JavaScript Libraries -->
+  <script type="text/javascript" src="{% static 'recruitassist/lib/jquery/jquery.min.js'%}"></script>
+  <!--pie chart for the 1st function-->
+  <script src="{% static 'recruitassist/js/adzuna_location.js'%}"></script>
+<!--  pie chart for the 2nd function-->
+  <script src="{% static 'recruitassist/js/adzuna_jobs_whitout_mel.js'%}"></script>
+<!--  <script src="{% static 'recruitassist/js/adzuna_jobs.js'%}"></script>-->
+
+  <script src="{% static 'recruitassist/lib/jquery/jquery.min.js'%}"></script>
+  <script src="{% static 'recruitassist/lib/jquery/jquery-migrate.min.js'%}"></script>
+  <script src="{% static 'recruitassist/lib/bootstrap/js/bootstrap.bundle.min.js'%}"></script>
+  <script src="{% static 'recruitassist/lib/easing/easing.min.js'%}"></script>
+  <script src="{% static 'recruitassist/lib/superfish/hoverIntent.js'%}"></script>
+  <script src="{% static 'recruitassist/lib/superfish/superfish.min.js'%}"></script>
+  <script src="{% static 'recruitassist/lib/wow/wow.min.js'%}"></script>
+  <script src="{% static 'recruitassist/lib/waypoints/waypoints.min.js'%}"></script>
+  <script src="{% static 'recruitassist/lib/counterup/counterup.min.js'%}"></script>
+  <script src="{% static 'recruitassist/lib/owlcarousel/owl.carousel.min.js'%}"></script>
+  <script src="{% static 'recruitassist/lib/isotope/isotope.pkgd.min.js'%}"></script>
+  <script src="{% static 'recruitassist/lib/lightbox/js/lightbox.min.js'%}"></script>
+  <script src="{% static 'recruitassist/lib/touchSwipe/jquery.touchSwipe.min.js'%}"></script>
+  <!-- Contact Form JavaScript File -->
+  <script src="{% static 'recruitassist/contactform/contactform.js'%}"></script>
+  <!-- Template Main Javascript File -->
+  <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+  <script src="{% static 'recruitassist/js/main.js'%}"></script>
+
+</body>
+</html>
+

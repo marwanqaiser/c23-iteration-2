@@ -2,7 +2,7 @@ $('#job_submit_without_mel').click(function() {
 
     var box = $(".box:checked").val();
     $.ajax({
-        url: "top_jobs_without_mel/",
+        url: "/top_jobs_without_mel/",
         method: 'POST',
         data: {
             jobs: $("#job_input").val(),
@@ -24,7 +24,7 @@ $('#job_submit_without_mel').click(function() {
             console.log(location_count)
             console.log(location_name)
 
-            var x = document.getElementById("chartContainer_jobs_without_mel");
+            var x = document.getElementById("new_result_iteration3");
             var y = document.getElementById("chartContainer_jobs");
             console.log(x.style.display)
         // hide the previous result
@@ -56,10 +56,10 @@ $('#job_submit_without_mel').click(function() {
                 text: "Top suburbs for " + $("#job_input").val()
             },
             data: [{
-                type: "pie",
-                startAngle: 240,
-                yValueFormatString: "##0\"\"",
-                indexLabel: "{label} {y}",
+                type: "column",
+                indexLabel: "{y}",
+                indexLabelPlacement: "outside",
+                indexLabelOrientation: "horizontal",
                 dataPoints: dps1
             }]
         });

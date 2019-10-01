@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Recruit Assist</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="" name="keywords">
+  <meta content="" name="description">
+  {% load staticfiles %}
+  <!-- Favicons -->
+  <link href="{% static 'recruitassist/img/cp4.png'%}" rel="icon">
+  <link href="{% static 'recruitassist/img/apple-touch-icon.png'%}" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700" rel="stylesheet">
+
+  <!-- Bootstrap CSS File -->
+  <link href="{% static 'recruitassist/lib/bootstrap/css/bootstrap.min.css'%}" rel="stylesheet">
+
+  <!-- Libraries CSS Files -->
+  <link href="{% static 'recruitassist/lib/font-awesome/css/font-awesome.min.css'%}" rel="stylesheet">
+  <link href="{% static 'recruitassist/lib/animate/animate.min.css'%}" rel="stylesheet">
+  <link href="{% static 'recruitassist/lib/ionicons/css/ionicons.min.css'%}" rel="stylesheet">
+  <link href="{% static 'recruitassist/lib/owlcarousel/assets/owl.carousel.min.css'%}" rel="stylesheet">
+  <link href="{% static 'recruitassist/lib/lightbox/css/lightbox.min.css'%}" rel="stylesheet">
+
+  <!-- Main Stylesheet File -->
+  <link href="{% static 'recruitassist/css/style.css'%}" rel="stylesheet">
+
+  <!-- =======================================================
+    Theme Name: BizPage
+    Theme URL: https://bootstrapmade.com/bizpage-bootstrap-business-template/
+    Author: BootstrapMade.com
+    License: https://bootstrapmade.com/license/
+  ======================================================= -->
+  <style>
+    .box_select {
+      width: 60%;
+      border-color: #337ab7;
+      color: #337ab7;
+      height: 70px;
+      padding: 16px;
+      margin: 16px;
+      align-items: center;
+      border-radius: 70px;
+    }
+    .search-location .form-group button {
+      background: transparent;
+      border: none;
+      position: absolute;
+      top: 50%;
+      right: 0;
+      -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+      transform: translateY(-50%);
+      width: 70px;
+      height: 70px;
+      border-radius: 50% 50% 50%;
+      background: #4DC7A0;
+    }
+    /* Shortage Section
+--------------------------------*/
+
+#Shortage {
+    background: linear-gradient(rgba(0, 200,0, 0.1), rgba(197, 0, 10, 0.1)), url("{% static 'recruitassist/img/scenic-view-of-snowcapped-mountains-against-blue-sky-740670351-598783ea03f402001065a152.jpg'%}") fixed center center;
+    background-size: cover;
+    padding: 210px 0;
+}
+#Shortage h3 {
+  color: #fff;
+  font-size: 30px;
+  font-weight: 700;
+  padding: 40px;
+}
+
+#Shortage p {
+  color: #fff;
+}
+
+#Shortage a {
+  color: black;
+}
+
+#Shortage .cta-btn {
+  font-family: "Montserrat", sans-serif;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 8px 28px;
+  border-radius: 25px;
+  transition: 0.5s;
+  margin-top: 10px;
+  border: 2px solid #fff;
+  color: #fff;
+}
+
+#Shortage .cta-btn:hover {
+  background: #18d26e;
+  border: 2px solid #18d26e;
+}
+
+/* Shortage Section
+--------------------------------*/
+
+/* Salary Section
+--------------------------------*/
+
+#Salary {
+    background: linear-gradient(rgba(0, 200,0, 0.1), rgba(197, 0, 10, 0.1)), url("{% static 'recruitassist/img/scenic-view-of-snowcapped-mountains-against-blue-sky-740670351-598783ea03f402001065a152.jpg'%}") fixed center center;
+    background-size: cover;
+    padding: 210px 0;
+}
+#Salary h3 {
+  color: #fff;
+  font-size: 30px;
+  font-weight: 700;
+  padding: 40px;
+}
+
+#Salary p {
+  color: #fff;
+}
+
+#Salary a {
+  color: black;
+}
+
+#Salary .cta-btn {
+  font-family: "Montserrat", sans-serif;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 8px 28px;
+  border-radius: 25px;
+  transition: 0.5s;
+  margin-top: 10px;
+  border: 2px solid #fff;
+  color: #fff;
+}
+
+#Salary .cta-btn:hover {
+  background: #18d26e;
+  border: 2px solid #18d26e;
+}
+
+#chartContainer_salary {
+            height: 400px;
+            width: 1200px;
+            margin:auto;
+            position: relative;
+            opacity: 0.8;
+        }
+
+/* Salary Section
+--------------------------------*/
+
+#chartContainer {
+            height: 400px;
+            width: 1200px;
+            margin:auto;
+            position: relative;
+            opacity: 0.8;
+        }
+
+#chartContainer_jobs {
+            height: 400px;
+            width: 1200px;
+            margin:auto;
+            position: relative;
+            opacity: 0.8;
+            display:none;
+        }
+
+#chartContainer_jobs_without_mel {
+            height: 400px;
+            width: 1200px;
+            margin:auto;
+            position: relative;
+            opacity: 0.8;
+
+        }
+
+  </style>
+</head>
+
+<body>
+
+  <!--==========================
+    Header
+  ============================-->
+  <header id="header">
+    <div class="container-fluid">
+
+      <div id="logo" class="pull-left">
+        <h1><a href="/Homepage_final_version.html" class="scrollto">Recruit Assist</a></h1>
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <!-- <a href="#intro"><img src="img/logo.png" alt="" title="" /></a>-->
+      </div>
+
+
+    </div>
+  </header><!-- #header -->
+
+
+   <section id="portfolio"  class="section-bg">
+      <div class="container">
+
+
+        <header class="section-header">
+          <h3 class="section-title" style="padding:60px; color:#fff">Want to improve your chances of employment in Victoria </h3>
+        </header>
+
+        <div class="row portfolio-container">
+
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-app wow fadeInUp" data-wow-delay="0.2s">
+            <div class="portfolio-wrap">
+              <figure>
+                <img src="{% static 'recruitassist/img/How-to-determine-annual-salary-for-a-company_2.jpg'%}" class="img-fluid" alt="">
+<!--                <a href="#salary" class="link-preview" data-lightbox="portfolio" data-title="App 2" title="Preview"><i class="ion ion-eye"></i></a>-->
+<!--                <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>-->
+              </figure>
+
+              <div class="portfolio-info">
+                <h4><a href="#salary" class="btn-get-started scrollto">Find salary level?</a></h4>
+                <p>Get information about different jobs in different suburb!</p>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-web wow fadeInUp" data-wow-delay="0.1s">
+            <div class="portfolio-wrap">
+              <figure>
+                <img src="{% static 'recruitassist/img/portfolio/test3.jpg'%}" class="img-fluid" alt="">
+<!--                <a href="#Shortage" class="link-preview" data-lightbox="portfolio" data-title="Web 1" title="Preview"><i class="ion ion-eye"></i></a>-->
+<!--                <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>-->
+              </figure>
+
+              <div class="portfolio-info">
+                <h4><a href="#Shortage" class="btn-get-started scrollto">Skill shortage by Suburb</a></h4>
+                <p>See job market of a particular suburb</p>
+              </div>
+            </div>
+          </div>
+
+              <div class="col-lg-4 col-md-6 portfolio-item filter-web wow fadeInUp" data-wow-delay="0.1s">
+            <div class="portfolio-wrap">
+              <figure>
+                <img src="{% static 'recruitassist/img/portfolio/test4.jpg'%}" class="img-fluid" alt="">
+<!--                <a href="#top10_container" class="link-preview" data-lightbox="portfolio" data-title="Web 2" title="Preview"><i class="ion ion-eye"></i></a>-->
+<!--                <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>-->
+              </figure>
+
+              <div class="portfolio-info">
+                <h4><a href="#top10_container" class="btn-get-started scrollto">Top suburbs by profession</a></h4>
+                <p>See where you are in demand</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- #portfolio -->
+
+  <section id="team">
+          <div class="container wow fadeInUp">
+            <div class="section-header wow fadeInUp">
+              <h3>Skills that can land you a dream job!</h3>
+              <p>Click images below to find out more!</p>
+
+            </div>
+
+            <div class="row">
+
+              <div class="col-lg-3 col-md-6 wow fadeInUp">
+                <div class="member">
+                  <img src="{% static 'recruitassist/img/846-05648152en_Masterfile.jpg'%}" class="img-fluid" alt="">
+                  <div class="member-info">
+                    <div class="member-info-content">
+                      <a href="https://www.deccanherald.com/content/249714/importance-english-employment.html" target="_blank"><h4>English Skill</h4></a>
+                      <span>Importance of English in employment</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="member">
+                  <img src="{% static 'recruitassist/img/techincal.jpg'%}" class="img-fluid" alt="">
+                  <div class="member-info">
+                    <div class="member-info-content">
+                      <a href="https://www.thebalancecareers.com/technical-skills-list-2063775" target="_blank"><h4>Technical Skill</h4></a>
+                      <span>Importance of Technical Skills</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
+                <div class="member">
+                  <img src="{% static 'recruitassist/img/talking-to-yourself-Man-talking-himself-large-bigstock--768x1024.jpg'%}" class="img-fluid" alt="">
+                  <div class="member-info">
+                    <div class="member-info-content">
+                      <a href="https://shirleytaylor.com/shirleys-articles/why-are-communication-skills-important/" target="_blank"><h4>Communication Skills</h4></a>
+                      <span>Why are Communication Skills Important?</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                <div class="member">
+                  <img src="{% static 'recruitassist/img/interview.jpg'%}" class="img-fluid" alt="">
+                  <div class="member-info">
+                    <div class="member-info-content">
+                      <a href="https://umdcareers.wordpress.com/2013/10/17/why-interviewing-skills-are-important/" target="_blank"><h4>Interview Skills</h4></a>
+                      <span>How important are Interview Skills?</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+            </div>
+<!--            <div class="wow fadeInUp" data-wow-delay="0.4s">-->
+<!--            <div class="search-btn">-->
+<!--               <a href="#call-to-action" class="btn-get-started scrollto">Search Training Institutes</a>-->
+<!--            </div>-->
+<!--            </div>-->
+          </div>
+        </section>
+
+<!--  <main id="main">-->
+
+    <!--==========================
+      Featured Services Section
+    ============================-->
+
+
+
+    <!--==========================
+      Call To Action Section
+    ============================-->
+    <section id="call-to-action" class="wow fadeIn">
+
+
+    <div class="container text-center" id="top10_container">
+
+          <header class="section-header">
+          <h3>Top Places for your profession  </h3>
+
+            </header>
+          <p>See where are you needed the most!</p>
+
+           <div id="2nd_function">
+          <form id="top_jobs_without_mel" class="search-location mt-md-5" method="post" target="iframe_2">{% csrf_token %}
+
+
+                                    	<div class="row justify-content-center">
+
+                            			<div class="col-lg-10 align-items-end">
+                                            <a style="font-size: 15px;"><input type="radio" class="box" name="box" value="Melb">Including Melbourne region</a>
+                                    <a style="font-size: 15px;"><input type="radio" class="box" name="box" value="noMelb">Excluding Melbourne region</a>
+		        				<div class="form-group">
+		          				<div class="form-field">
+
+                                    <input style="width: 50%;height: 50%;padding: 8px 32px;border-radius: 50px" list="jobs" name="jobs" id="job_input" placeholder="e.g IT" required pattern="[a-zA-Z\s]+">
+                                    <datalist id="jobs">
+                                            <option value="Accounting"> Accounting</option>
+                                            <option value="Admin"> Admin</option>
+                                            <option value="IT"> IT</option>
+                                            <option value="Consultancy"> Consultancy </option>
+                                            <option value="Property"> Property </option>
+                                            <option value="Teaching"> Teaching </option>
+                                            <option value="Retail"> Retail </option>
+
+                                    </datalist>
+
+                                </div>
+                              </div>
+                                <button id="job_submit_without_mel" style="width:10%;background:#18d26e;border-radius: 50px;"><span class="ion-ios-search"></span></button>
+                              </div>
+
+                    <iframe id="iframe_2" name="iframe_2" style="display:none;"></iframe>
+
+            <div id="chartContainer_jobs" ></div>
+            <div id="new_result_iteration3" style="display:none">
+            <div id="chartContainer_jobs_without_mel"></div>
+            <div class="table-repsonsive" >
+	<table class=table>
+                    <thead>
+                    <tr class="table100-head">
+                        <th class="column1">Institute</th>
+                        <th class="column2">URL</th>
+                        <th class="column3">Contact</th>
+                        <th class="column4">Email</th>
+                        <th class="column5">Street</th>
+                        <th class="column6">Suburb</th>
+                        <th class="column7">State</th>
+                        <th class="column8">Postcode</th>
+                    </tr>
+                    </thead>
+                </table>
+            </div>
+            </div>
+                                                    </div>
+                    </form>
+            </div>
+          </div>
+
+    </section><!-- #call-to-action -->
+
+      <!--==========================
+      Facts Section
+    ============================-->
+    <section id="facts"  class="wow fadeIn">
+      <div class="container">
+
+        <header class="section-header">
+          <h3>Our job information</h3>
+
+        </header>
+
+        <div class="row counters">
+
+  				<div class="col-lg-3 col-6 text-center">
+            <span data-toggle="counter-up">500</span>
+            <p>above locations</p>
+  				</div>
+
+             <div class="col-lg-3 col-6 text-center">
+            <span data-toggle="counter-up">10</span>
+            <p>Job category</p>
+  				</div>
+
+          <div class="col-lg-3 col-6 text-center">
+            <span data-toggle="counter-up">200,000</span>
+            <p>Job amount</p>
+  				</div>
+
+
+          <div class="col-lg-3 col-6 text-center">
+            <span data-toggle="counter-up">5</span>
+            <p>Victorian Reigons</p>
+  				</div>
+
+  			</div>
+        <div class="facts-img">
+          <img src="{% static 'recruitassist/img/facts-img.png'%}" alt="" class="img-fluid">
+        </div>
+
+      </div>
+    </section><!-- #facts -->
+
+      <!--==========================
+      Shortage
+    ============================-->
+    <section id="Shortage" class="wow fadeIn">
+
+
+      <div class="container text-center">
+
+          <header class="section-header">
+          <h3>Area with skill Shortages </h3>
+        </header>
+
+          <p>Choose a location and see the skill shortages in the area</p>
+            <div id="1st_function" >
+
+          <form id="location_choose" class="search-location mt-md-5" method="post" target="the_iframe"> {% csrf_token %}
+
+
+                                    	<div class="row justify-content-center">
+
+                            			<div class="col-lg-10 align-items-end">
+		        				<div class="form-group">
+		          				<div class="form-field">
+
+                                    <input style="width: 50%;height: 50%;padding: 8px 32px;border-radius: 50px" list="suburbs" name="suburbs" id="location_input" placeholder="e.g Geelong" required pattern="[a-zA-Z\s]+">
+                                    <datalist id="suburbs">
+                                            <option value="Melbourne"> Melbourne Region</option>
+                                            <option value="Geelong"> Geelong Region</option>
+                                            <option value="La Trobe"> La Trobe Region</option>
+                                            <option value="Bendigo"> Bendigo Region</option>
+                                            <option value="Shepparton"> Shepparton Region</option>
+                                            <option value="Ballarat"> Ballarat Region</option>
+                                            <option value="Mildura"> Mildura Region</option>
+                                            <option value="Warrnambool"> Warrnambool Region</option>
+                                            <option value="Horsham"> Horsham Region</option>
+                                            <option value="Wodonga"> Wodonga Region</option>
+                                    </datalist>
+
+                                </div>
+                              </div>
+                                <button id="location_submit" style="width:10%;background:#18d26e;border-radius: 50px;"><span class="ion-ios-search"></span></button>
+                              </div>
+
+                    <iframe id="is_frame" name="the_iframe" style="display:none;"></iframe>
+             <div id="full_result" style="display:none">
+            <div id="chartContainer" ></div>
+                 <a href="/Homepage_skill.html#facts" class="btn-success" style="width:25%;padding:10px;font-size:20px;color:#fff;background:#18d26e;border-radius: 50px;"><span>Back to provider!</span></a>
+            </div>
+                              </div>
+                    </form>
+            </div>
+          </div>
+
+    </section>
+
+   <section id="Salary" class="wow fadeIn">
+
+
+      <div class="container text-center">
+
+          <header class="section-header">
+          <h3>Area with skill Shortages </h3>
+        </header>
+
+          <p>Choose a location and see the skill shortages in the area</p>
+
+          <form id="Salary_information" class="search-location mt-md-5" method="post" target="the_iframe_2"> {% csrf_token %}
+
+
+                                    	<div class="row justify-content-center">
+
+                            			<div class="col-lg-10 align-items-end">
+		        				<div class="form-group">
+		          				<div class="form-field">
+                                <div class="row">
+                                    <input style="width: 50%;height: 50%;padding: 8px 32px;border-radius: 50px" list="category" name="suburbs" id="job_title_input" placeholder="e.g IT" required pattern="[a-z-A-Z\s]+">
+                                    <datalist id="category">
+                                            <option value="it-jobs"> it-jobs</option>
+                                            <option value="admin-jobs"> admin-jobs</option>
+                                            <option value="consultancy-jobs"> consultancy-jobs</option>
+                                            <option value="property-jobs"> property-jobs</option>
+                                            <option value="teaching-jobs"> teaching-jobs</option>
+                                            <option value="retail-jobs">retail-jobs</option>
+                                    </datalist>
+                                    <input style="width: 50%;height: 50%;padding: 8px 32px;border-radius: 50px" list="suburbs" name="suburbs" id="suburb_input" placeholder="e.g Geelong" required pattern="[a-zA-Z\s]+">
+
+                                </div>
+
+                                </div>
+                              </div>
+                                <button id="salary_submit" style="width:10%;background:#18d26e;border-radius: 50px;"><span class="ion-ios-search"></span></button>
+                              </div>
+
+                    <iframe id="is_frame_2" name="the_iframe_2" style="display:none;"></iframe>
+             <div id="full_result_2" style="display:none">
+            <div id="chartContainer_salary" ></div>
+            </div>
+                              </div>
+                    </form>
+          </div>
+
+    </section>
+  <!--
+    <div class="container">
+      <div class="copyright">
+        &copy; <strong>Recruit Assist - 2019</strong>.
+      </div>
+      <div class="credits">
+          All the links in the footer should remain intact.
+          You can delete the links only if you purchased the pro version.
+          Licensing information: https://bootstrapmade.com/license/
+          Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=BizPage
+        -->
+<!--        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>-->
+<!-- #footer -->
+
+  <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+  <!-- Uncomment below i you want to use a preloader -->
+  <!-- <div id="preloader"></div> -->
+
+  <!-- JavaScript Libraries -->
+  <script type="text/javascript" src="{% static 'recruitassist/lib/jquery/jquery.min.js'%}"></script>
+  <!--pie chart for the 1st function-->
+  <script src="{% static 'recruitassist/js/adzuna_location.js'%}"></script>
+<!--  pie chart for the 2nd function-->
+  <script src="{% static 'recruitassist/js/adzuna_jobs_whitout_mel.js'%}"></script>
+<!--  <script src="{% static 'recruitassist/js/adzuna_jobs.js'%}"></script>-->
+  <script src="{% static 'recruitassist/js/adzuna_salary.js'%}"></script>
+  <script src="{% static 'recruitassist/lib/jquery/jquery.min.js'%}"></script>
+  <script src="{% static 'recruitassist/lib/jquery/jquery-migrate.min.js'%}"></script>
+  <script src="{% static 'recruitassist/lib/bootstrap/js/bootstrap.bundle.min.js'%}"></script>
+  <script src="{% static 'recruitassist/lib/easing/easing.min.js'%}"></script>
+  <script src="{% static 'recruitassist/lib/superfish/hoverIntent.js'%}"></script>
+  <script src="{% static 'recruitassist/lib/superfish/superfish.min.js'%}"></script>
+  <script src="{% static 'recruitassist/lib/wow/wow.min.js'%}"></script>
+  <script src="{% static 'recruitassist/lib/waypoints/waypoints.min.js'%}"></script>
+  <script src="{% static 'recruitassist/lib/counterup/counterup.min.js'%}"></script>
+  <script src="{% static 'recruitassist/lib/owlcarousel/owl.carousel.min.js'%}"></script>
+  <script src="{% static 'recruitassist/lib/isotope/isotope.pkgd.min.js'%}"></script>
+  <script src="{% static 'recruitassist/lib/lightbox/js/lightbox.min.js'%}"></script>
+  <script src="{% static 'recruitassist/lib/touchSwipe/jquery.touchSwipe.min.js'%}"></script>
+  <!-- Contact Form JavaScript File -->
+  <script src="{% static 'recruitassist/contactform/contactform.js'%}"></script>
+  <!-- Template Main Javascript File -->
+  <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+  <script src="{% static 'recruitassist/js/main.js'%}"></script>
+
+</body>
+</html>
+

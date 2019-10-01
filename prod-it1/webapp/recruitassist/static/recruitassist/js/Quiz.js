@@ -1,10 +1,10 @@
 
 function myFunction() {
     var x = document.getElementById("team");
-    if (x.style.display === "none") {
-        x.style.display = "block";
-    } else {
+    if (x.style.display === "block") {
         x.style.display = "none";
+    } else {
+        x.style.display = "block";
     }
     var recommendation1 = document.getElementById("recommendation1");
     var recommendation2 = document.getElementById("recommendation2");
@@ -28,17 +28,6 @@ function myFunction() {
         english.style.display = 'none';
         english_result.style.display = 'none';
     }
-//    var q3 =document.getElementsByName("Question3");
-//    var technical = document.getElementById("Technical");
-//    var technical_result = document.getElementById("Technical_result");
-//    if (q3[0].checked) {
-//        technical.style.display = 'block';
-//        technical_result.style.display = 'block';
-//    }
-//    else {
-//        technical.style.display = 'none';
-//        technical_result.style.display = 'none';
-//    }
     var q3 =document.getElementsByName("question3_choice");
     var interview = document.getElementById("Interview");
     var interview_result = document.getElementById("Interview_result");

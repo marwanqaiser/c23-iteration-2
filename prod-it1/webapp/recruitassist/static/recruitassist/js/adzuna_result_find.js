@@ -1,9 +1,12 @@
-$('#location_submit').click(function() {
+$('#find_submit').click(function() {
+    var suburb_input = document.getElementById("result").rows[1].cells[5].innerHTML;
+    suburb_input = suburb_input[0].toUpperCase() + suburb_input.slice(1,suburb_input.length).toLowerCase();
+    console.log(suburb_input)
     $.ajax({
         url: "/location_choose/",
         method: 'POST',
         data: {
-            suburb: $("#location_input").val(),
+            suburb: suburb_input,
             click: true
         },
         success: function (data) {
@@ -21,16 +24,9 @@ $('#location_submit').click(function() {
             console.log(dic_count[0])
             console.log(dic_name[0])
 
-            var x = document.getElementById("full_result");
-            console.log(x.style.display)
-        if ((x.style.display == "") || (x.style.display == "none")){
-            console.log("get in if")
-            x.style.display = "block";
-        }
         console.log("start piechart")
         if (len.length == 0) {
-                x.style.display = "none";
-                alert("Oops！" + $("#location_input").val() + " seems doesn't have job shortage! Do you want to try other place?")
+                alert("Oops！" + $("#location_input").val() + " seems doesn't have job shortage!")
         }
         else {
         var chart = new CanvasJS.Chart("chartContainer", {
@@ -68,14 +64,3 @@ $('#location_submit').click(function() {
         }
     });
 });
-
-function hide_location_result() {
-    var location_search = document.getElementById("1stfunction");
-    var location_result = document.getElementById("location_result");
-    var job_search = document.getElementById("2ndfunction");
-    if (x.style.display === "none") {
-        x.style.display = "block";
-    } else {
-        x.style.display = "none";
-    }
-}

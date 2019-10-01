@@ -30,6 +30,15 @@ def about_us (request):
 def quiz(request):
     return render(request, 'recuritassist/quiz.html')   # this returns the  quiz.html page back to the website
 
+def Homepage_fianl_version(request):
+    return render(request, 'recuritassist/Homepage_final_version.html')   # this returns the  quiz.html page back to the website
+
+def Homepage_job(request):
+    return render(request, 'recuritassist/Homepage_job.html')   # this returns the  quiz.html page back to the website
+
+def Homepage_skill(request):
+    return render(request, 'recuritassist/Homepage_skill.html')   # this returns the  quiz.html page back to the website
+
 def access_jobs(suburb):
     all_jobs=[]
     dict_of_jobs={}
@@ -310,7 +319,7 @@ def location_choose(request): #This function used in the first one show the job 
     result = {}
     totaljobs=0
     location_name = request.POST.get('suburb')
-
+    print(location_name)
     totaljobs= access_jobs(location_name)
 
     temp = sorted(totaljobs.items(), key=lambda x: x[1], reverse=True)
@@ -320,6 +329,17 @@ def location_choose(request): #This function used in the first one show the job 
     print(result)
 
     return HttpResponse(json.dumps(result))
+
+@csrf_exempt
+def salary_information(request): #This function used in the first one show the job shortage in one location
+    print(request.POST)
+    location = request.POST.get('suburb')
+    category = request.POST.get('category')
+    url = "http://api.adzuna.com/v1/api/jobs/au/history?app_id=4cb38e73&app_key=ca142ad047eb88bae578bdca2a3eef4f&where=" + location + "&category=" + category + "&content-type=application/json"
+    data = requests.get(url).json()
+    salary = data.get('month')
+    print(salary)
+    return HttpResponse(json.dumps(salary))
 
 @csrf_exempt
 def top_jobs(request): #This function used in the second one show top 10 suburb best for the job you choose

@@ -37,6 +37,14 @@
         .container-table100 {
             background-image: url("{% static 'recruitassist/img/intro-carousel/result_bg.jpg'%}");
         }
+
+        #chartContainer {
+            height: 400px;
+            width: 1200px;
+            margin:auto;
+            position: relative;
+            opacity: 0.8;
+        }
     </style>
 </head>
 <body>
@@ -107,7 +115,7 @@
 <!--        {% endblock %}-->
 <!--         </p>-->
     <div class="table-repsonsive" >
-	<table class=table>
+	<table class=table id="result">
                     <thead>
                     <tr class="table100-head">
                         <th class="column1">Institute</th>
@@ -141,7 +149,9 @@
                                             <div class="container text-left">
 
                                              <a href="#nearby" class="btn-get-started scrollto">see nearby providers</a>
+                                                <button id="find_submit" class="btn-get-started scrollto">see job shortage in this area</button>
                                             </div>
+                    <div id="chartContainer" ></div>
                     </div>
 </section>
 <section id="nearby">
@@ -187,6 +197,7 @@
 
 <script src="{% static 'recruitassist/lib/jquery/jquery.min.js'%}"></script>
 <script src="{% static 'recruitassist/lib/jquery/jquery-migrate.min.js'%}"></script>
+<script src="{% static 'recruitassist/js/adzuna_result_find.js'%}"></script>
 <script src="{% static 'recruitassist/lib/bootstrap/js/bootstrap.bundle.min.js'%}"></script>
 <script src="{% static 'recruitassist/lib/easing/easing.min.js'%}"></script>
 <script src="{% static 'recruitassist/lib/superfish/hoverIntent.js'%}"></script>
@@ -200,7 +211,7 @@
 <script src="{% static 'recruitassist/lib/touchSwipe/jquery.touchSwipe.min.js'%}"></script>
 <!-- Contact Form JavaScript File -->
 <script src="{% static 'recruitassist/contactform/contactform.js'%}"></script>
-
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 <!-- Template Main Javascript File -->
 <script src="{% static 'recruitassist/js/main.js'%}"></script>
 <script src="{% static 'recruitassist/js/main_table.js'%}"></script>
