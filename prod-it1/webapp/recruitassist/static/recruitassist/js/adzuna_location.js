@@ -33,6 +33,12 @@ $('#location_submit').click(function() {
                 alert("Oops！" + $("#location_input").val() + " seems doesn't have job shortage! Do you want to try other place?")
         }
         else {
+
+        var dps1 = [];
+        for(var i = 0; i < dic_count.length; i++) {
+        dps1.push({y: dic_count[i], label: dic_name[i]});
+
+        }
         var chart = new CanvasJS.Chart("chartContainer", {
 
 //            animationEnabled: true,
@@ -45,18 +51,7 @@ $('#location_submit').click(function() {
                 indexLabel: "{y}",
                 indexLabelPlacement: "outside",
                 indexLabelOrientation: "horizontal",
-                dataPoints: [
-                    {y: dic_count[0], label: dic_name[0]},
-                    {y: dic_count[1] , label: dic_name[1]},
-                    {y: dic_count[2] , label: dic_name[2]},
-                    {y: dic_count[3] , label: dic_name[3]},
-                    {y: dic_count[4] , label: dic_name[4]},
-                    {y: dic_count[5] , label: dic_name[5]},
-                    {y: dic_count[6] , label: dic_name[6]},
-                    {y: dic_count[7] , label: dic_name[7]},
-                    {y: dic_count[8] , label: dic_name[8]},
-                    {y: dic_count[9] , label: dic_name[9]}
-                ]
+                dataPoints: dps1
             }]
         });
 

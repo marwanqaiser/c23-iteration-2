@@ -10,7 +10,7 @@ from django.conf import settings
 
 
 def index(request):
-   return render(request, 'recuritassist/Homepage-IE.html')
+   return render(request, 'recuritassist/Homepage_final_version.html')
 
 def seek(request):
 
@@ -333,13 +333,16 @@ def location_choose(request): #This function used in the first one show the job 
 @csrf_exempt
 def salary_information(request): #This function used in the first one show the job shortage in one location
     print(request.POST)
+    temp={}
     location = request.POST.get('suburb')
     category = request.POST.get('category')
     url = "http://api.adzuna.com/v1/api/jobs/au/history?app_id=4cb38e73&app_key=ca142ad047eb88bae578bdca2a3eef4f&where=" + location + "&category=" + category + "&content-type=application/json"
     data = requests.get(url).json()
     salary = data.get('month')
-    print(salary)
-    return HttpResponse(json.dumps(salary))
+    for key in sorted(salary.keys()):
+        temp[key]=salary[key]
+    print(temp)
+    return HttpResponse(json.dumps(temp))
 
 @csrf_exempt
 def top_jobs(request): #This function used in the second one show top 10 suburb best for the job you choose
