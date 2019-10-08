@@ -33,11 +33,7 @@ $('#job_submit_without_mel').click(function() {
             y.style.display = "none";
         }
 
-        //show the result if first time run
-        if ((x.style.display == "") || (x.style.display == "none")){
-            console.log("get in if")
-            x.style.display = "block";
-        }
+
         console.log("start piechart")
         if (len.length == 0) {
                 x.style.display = "none";
@@ -46,7 +42,7 @@ $('#job_submit_without_mel').click(function() {
         else {
         var dps1 = [];
         for(var i = 0; i < location_count.length; i++) {
-        dps1.push({y: location_count[i], label: location_name[i]});
+        dps1.push({y: location_count[i], label: location_name[i], click:onClick});
 
         }
         var chart_jobs_without_mel = new CanvasJS.Chart("chartContainer_jobs_without_mel", {
@@ -69,6 +65,49 @@ $('#job_submit_without_mel').click(function() {
         if (len.length > 0) {
         chart_jobs_without_mel.render();
         }
+        function onClick(e){
+
+        //show the result if first time run
+        if ((x.style.display == "") || (x.style.display == "none")){
+            console.log("get in if")
+            x.style.display = "block";
+        }
+		alert(  e.dataSeries.type+ ", dataPoint { position:" + e.dataPoint.label + ", y: "+ e.dataPoint.y + " }" );
+        var table = document.getElementById("shortage_table");
+        $("#shortage_table  tr:not(:first)").html("");
+        var per = [
+  			{id:001,name:'a',job:'ad'},
+			{id:002,name:'b',job:'ap'},
+			{id:003,name:'c',job:'bot'}
+			];
+        for(var i = 0;i < per.length; i++){
+         oneRow = table.insertRow();
+         cell1= oneRow.insertCell();
+         cell2= oneRow.insertCell();
+         cell3= oneRow.insertCell();
+         cell4= oneRow.insertCell();
+         cell1.innerHTML = per[i]["id"];
+         cell2.innerHTML= per[i]["name"];
+         cell3.innerHTML = per[i]["job"];
+         cell4.innerHTML= i;
+         }
+//		$.ajax({
+//                url: {% url 'scene_update_url' %},
+//                type: "POST",
+//                data: {
+//                    location: e.dataPoint.label
+//                },
+//                success: function (data) {
+//                    data = JSON.parse(data);
+//                    if (data["status"] == 1) {
+//                        setSceneTd(data["result"], scece_name, td);
+//                    } else {
+//                        alert(data["result"]);
+//                    }
+//                }
+//            });
+
+	    }
         }
     });
 });

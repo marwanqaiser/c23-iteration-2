@@ -12,6 +12,9 @@ from django.conf import settings
 def index(request):
    return render(request, 'recuritassist/Homepage_final_version.html')
 
+def password(request):
+   return render(request, 'recuritassist/password.html')
+
 def seek(request):
 
     return render(request, 'recuritassist/SeekSuburb-index.html')
