@@ -1,10 +1,12 @@
+
+
 /*//////////////////////////////////////////////////////////////////
 [ FONT ]*/
 
 
 @font-face {
   font-family: OpenSans-Regular;
-  src: url('../fonts/OpenSans/OpenSans-Regular.ttf');
+  src: url('../fonts/OpenSans/OpenSans-Regular.ttf'); 
 }
 
 
@@ -12,8 +14,8 @@
 /*//////////////////////////////////////////////////////////////////
 [ RESTYLE TAG ]*/
 * {
-	margin: 0px;
-	padding: 0px;
+	margin: 0px; 
+	padding: 0px; 
 	box-sizing: border-box;
 }
 
@@ -103,11 +105,11 @@ iframe {
 .container-table100 {
   width: 100%;
   min-height: 100vh;
-  background: #0b0b0b;
-  background: -webkit-linear-gradient(45deg, #0b0b0b, #36304a);
-  background: -o-linear-gradient(45deg, #0b0b0b, #36304a);
-  background: -moz-linear-gradient(45deg, #0b0b0b, #36304a);
-  background: linear-gradient(45deg, #0b0b0b, #36304a);
+  background: #c850c0;
+  background: -webkit-linear-gradient(45deg, #4158d0, #c850c0);
+  background: -o-linear-gradient(45deg, #4158d0, #c850c0);
+  background: -moz-linear-gradient(45deg, #4158d0, #c850c0);
+  background: linear-gradient(45deg, #4158d0, #c850c0);
 
   display: -webkit-box;
   display: -webkit-flex;
@@ -232,7 +234,7 @@ tbody tr:hover {
   }
   table tbody tr {
     height: auto;
-    padding: 30px 0;
+    padding: 37px 0;
   }
   table tbody tr td {
     padding-left: 40% !important;
@@ -244,7 +246,7 @@ tbody tr:hover {
   table tbody tr td:before {
     font-family: OpenSans-Regular;
     font-size: 14px;
-    color: #666666;
+    color: #999999;
     line-height: 1.2;
     font-weight: unset;
     position: absolute;
@@ -253,36 +255,28 @@ tbody tr:hover {
     top: 0;
   }
   table tbody tr td:nth-child(1):before {
-    content: "Name";
-    color:black;
+    content: "Institute";
   }
   table tbody tr td:nth-child(2):before {
     content: "URL";
-    color:black;
   }
   table tbody tr td:nth-child(3):before {
     content: "Contact";
-    color:black;
   }
   table tbody tr td:nth-child(4):before {
     content: "Email";
-    color:black;
   }
   table tbody tr td:nth-child(5):before {
     content: "Street";
-    color:black;
   }
   table tbody tr td:nth-child(6):before {
     content: "Suburb";
-    color:black;
   }
   table tbody tr td:nth-child(7):before {
     content: "State";
-    color:black;
   }
   table tbody tr td:nth-child(8):before {
     content: "Postcode";
-    color:black;
   }
 
   .column4,

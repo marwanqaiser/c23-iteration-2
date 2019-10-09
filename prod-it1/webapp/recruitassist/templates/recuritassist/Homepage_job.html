@@ -367,7 +367,7 @@
 		        				<div class="form-group">
 		          				<div class="form-field">
                                      <p>Choose a region and see the skill shortages in the area</p>
-                                    <input style="width: 50%;height: 50%;padding: 8px 32px;border-radius: 50px" list="suburbs" name="suburbs" id="location_input" placeholder="e.g Geelong" required pattern="[a-zA-Z\s]+">
+                                    <input style="width: 50%;height: 50%;padding: 8px 32px;border-radius: 50px" list="suburbs" name="suburb" id="location_input" placeholder="e.g Geelong" required pattern="[a-zA-Z\s]+">
                                     <datalist id="suburbs">
                                             <option value="Melbourne"> Melbourne Region</option>
                                             <option value="Geelong"> Geelong Region</option>
@@ -389,9 +389,9 @@
                     <iframe id="is_frame" name="the_iframe" style="display:none;"></iframe>
              <div id="full_result" style="display:none">
             <div id="chartContainer" ></div>
-                 <a href="/Homepage_skill.html#facts" class="btn-success" style="width:25%;padding:10px;font-size:20px;color:#fff;background:#18d26e;border-radius: 50px;"><span>Back to provider!</span></a>
-            </div>
-                              </div>
+                      <button id='provider_submit_btn' style="width:25%;padding:10px;font-size:20px;color:#fff;background:#18d26e;border-radius: 50px;"><span>Back to provider!</span></button>
+             </div>
+                                        </div>
                     </form>
             </div>
           </div>
@@ -469,6 +469,7 @@
   <script src="{% static 'recruitassist/js/adzuna_location.js'%}"></script>
 <!--  pie chart for the 2nd function-->
   <script src="{% static 'recruitassist/js/adzuna_jobs_whitout_mel.js'%}"></script>
+<!--  <script src="{% static 'recruitassist/js/shortage_provider.js'%}"></script>-->
 <!--  <script src="{% static 'recruitassist/js/adzuna_jobs.js'%}"></script>-->
   <script src="{% static 'recruitassist/js/adzuna_salary.js'%}"></script>
   <script src="{% static 'recruitassist/lib/jquery/jquery.min.js'%}"></script>

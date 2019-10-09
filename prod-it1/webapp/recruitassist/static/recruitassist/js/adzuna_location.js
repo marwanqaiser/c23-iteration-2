@@ -7,6 +7,11 @@ $('#location_submit').click(function() {
             click: true
         },
         success: function (data) {
+            var provider = document.getElementById("location_choose");
+            provider.action = "/listprovider/"
+            provider.target = ""
+            console.log(provider.action)
+
             var dic_count = new Array()
             var dic_name = new Array()
             var len = new Array()
