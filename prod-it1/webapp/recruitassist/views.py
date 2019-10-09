@@ -6,14 +6,14 @@ from .models import Providers
 import requests
 import json,os
 from django.conf import settings
+import re
 
-
-
-def index(request):
-   return render(request, 'recuritassist/Homepage_final_version.html')
 
 def password(request):
    return render(request, 'recuritassist/password.html')
+
+def index(request):
+   return render(request, 'recuritassist/Homepage_final_version.html')
 
 def seek(request):
 
@@ -41,6 +41,39 @@ def Homepage_job(request):
 
 def Homepage_skill(request):
     return render(request, 'recuritassist/Homepage_skill.html')   # this returns the  quiz.html page back to the website
+
+def job_advert(title,location):
+    all_jobs=[]
+    dict_of_jobs={}
+    print(title)
+    file_path = os.path.join(settings.BASE_DIR, 'recruitassist/api_data.txt')
+    with open(file_path, 'r', encoding='utf-8') as filehandle:
+        for line in filehandle:
+            # remove linebreak which is the last character of the string
+            j = line[:-1]
+            # add item to the list
+            all_jobs.append(j)
+    job_name=title.strip(' ')
+    t=job_name.split(' ')
+    print(t)
+    print(location)
+
+
+    for job in all_jobs:
+        jd=job.split(',')
+        vacanay=jd[2]
+        vacanay=vacanay.upper()
+
+        for vac in t:
+            p = re.compile(r'\b'+vac.upper()+'\\b')
+
+            if  p.search(vacanay) and (jd[1]==location and jd[0]!= 'Unknown' and jd[0]!='Property Jobs' and jd[0]!='Hospitality & Catering Jobs' and
+                                      jd[0]!='Customer Services Jobs' and jd[0]!='Part time Jobs') :
+
+                dict_of_jobs[jd[len(jd)-1]]= jd[2]+','+jd[4]+','+ jd[1]+','+ jd[5]
+
+    print("final",dict_of_jobs)
+    return (dict_of_jobs)
 
 def access_jobs(suburb):
     all_jobs=[]
@@ -76,8 +109,9 @@ def top_suburbs(job_name,flag):
             j = line[:-1]
             # add item to the list
             all_jobs.append(j)
-
+    job_name=job_name.strip(' ')
     t=job_name.split(' ')
+    print(t)
 
     if flag=='MELB':
 
@@ -87,8 +121,9 @@ def top_suburbs(job_name,flag):
             vacanay=jd[2]
             vacanay=vacanay.upper()
             for vac in t:
+                p = re.compile(r'\b'+vac.upper()+'\\b')
 
-                if vac.upper() in vacanay and (jd[0]!= 'Unknown' and jd[0]!='Property Jobs' and jd[0]!='Hospitality & Catering Jobs' and
+                if p.search(vacanay) and (jd[0]!= 'Unknown' and jd[0]!='Property Jobs' and jd[0]!='Hospitality & Catering Jobs' and
                                           jd[0]!='Customer Services Jobs' and jd[0]!='Part time Jobs') :
                     if jd[1] not in dict_of_jobs:
                         dict_of_jobs[jd[1]]=1
@@ -96,20 +131,24 @@ def top_suburbs(job_name,flag):
                         dict_of_jobs[jd[1]]+=1
 
     else:
-
+        print ("Without Melbourne Region")
         count=0
         for job in all_jobs:
             jd=job.split(',')
+
             vacanay=jd[2]
             vacanay=vacanay.upper()
+            print(["region",jd[3]])
             for vac in t:
-                if vac.upper() in vacanay and jd[1]!='Melbourne'and (jd[0]!= 'Unknown' and jd[0]!='Property Jobs' and jd[0]!='Hospitality & Catering Jobs' and
+                p = re.compile(r'\b'+vac.upper()+'\\b')
+                if  p.search(vacanay) and (jd[3]!='Melbourne Region'and jd[0]!= 'Unknown' and jd[0]!='Property Jobs' and jd[0]!='Hospitality & Catering Jobs' and
                                       jd[0]!='Customer Services Jobs' and jd[0]!='Part time Jobs') :
                     if jd[1] not in dict_of_jobs:
                         dict_of_jobs[jd[1]]=1
                     else:
                         dict_of_jobs[jd[1]]+=1
     print("final",dict_of_jobs)
+    print (flag)
 
     return (dict_of_jobs)
 
@@ -348,19 +387,13 @@ def salary_information(request): #This function used in the first one show the j
     return HttpResponse(json.dumps(temp))
 
 @csrf_exempt
-def top_jobs(request): #This function used in the second one show top 10 suburb best for the job you choose
-    context = {}
-    dict = {}
-    result = {}
-    print(request.POST)
-    job_name = request.POST.get('jobs')
-    # Could add some locations you think is okay to the list, which is used to make comparing
-    # i remore Melbourne and Geelong because there are too many data for geelong mel and mel cbd
+def jobs(request): #This function used to get the job details
 
+    job_desc= job_advert(request.POST.get('title'),request.POST.get('location'))
+    return HttpResponse(job_desc)
 
 @csrf_exempt
 def top_jobs_without_mel(request): #This function used in the second one show top 10 suburb best for the job you choose
-
 
     flag= "MELB"
     if (request.POST.get('area')) == "noMelb":
@@ -370,7 +403,7 @@ def top_jobs_without_mel(request): #This function used in the second one show to
     print(request.POST)
     job_name = request.POST.get('jobs')
     print(job_name)
-    totaljobs=  top_suburbs(job_name,flag)
+    totaljobs= top_suburbs(job_name,flag)
     temp = sorted(totaljobs.items(), key=lambda x: x[1], reverse=True)
     print ("sorted",temp)
     if len(temp) > 10:
@@ -382,4 +415,3 @@ def top_jobs_without_mel(request): #This function used in the second one show to
     print(result)
     print("here")
     return HttpResponse(json.dumps(result))
-
