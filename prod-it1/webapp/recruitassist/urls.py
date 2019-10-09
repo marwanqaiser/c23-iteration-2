@@ -21,6 +21,7 @@ urlpatterns = [
     url(r'^Homepage_job.html/',views.Homepage_job, name= 'Homepage_job'),
     url(r'^Homepage_skill.html/',views.Homepage_skill, name= 'Homepage_skill'),
     url(r'^password.html/',views.password, name= 'password'),
+    url(r'^details/',views.jobs, name= 'jobs'),
 #try to keep the naming same..avoids confusion
 
 ]

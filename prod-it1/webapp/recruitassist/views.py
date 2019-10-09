@@ -390,7 +390,20 @@ def salary_information(request): #This function used in the first one show the j
 def jobs(request): #This function used to get the job details
 
     job_desc= job_advert(request.POST.get('title'),request.POST.get('location'))
-    return HttpResponse(job_desc)
+    for k in job_desc.keys():
+        print("dict content")
+        # alist = []
+        alist = job_desc[k].split(',')
+        print(alist)
+        adict = {}
+        adict['job_title'] = alist[0]
+        adict['company_name'] = alist[1]
+        adict['location'] = alist[2]
+        adict['url'] = alist[3]
+        job_desc[k] = adict
+    print("result")
+    print(job_desc)
+    return HttpResponse(json.dumps(job_desc))
 
 @csrf_exempt
 def top_jobs_without_mel(request): #This function used in the second one show top 10 suburb best for the job you choose

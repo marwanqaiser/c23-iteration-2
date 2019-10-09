@@ -12,6 +12,13 @@ $('#location_submit').click(function() {
             provider.target = ""
             console.log(provider.action)
 
+            var button = document.getElementById("provider_submit_btn");
+             if (button.style.display === "block") {
+                button.style.display = "none";
+            } else {
+                button.style.display = "block";
+            }
+            console.log(button.display)
             var dic_count = new Array()
             var dic_name = new Array()
             var len = new Array()

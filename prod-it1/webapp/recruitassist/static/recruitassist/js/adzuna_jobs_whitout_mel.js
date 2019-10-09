@@ -2,6 +2,7 @@ $('#job_submit_without_mel').click(function() {
 
     var box = $(".box:checked").val();
     $.ajax({
+        async : false,
         url: "/top_jobs_without_mel/",
         method: 'POST',
         data: {
@@ -72,40 +73,58 @@ $('#job_submit_without_mel').click(function() {
             console.log("get in if")
             x.style.display = "block";
         }
-		alert(  e.dataSeries.type+ ", dataPoint { position:" + e.dataPoint.label + ", y: "+ e.dataPoint.y + " }" );
-        var table = document.getElementById("shortage_table");
-        $("#shortage_table  tr:not(:first)").html("");
-        var per = [
-  			{id:001,name:'a',job:'ad'},
-			{id:002,name:'b',job:'ap'},
-			{id:003,name:'c',job:'bot'}
-			];
-        for(var i = 0;i < per.length; i++){
-         oneRow = table.insertRow();
-         cell1= oneRow.insertCell();
-         cell2= oneRow.insertCell();
-         cell3= oneRow.insertCell();
-         cell4= oneRow.insertCell();
-         cell1.innerHTML = per[i]["id"];
-         cell2.innerHTML= per[i]["name"];
-         cell3.innerHTML = per[i]["job"];
-         cell4.innerHTML= i;
-         }
-//		$.ajax({
-//                url: {% url 'scene_update_url' %},
-//                type: "POST",
-//                data: {
-//                    location: e.dataPoint.label
-//                },
-//                success: function (data) {
-//                    data = JSON.parse(data);
-//                    if (data["status"] == 1) {
-//                        setSceneTd(data["result"], scece_name, td);
-//                    } else {
-//                        alert(data["result"]);
-//                    }
-//                }
-//            });
+//		alert(  e.dataSeries.type+ ", dataPoint { position:" + e.dataPoint.label + ", y: "+ e.dataPoint.y + " }" );
+//        var table = document.getElementById("shortage_table");
+//        $("#shortage_table  tr:not(:first)").html("");
+//        var per = [
+//  			{id:001,name:'a',job:'ad'},
+//			{id:002,name:'b',job:'ap'},
+//			{id:003,name:'c',job:'bot'}
+//			];
+//        for(var i = 0;i < per.length; i++){
+//         oneRow = table.insertRow();
+//         cell1= oneRow.insertCell();
+//         cell2= oneRow.insertCell();
+//         cell3= oneRow.insertCell();
+//         cell4= oneRow.insertCell();
+//         cell1.innerHTML = per[i]["id"];
+//         cell2.innerHTML= per[i]["name"];
+//         cell3.innerHTML = per[i]["job"];
+//         cell4.innerHTML= i;
+//         }
+		$.ajax({
+                url: "/details/",
+                type: "POST",
+                data: {
+                    location: e.dataPoint.label,
+                    title: $("#job_input").val(),
+                },
+                success: function (data) {
+                  var detail_list = []
+                 $.each(JSON.parse(data),function(key,value) {
+                       detail_list.push(value)
+
+            });
+//                console.log(detail_list[0]['job_title'])
+//                console.log(detail_list[1]['job_title'])
+//                console.log(detail_list[2]['job_title'])
+                    $("#shortage_table  tr:not(:first)").html("");
+                    var table = document.getElementById("shortage_table");
+                    for(var i = 0; i < detail_list.length; i++) {
+                     url = detail_list[i]["url"]
+                     oneRow = table.insertRow();
+                     cell1= oneRow.insertCell();
+                     cell2= oneRow.insertCell();
+                     cell3= oneRow.insertCell();
+                     cell4= oneRow.insertCell();
+                     cell1.innerHTML = detail_list[i]["job_title"];
+                     cell2.innerHTML= detail_list[i]["company_name"];
+                     cell3.innerHTML = detail_list[i]["location"];
+                     cell4.innerHTML= "<a href='" + url + "'>" + url + "</a>";
+
+        }
+                }
+            });
 
 	    }
         }

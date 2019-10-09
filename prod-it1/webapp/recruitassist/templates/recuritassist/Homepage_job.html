@@ -184,6 +184,14 @@
 
         }
 
+@media (min-width: 1024px) {
+
+
+  #shortage_table {
+    width: 20%;
+  }
+
+  }
   </style>
 </head>
 
@@ -289,7 +297,7 @@
                                     	<div class="row justify-content-center">
 
                             			<div class="col-lg-10 align-items-end">
-                                    <!--        <a style="font-size: 15px;"><input type="radio" class="box" name="box" value="Melb">Including Melbourne region</a> -->
+<!--                                            <a style="font-size: 15px;"><input type="radio" class="box" name="box" value="Melb">Including Melbourne region</a>-->
                                     <a style="font-size: 15px;"><input type="checkbox" class="box" name="box" value="noMelb">Excluding Melbourne region</a>
 		        				<div class="form-group">
 		          				<div class="form-field">
@@ -322,7 +330,7 @@
              <div id="new_result_iteration3" style="display:none">
 
             <div class="table-repsonsive" >
-	<table class=table id="shortage_table">
+	<table class=table id="shortage_table" style="width:80%">
                     <thead>
                     <tr class="table100-head">
                         <th class="column1">Job Title</th>
@@ -391,7 +399,7 @@
                     <iframe id="is_frame" name="the_iframe" style="display:none;"></iframe>
              <div id="full_result" style="display:none">  </div>
             <div id="chartContainer" ></div>
-                      <button id='provider_submit_btn' style="width:25%;padding:10px;font-size:20px;color:#fff;background:#18d26e;border-radius: 50px;"><span>View Training Institutes</span></button>
+                      <button id='provider_submit_btn' style="width:25%;padding:10px;font-size:20px;color:#fff;background:#18d26e;border-radius: 50px;display:none;"><span>View Training Institutes</span></button>
              </div>
 
                     </form>
@@ -450,15 +458,6 @@
     </section>
 
 
-  <section>
-                                               <form action="/jobs/" class="search-location mt-md-5" method="post">{% csrf_token %}
-                               <input style="width: 50%;height: 50%;padding: 8px 32px;border-radius: 50px" list="jobs" name="title" id="title" placeholder="e.g IT" required pattern="[a-zA-Z\s]+">
-                               <input style="width: 50%;height: 50%;padding: 8px 32px;border-radius: 50px" list="jobs" name="location" id="location" placeholder="e.g melbourne" required pattern="[a-zA-Z\s]+">
-                                            <div class="container text-center">
-
-                                            <button style="width:10%;background:#18d26e;border-radius: 50px;"><span class="ion-ios-search" ></span></button>
-                                            </div>
-  </section>
   <!--
     <div class="container">
       <div class="copyright">
