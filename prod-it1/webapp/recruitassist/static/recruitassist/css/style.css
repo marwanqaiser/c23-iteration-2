@@ -941,7 +941,8 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 #call-to-action a {
-  color: #fff;
+  color: #111111;
+
 }
 
 #call-to-action .cta-btn {

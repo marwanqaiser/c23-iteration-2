@@ -138,11 +138,13 @@ def top_suburbs(job_name,flag):
 
             vacanay=jd[2]
             vacanay=vacanay.upper()
-            print(["region",jd[3]])
+
             for vac in t:
+
                 p = re.compile(r'\b'+vac.upper()+'\\b')
-                if  p.search(vacanay) and (jd[3]!='Melbourne Region'and jd[0]!= 'Unknown' and jd[0]!='Property Jobs' and jd[0]!='Hospitality & Catering Jobs' and
+                if  p.search(vacanay) and jd[3]!="Melbourne Region" and (jd[0]!= 'Unknown' and jd[0]!='Property Jobs' and jd[0]!='Hospitality & Catering Jobs' and
                                       jd[0]!='Customer Services Jobs' and jd[0]!='Part time Jobs') :
+                    print ("going in",jd[3])
                     if jd[1] not in dict_of_jobs:
                         dict_of_jobs[jd[1]]=1
                     else:
@@ -324,6 +326,28 @@ def listprovider(request):
         temp += 1
 
     print(service)
+    i=0
+    pos=0
+    print(list_of_nearby)
+    final =[]
+    for nobj in list_of_nearby:
+
+        print(nobj.ADDRESS)
+        i+=1
+
+        for c in range(i,len(list_of_nearby)-1):
+            if nobj.ADDRESS == list_of_nearby[c].ADDRESS:
+
+                final.append(pos)
+
+        pos+=1
+    n=set(final)
+    final=list(n)
+
+    for i in range(len(final)):
+        del list_of_nearby[final[0]]
+        del final[0]
+        final = [item-1 if item > 0 else item for item in final]
 
     i=0
     pos=0
@@ -411,7 +435,7 @@ def top_jobs_without_mel(request): #This function used in the second one show to
     flag= "MELB"
     if (request.POST.get('area')) == "noMelb":
         flag="no"
-
+    print("flag",flag)
     result = {}
     print(request.POST)
     job_name = request.POST.get('jobs')

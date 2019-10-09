@@ -58,6 +58,11 @@ $('#location_submit').click(function() {
                 text: "Number of Available Jobs!",
                 fontSize : 20
             },
+         	axisX:{
+	    interval: 1,
+	    labelAngle: 90
+
+	},
             data: [{
                  type: "column",
                 indexLabel: "{y}",

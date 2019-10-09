@@ -25,6 +25,7 @@
   <link href="{% static 'recruitassist/lib/lightbox/css/lightbox.min.css'%}" rel="stylesheet">
 
   <!-- Main Stylesheet File -->
+    <link href="{% static 'recruitassist/css/table.css'%}" rel="stylesheet">
   <link href="{% static 'recruitassist/css/style.css'%}" rel="stylesheet">
 
   <!-- =======================================================
@@ -184,14 +185,9 @@
 
         }
 
-@media (min-width: 1024px) {
 
 
-  #shortage_table {
-    width: 20%;
-  }
 
-  }
   </style>
 </head>
 
@@ -220,7 +216,7 @@
 
 
         <header class="section-header">
-          <h3 class="section-title" style="padding:60px; color:#fff">Want to improve your chances of employment in Victoria </h3>
+          <h3 class="section-title" style="padding:60px; color:#fff">Victorian Job Market Insights</h3>
         </header>
 
         <div class="row portfolio-container">
@@ -266,7 +262,7 @@
               </figure>
 
               <div class="portfolio-info">
-                <h4><a href="#top10_container" class="btn-get-started scrollto">Top Suburbs By Profession</a></h4>
+                <h4><a href="#call-to-action" class="btn-get-started scrollto">Top Suburbs By Profession</a></h4>
                 <p>See where you are in demand</p>
               </div>
             </div>
@@ -282,7 +278,7 @@
     <section id="call-to-action" class="wow fadeIn" style="200px">
 
 
-    <div class="container text-center" id="top10_container">
+    <div class="container text-center" >
 
           <header class="section-header">
           <h3>Top Places for your profession  </h3>
@@ -298,7 +294,7 @@
 
                             			<div class="col-lg-10 align-items-end">
 <!--                                            <a style="font-size: 15px;"><input type="radio" class="box" name="box" value="Melb">Including Melbourne region</a>-->
-                                    <a style="font-size: 15px;"><input type="checkbox" class="box" name="box" value="noMelb">Excluding Melbourne region</a>
+                                    <a style="font-size: 15px; color:white;"><input type="checkbox" class="box" name="box" value="noMelb">Excluding Melbourne region</a>
 		        				<div class="form-group">
 		          				<div class="form-field">
 
@@ -329,16 +325,32 @@
           </form>
              <div id="new_result_iteration3" style="display:none">
 
-            <div class="table-repsonsive" >
-	<table class=table id="shortage_table" style="width:80%">
+
+                        <div class="container-table100">
+	<div class="container">
+
+    <div class="table-repsonsive" >
+	<table class=table id="shortage_table" >
                     <thead>
+
                     <tr class="table100-head">
                         <th class="column1">Job Title</th>
-                        <th class="column6">Company Name</th>
+                        <th class="column2">Company</th>
                         <th class="column3">Location</th>
-                        <th class="column7">URL</th>
+                        <th class="column4">URL</th>
                     </tr>
                     </thead>
+                            <tbody>
+                    <tr style="color:black">
+                        <td class="column1"></td>
+                        <td class="column2"></td>
+                        <td class="column3"></td>
+                        <td class="column4"></td>
+
+                    </tr>
+
+                    </tbody>
+
                 </table>
             </div>
             </div>
@@ -346,6 +358,8 @@
 
             </div>
           </div>
+           </div>
+         </div>
 
     </section><!-- #call-to-action -->
 
@@ -399,7 +413,8 @@
                     <iframe id="is_frame" name="the_iframe" style="display:none;"></iframe>
              <div id="full_result" style="display:none">  </div>
             <div id="chartContainer" ></div>
-                      <button id='provider_submit_btn' style="width:25%;padding:10px;font-size:20px;color:#fff;background:#18d26e;border-radius: 50px;display:none;"><span>View Training Institutes</span></button>
+                                            <p><br></p>
+                      <button id='provider_submit_btn' style="padding:10px;background:#18d26e;border-radius: 50px;display:none;">View Training Institutes</button>
              </div>
 
                     </form>
