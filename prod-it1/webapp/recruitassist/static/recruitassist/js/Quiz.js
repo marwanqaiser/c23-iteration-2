@@ -1,11 +1,11 @@
 
 function myFunction() {
+
+
     var x = document.getElementById("team");
-    if (x.style.display === "block") {
-        x.style.display = "none";
-    } else {
-        x.style.display = "block";
-    }
+    x.style.display = "block";
+
+    window.location.href = "#here"
     var recommendation1 = document.getElementById("recommendation1");
     var recommendation2 = document.getElementById("recommendation2");
     var q1 =document.getElementsByName("question1_choice");

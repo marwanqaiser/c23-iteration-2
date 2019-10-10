@@ -120,7 +120,7 @@ $('#job_submit_without_mel').click(function() {
                      cell1.innerHTML = detail_list[i]["job_title"];
                      cell2.innerHTML= detail_list[i]["company_name"];
                      cell3.innerHTML = detail_list[i]["location"];
-                     cell4.innerHTML= "<a href='" + url + "'>" + url + "</a>";
+                     cell4.innerHTML= "<a href='" + url + " ' target=" + "_blank" + ">" + "click here" + "</a>";
 
         }
                 }
