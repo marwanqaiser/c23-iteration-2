@@ -143,7 +143,6 @@ tbody a:hover {
   table tbody tr td:before {
     font-family: OpenSans-Regular;
     font-size: 14px;
-    color: #999999;
     line-height: 1.2;
     font-weight: unset;
     position: absolute;
@@ -159,9 +158,10 @@ tbody a:hover {
   }
   table tbody tr td:nth-child(3):before {
     content: "Location";
-
-    table tbody tr td:nth-child(3):before {
+   }
+  table tbody tr td:nth-child(4):before {
     content: "URL";
+    }
 
 
 
