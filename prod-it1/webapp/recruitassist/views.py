@@ -399,7 +399,10 @@ def location_choose(request): #This function used in the first one show the job 
 @csrf_exempt
 def salary_information(request): #This function used in the first one show the job shortage in one location
     print(request.POST)
-    temp={}
+    result={}
+
+    # data get from the first location chosen
+    temp = {}
     location = request.POST.get('suburb')
     category = request.POST.get('category')
     url = "http://api.adzuna.com/v1/api/jobs/au/history?app_id=4cb38e73&app_key=ca142ad047eb88bae578bdca2a3eef4f&where=" + location + "&category=" + category + "&content-type=application/json"
@@ -407,8 +410,31 @@ def salary_information(request): #This function used in the first one show the j
     salary = data.get('month')
     for key in sorted(salary.keys()):
         temp[key]=salary[key]
+    print("data1 here")
     print(temp)
-    return HttpResponse(json.dumps(temp))
+
+    # data get from the second location chosen
+    temp2 = {}
+    location2 = request.POST.get('suburb2')
+    category = request.POST.get('category')
+    url2 = "http://api.adzuna.com/v1/api/jobs/au/history?app_id=4cb38e73&app_key=ca142ad047eb88bae578bdca2a3eef4f&where=" + location2 + "&category=" + category + "&content-type=application/json"
+    data2 = requests.get(url2).json()
+
+    print("data2 from api")
+    print(data2)
+
+    salary2 = data2.get('month')
+    for key in sorted(salary2.keys()):
+        temp2[key] = salary2[key]
+
+    print("data2 here")
+    print(temp2)
+
+    result[location] = temp
+    result[location2] = temp2
+    print("result here")
+    print(result)
+    return HttpResponse(json.dumps(result))
 
 @csrf_exempt
 def jobs(request): #This function used to get the job details

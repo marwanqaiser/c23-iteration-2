@@ -340,7 +340,7 @@
                         <th class="column4">URL</th>
                     </tr>
                     </thead>
-                            <tbody>
+                            <tbody id="tbMain">
                     <tr style="color:black">
                         <td class="column1"></td>
                         <td class="column2"></td>
@@ -432,7 +432,7 @@
           <h3>Victorian Salary Insights </h3>
         </header>
 
-          <p>Choose a region to get insights on the average salary</p>
+          <p id="function1">Choose a region to get insights on the average salary</p>
 
           <form id="Salary_information" class="search-location mt-md-5" method="post" target="the_iframe_2"> {% csrf_token %}
 
@@ -443,16 +443,44 @@
 		        				<div class="form-group">
 		          				<div class="form-field">
                                 <div class="row">
-                                    <input style="width: 50%;height: 50%;padding: 8px 32px;border-radius: 50px" list="category" name="suburbs" id="job_title_input" placeholder="e.g IT" required pattern="[a-z-A-Z\s]+">
-                                    <datalist id="category">
+                                    <select style="width: 50%;height: 50%;padding: 8px 32px;border-radius: 50px" list="category" name="suburbs" id="job_title_input" placeholder="e.g IT" required pattern="[a-z-A-Z\s]+">
+<!--                                    <datalist id="category">-->
                                             <option value="it-jobs">IT</option>
                                             <option value="admin-jobs">Admin</option>
                                             <option value="healthcare-nursing-jobs">Healthcare</option>
                                             <option value="accounting-finance-jobs">Accouting and Finance</option>
                                             <option value="teaching-jobs">Teaching</option>
                                             <option value="sales-jobs">Sales</option>
-                                    </datalist>
-                                    <input style="width: 50%;height: 50%;padding: 8px 32px;border-radius: 50px" list="suburbs" name="suburbs" id="suburb_input" placeholder="e.g Geelong" required pattern="[a-zA-Z\s]+">
+<!--                                    </datalist>-->
+                                    </select>
+                                    <select style="width: 25%;height: 50%;padding: 8px 32px;border-radius: 50px" name="suburbs" id="suburb_input">
+                                        <option value="Melbourne"> Melbourne Region</option>
+                                            <option value="Geelong"> Geelong Region</option>
+                                            <option value="La Trobe"> La Trobe Region</option>
+                                            <option value="Bendigo"> Bendigo Region</option>
+                                            <option value="Shepparton"> Shepparton Region</option>
+                                            <option value="Ballarat"> Ballarat Region</option>
+                                            <option value="Mildura"> Mildura Region</option>
+                                            <option value="Warrnambool"> Warrnambool Region</option>
+                                            <option value="Horsham"> Horsham Region</option>
+                                            <option value="Wodonga"> Wodonga Region</option>
+
+                                    </select>
+
+                                     </select>
+                                    <select style="width: 25%;height: 50%;padding: 8px 32px;border-radius: 50px" name="suburbs" id="suburb_input2">
+                                        <option value="Melbourne"> Melbourne Region</option>
+                                            <option value="Geelong"> Geelong Region</option>
+                                            <option value="La Trobe"> La Trobe Region</option>
+                                            <option value="Bendigo"> Bendigo Region</option>
+                                            <option value="Shepparton"> Shepparton Region</option>
+                                            <option value="Ballarat"> Ballarat Region</option>
+                                            <option value="Mildura"> Mildura Region</option>
+                                            <option value="Warrnambool"> Warrnambool Region</option>
+                                            <option value="Horsham"> Horsham Region</option>
+                                            <option value="Wodonga"> Wodonga Region</option>
+
+                                    </select>
 
                                 </div>
 
@@ -462,8 +490,9 @@
                               </div>
 
                     <iframe id="is_frame_2" name="the_iframe_2" style="display:none;"></iframe>
-             <div id="full_result_2" style="display:none"> </div>
-            <div id="chartContainer_salary" ></div>
+             <div id="full_result_2" style="display:none">
+              <p style="padding:30px;font-size:20px;font-weight:800">Click the legend to hide/unhide the salary information in that location.</p>
+            <div id="chartContainer_salary" ></div></div>
                     </div>
                     </form>
             </div>

@@ -50,7 +50,7 @@ $('#job_submit_without_mel').click(function() {
 
             animationEnabled: true,
             title: {
-                text: "Top suburbs for " + $("#job_input").val()
+                text: "Top suburbs for " + $("#job_input").val() + ". Click each bar for more information."
             },
             data: [{
                 type: "column",
@@ -108,8 +108,17 @@ $('#job_submit_without_mel').click(function() {
 //                console.log(detail_list[0]['job_title'])
 //                console.log(detail_list[1]['job_title'])
 //                console.log(detail_list[2]['job_title'])
-                    $("#shortage_table  tr:not(:first)").html("");
-                    var table = document.getElementById("shortage_table");
+//                    $("#shortage_table  tr:not(:first)").html("");
+
+                    var table = document.getElementById("tbMain");
+                    var rowNum=table.rows.length;
+                     for (i=0;i<rowNum;i++)
+                     {
+                         table.deleteRow(i);
+                         rowNum=rowNum-1;
+                         i=i-1;
+                     }
+
                     for(var i = 0; i < detail_list.length; i++) {
                      url = detail_list[i]["url"]
                      oneRow = table.insertRow();
