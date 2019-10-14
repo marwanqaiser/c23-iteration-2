@@ -1,4 +1,4 @@
-# Author: Mohammad Marwan Qaiser
+    # Author: Mohammad Marwan Qaiser
 # Last Modified Date: 15/10/2019
 
 # The following code is used to define the urls and the functions that are accessed from the views.py
@@ -22,6 +22,8 @@ urlpatterns = [
     url(r'^Homepage_skill.html/',views.Homepage_skill, name= 'Homepage_skill'),
     url(r'^password.html/',views.password, name= 'password'),
     url(r'^details/',views.jobs, name= 'jobs'),
+    url(r'^suburbs/',views.load_region, name= 'suburbs'),
+
 #try to keep the naming same..avoids confusion
 
 ]

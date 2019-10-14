@@ -1,10 +1,11 @@
-
+// this js function is for the evauate part of quiz
+// get the anwser of quiz, and do show the result to user.
 function myFunction() {
 
 
     var x = document.getElementById("team");
     x.style.display = "block";
-
+    // each if condition is used to check the user input, and set the result.
     window.location.href = "#here"
     var recommendation1 = document.getElementById("recommendation1");
     var recommendation2 = document.getElementById("recommendation2");

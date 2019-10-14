@@ -1,3 +1,4 @@
+// This js function is for the salary function visualization.
 $('#salary_submit').click(function() {
     $.ajax({
         url: "/salary_information/",
@@ -46,7 +47,7 @@ $('#salary_submit').click(function() {
 //            console.log(salary_date[0])
 
             var x = document.getElementById("full_result_2");
-            var y = document.getElementById("chartContainer_jobs");
+            var y = document.getElementById("chartContainer_salary");
             console.log(x.style.display)
         // hide the previous result
         if (y.style.display == "block"){
@@ -106,6 +107,7 @@ $('#salary_submit').click(function() {
 		includeZero: false
 	},
 
+    // This is used to make the legend click function.
     legend: {
             cursor: "pointer",
             itemclick: function (e) {

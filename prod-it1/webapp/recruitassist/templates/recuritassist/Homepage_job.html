@@ -329,8 +329,10 @@
                            <iframe id="iframe_2" name="iframe_2" style="display:none;"></iframe>
 
 
-            <div id="chartContainer_jobs" ></div>
+            <div id="shortage_result_part" style="display:none" >
+                <p style="padding:30px;font-size:20px;font-weight:800">Click the legend to hide/unhide the salary information in that location.</p>
              <div id="chartContainer_jobs_without_mel"></div>
+            </div>
                                         </div>
           </form>
              <div id="new_result_iteration3" style="display:none">
@@ -401,20 +403,7 @@
 		        				<div class="form-group">
 		          				<div class="form-field">
                                      <p>Choose a region and see the skill shortages in the area</p>
-                                    <input style="width: 50%;height: 50%;padding: 8px 32px;border-radius: 50px" list="suburbs" name="suburb" id="location_input" placeholder="e.g Geelong" required pattern="[a-zA-Z\s]+">
-                                    <datalist id="suburbs">
-                                            <option value="Melbourne"> Melbourne Region</option>
-                                            <option value="Geelong"> Geelong Region</option>
-                                            <option value="La Trobe"> La Trobe Region</option>
-                                            <option value="Bendigo"> Bendigo Region</option>
-                                            <option value="Shepparton"> Shepparton Region</option>
-                                            <option value="Ballarat"> Ballarat Region</option>
-                                            <option value="Mildura"> Mildura Region</option>
-                                            <option value="Warrnambool"> Warrnambool Region</option>
-                                            <option value="Horsham"> Horsham Region</option>
-                                            <option value="Wodonga"> Wodonga Region</option>
-                                    </datalist>
-
+                                    <select style="width: 50%;height: 50%;padding: 8px 32px;border-radius: 50px" name="suburb" id="location_input" ></select>
                                 </div>
                               </div>
                                 <button id="location_submit" style="width:10%;background:#18d26e;border-radius: 50px;"><span class="ion-ios-search"></span></button>
@@ -504,7 +493,8 @@
                     <iframe id="is_frame_2" name="the_iframe_2" style="display:none;"></iframe>
              <div id="full_result_2" style="display:none">
               <p style="padding:30px;font-size:20px;font-weight:800">Click the legend to hide/unhide the salary information in that location.</p>
-            <div id="chartContainer_salary" ></div></div>
+            <div id="chartContainer_salary" ></div>
+             </div>
                     </div>
                     </form>
             </div>
@@ -536,9 +526,10 @@
   <script type="text/javascript" src="{% static 'recruitassist/lib/jquery/jquery.min.js'%}"></script>
   <!--pie chart for the 1st function-->
   <script src="{% static 'recruitassist/js/adzuna_location.js'%}"></script>
+  <script src="{% static 'recruitassist/js/load_suburb.js'%}"></script>
 <!--  pie chart for the 2nd function-->
   <script src="{% static 'recruitassist/js/adzuna_jobs_whitout_mel.js'%}"></script>
-<!--  <script src="{% static 'recruitassist/js/shortage_provider.js'%}"></script>-->
+  <script src="{% static 'recruitassist/js/shortage_provider.js'%}"></script>
 <!--  <script src="{% static 'recruitassist/js/adzuna_jobs.js'%}"></script>-->
   <script src="{% static 'recruitassist/js/adzuna_salary.js'%}"></script>
   <script src="{% static 'recruitassist/lib/jquery/jquery.min.js'%}"></script>

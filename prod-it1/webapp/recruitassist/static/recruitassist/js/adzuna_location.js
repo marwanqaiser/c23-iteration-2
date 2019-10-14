@@ -1,3 +1,4 @@
+// This function is doing the visualization for the skill shortage part.
 $('#location_submit').click(function() {
     $.ajax({
         url: "/location_choose/",
@@ -6,18 +7,16 @@ $('#location_submit').click(function() {
             suburb: $("#location_input").val(),
             click: true
         },
+        // this is the function run after successfully get data from backend.
         success: function (data) {
             var provider = document.getElementById("location_choose");
-            provider.action = "/listprovider/"
-            provider.target = ""
+            provider.action = ""
+            provider.target = "the_iframe"
             console.log(provider.action)
 
             var button = document.getElementById("provider_submit_btn");
-             if (button.style.display === "block") {
-                button.style.display = "none";
-            } else {
                 button.style.display = "block";
-            }
+
             console.log(button.display)
             var dic_count = new Array()
             var dic_name = new Array()
@@ -51,6 +50,7 @@ $('#location_submit').click(function() {
         dps1.push({y: dic_count[i], label: dic_name[i]});
 
         }
+        // this is the chart creating part.
         var chart = new CanvasJS.Chart("chartContainer", {
 
 //            animationEnabled: true,
@@ -77,17 +77,8 @@ $('#location_submit').click(function() {
         if (len.length > 0) {
         chart.render();
         }
+
         }
     });
 });
 
-function hide_location_result() {
-    var location_search = document.getElementById("1stfunction");
-    var location_result = document.getElementById("location_result");
-    var job_search = document.getElementById("2ndfunction");
-    if (x.style.display === "none") {
-        x.style.display = "block";
-    } else {
-        x.style.display = "none";
-    }
-}

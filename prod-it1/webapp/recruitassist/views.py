@@ -25,8 +25,8 @@ def Homepage_fianl_version(request):
     return render(request, 'recuritassist/Homepage_final_version.html')   # this returns to the home page
 
 def Homepage_job(request):
-    regions_list=load_region()
-    providers_list=load_providers()
+    # regions_list=load_region()
+    # providers_list=load_providers()
 
     return render(request, 'recuritassist/Homepage_job.html')   # this returns to job section of the website
 
@@ -36,8 +36,9 @@ def Homepage_skill(request):
 def quiz_new(request):
     return render(request, 'recuritassist/quiz_new.html')   # this returns the  quiz.html page back to the website
 
-
-def load_region():   #this function returns the list of regions in which jobs are available
+@csrf_exempt
+def load_region(request):   #this function returns the list of regions in which jobs are available
+    print(request.POST)
     all_jobs=[]
     title=[]
     dict_of_region={}
@@ -54,7 +55,7 @@ def load_region():   #this function returns the list of regions in which jobs ar
                 dict_of_region[jd[3]]=1
 
     print(list(dict_of_region.keys()))
-    return (list(dict_of_region.keys()))
+    return HttpResponse(json.dumps(list(dict_of_region.keys())))
 
 
 

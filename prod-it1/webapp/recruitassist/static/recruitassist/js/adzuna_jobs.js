@@ -1,3 +1,4 @@
+// This function is send the user input to backend and get data from backend to do the visualization of job shortage.
 $('#location_submit').click(function() {
     $.ajax({
         url: "location_choose/",
@@ -39,6 +40,7 @@ $('#location_submit').click(function() {
         dps1.push({y: dic_count[i], label: dic_name[i]});
 
         }
+        // this part is doing the chart creating.
         var chart = new CanvasJS.Chart("chartContainer", {
 
             animationEnabled: true,
