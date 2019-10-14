@@ -1,3 +1,8 @@
+# Author: Mohammad Marwan Qaiser, Meng
+# Last Modified Date: 15/10/2019
+
+# The following file contains all the main python functions that are used in the entire system
+
 from django.shortcuts import render
 # Create your views here.
 from django.http import HttpResponse, HttpResponseRedirect
@@ -15,34 +20,65 @@ def password(request):
 def index(request):
    return render(request, 'recuritassist/Homepage_final_version.html')
 
-def seek(request):
-
-    return render(request, 'recuritassist/SeekSuburb-index.html')
-
-def service(request):
-
-    return render(request, 'recuritassist/ShowService.html')
-
-
-def home(request):
-    return render(request, 'recuritassist/Homepage-IE.html')
-
-def about_us (request):
-    return render(request, 'recuritassist/about_us.html')
-
-def quiz(request):
-    return render(request, 'recuritassist/quiz.html')   # this returns the  quiz.html page back to the website
 
 def Homepage_fianl_version(request):
-    return render(request, 'recuritassist/Homepage_final_version.html')   # this returns the  quiz.html page back to the website
+    return render(request, 'recuritassist/Homepage_final_version.html')   # this returns to the home page
 
 def Homepage_job(request):
-    return render(request, 'recuritassist/Homepage_job.html')   # this returns the  quiz.html page back to the website
+    regions_list=load_region()
+    providers_list=load_providers()
+
+    return render(request, 'recuritassist/Homepage_job.html')   # this returns to job section of the website
 
 def Homepage_skill(request):
-    return render(request, 'recuritassist/Homepage_skill.html')   # this returns the  quiz.html page back to the website
+    return render(request, 'recuritassist/Homepage_skill.html')   # this returns to the skills section of the website
 
-def job_advert(title,location):
+def quiz_new(request):
+    return render(request, 'recuritassist/quiz_new.html')   # this returns the  quiz.html page back to the website
+
+
+def load_region():   #this function returns the list of regions in which jobs are available
+    all_jobs=[]
+    title=[]
+    dict_of_region={}
+    file_path = os.path.join(settings.BASE_DIR, 'recruitassist/api_data.txt')
+    with open(file_path, 'r', encoding='utf-8') as filehandle:
+        for line in filehandle:
+            # remove linebreak which is the last character of the string
+            j = line[:-1]
+            # add item to the list
+            all_jobs.append(j)
+    for job in all_jobs:
+        jd=job.split(',')
+        if jd[3] not  in dict_of_region:
+                dict_of_region[jd[3]]=1
+
+    print(list(dict_of_region.keys()))
+    return (list(dict_of_region.keys()))
+
+
+
+def load_providers():   #this fucntion returns the list of providers where training services are available
+    dict_of_providers={}
+    objall = Providers.objects.all()
+    list_of_obj = []
+    total = objall.count()
+    print (total)
+    i = 1
+    while (i < total):
+        location=objall.get(ID=i).SITE_SUBURB
+        if location.upper() not in dict_of_providers:
+            dict_of_providers[location.capitalize()]=1
+
+        i+=1
+
+    return(list(dict_of_providers.keys()))
+
+
+
+
+
+def job_advert(title,location):   # this fucntion returns the job ads from the API_cache
     all_jobs=[]
     dict_of_jobs={}
     print(title)
@@ -67,15 +103,14 @@ def job_advert(title,location):
         for vac in t:
             p = re.compile(r'\b'+vac.upper()+'\\b')
 
-            if  p.search(vacanay) and (jd[1]==location and jd[0]!= 'Unknown' and jd[0]!='Property Jobs' and jd[0]!='Hospitality & Catering Jobs' and
-                                      jd[0]!='Customer Services Jobs' and jd[0]!='Part time Jobs') :
+            if  p.search(vacanay):
 
                 dict_of_jobs[jd[len(jd)-1]]= jd[2]+','+jd[4]+','+ jd[1]+','+ jd[5]
 
     print("final",dict_of_jobs)
     return (dict_of_jobs)
 
-def access_jobs(suburb):
+def access_jobs(suburb):            # this returns the count of different jobs available in a specific suburb
     all_jobs=[]
     dict_of_jobs={}
     file_path = os.path.join(settings.BASE_DIR, 'recruitassist/api_data.txt')
@@ -90,8 +125,7 @@ def access_jobs(suburb):
     count=0
     for job in all_jobs:
         jd=job.split(',')
-        if jd[1]== suburb and (jd[0]!= 'Unknown' and jd[0]!='Property Jobs' and jd[0]!='Hospitality & Catering Jobs'
-                               and jd[0]!='Part time Jobs') :
+        if jd[1]== suburb :
             if jd[0] not  in dict_of_jobs:
                 dict_of_jobs[jd[0]]=1
             else:
@@ -99,7 +133,7 @@ def access_jobs(suburb):
 
     return (dict_of_jobs)
 
-def top_suburbs(job_name,flag):
+def top_suburbs(job_name,flag):      #This returns the suburbs in which the user entered jobs are available
     all_jobs=[]
     dict_of_jobs={}
     file_path = os.path.join(settings.BASE_DIR, 'recruitassist/api_data.txt')
@@ -123,8 +157,7 @@ def top_suburbs(job_name,flag):
             for vac in t:
                 p = re.compile(r'\b'+vac.upper()+'\\b')
 
-                if p.search(vacanay) and (jd[0]!= 'Unknown' and jd[0]!='Property Jobs' and jd[0]!='Hospitality & Catering Jobs' and
-                                          jd[0]!='Customer Services Jobs' and jd[0]!='Part time Jobs') :
+                if p.search(vacanay):
                     if jd[1] not in dict_of_jobs:
                         dict_of_jobs[jd[1]]=1
                     else:
@@ -142,8 +175,7 @@ def top_suburbs(job_name,flag):
             for vac in t:
 
                 p = re.compile(r'\b'+vac.upper()+'\\b')
-                if  p.search(vacanay) and jd[3]!="Melbourne Region" and (jd[0]!= 'Unknown' and jd[0]!='Property Jobs' and jd[0]!='Hospitality & Catering Jobs' and
-                                      jd[0]!='Customer Services Jobs' and jd[0]!='Part time Jobs') :
+                if  p.search(vacanay) and jd[3]!="Melbourne Region":
                     print ("going in",jd[3])
                     if jd[1] not in dict_of_jobs:
                         dict_of_jobs[jd[1]]=1
@@ -155,10 +187,7 @@ def top_suburbs(job_name,flag):
     return (dict_of_jobs)
 
 
-def quiz_new(request):
-    return render(request, 'recuritassist/quiz_new.html')   # this returns the  quiz.html page back to the website
-
-def quiz_result(request):
+def quiz_result(request):    #This evaluates the user form and produces the recommendations
     service = {'msg': None}
     nearby_service = {'msg': None}
     context = {}
@@ -260,7 +289,7 @@ def quiz_result(request):
     else:
         return render(request, 'recuritassist/new_result.html', {'obj': list_of_obj, 'service': service, 'nearby': list_of_nearby})
 
-def listprovider(request):
+def listprovider(request):  #This lists the training providers by using data stored in the database
     service = {'msg': None}
     context={}
     print(request.POST)
@@ -290,7 +319,7 @@ def listprovider(request):
         total= objall.count()
         i=1
         postcode = 0
-        while(i<= total):
+        while(i< total):
             if suburb.upper() == objall.get(ID=i).SITE_SUBURB:
                 o1=objall.get(ID=i)
                 postcode = o1.POSTCODE
@@ -311,7 +340,7 @@ def listprovider(request):
 
     list_of_nearby = []
     temp = 1
-    while (temp <= total):
+    while (temp < total):
         if abs(objall.get(ID=temp).POSTCODE - postcode) < 10 and (objall.get(ID=temp).POSTCODE != postcode):
             o2 = objall.get(ID=temp)
             str2 = o2.URL
@@ -400,40 +429,35 @@ def location_choose(request): #This function used in the first one show the job 
 def salary_information(request): #This function used in the first one show the job shortage in one location
     print(request.POST)
     result={}
-
-    # data get from the first location chosen
-    temp = {}
     location = request.POST.get('suburb')
-    category = request.POST.get('category')
-    url = "http://api.adzuna.com/v1/api/jobs/au/history?app_id=4cb38e73&app_key=ca142ad047eb88bae578bdca2a3eef4f&where=" + location + "&category=" + category + "&content-type=application/json"
-    data = requests.get(url).json()
-    salary = data.get('month')
-    for key in sorted(salary.keys()):
-        temp[key]=salary[key]
-    print("data1 here")
-    print(temp)
-
-    # data get from the second location chosen
-    temp2 = {}
     location2 = request.POST.get('suburb2')
     category = request.POST.get('category')
-    url2 = "http://api.adzuna.com/v1/api/jobs/au/history?app_id=4cb38e73&app_key=ca142ad047eb88bae578bdca2a3eef4f&where=" + location2 + "&category=" + category + "&content-type=application/json"
-    data2 = requests.get(url2).json()
+    c=0
+    if request.POST.get('category') == 'it-jobs':
+        c=0
+    elif request.POST.get('category') == 'admin-jobs':
+        c=1
+    elif request.POST.get('category') == 'healthcare-nursing-jobs':
+        c=2
+    elif request.POST.get('category') == 'accounting-finance-jobs':
+        c=3
+    elif request.POST.get('category') == 'teaching-jobs':
+        c=4
+    elif request.POST.get('category') == 'sales-jobs':
+        c=5
+    elif request.POST.get('category') == 'engineering-jobs':
+        c=6
 
-    print("data2 from api")
-    print(data2)
 
-    salary2 = data2.get('month')
-    for key in sorted(salary2.keys()):
-        temp2[key] = salary2[key]
+    file_path = os.path.join(settings.BASE_DIR, 'recruitassist/api_salary.txt')
+    with open(file_path, 'r', encoding='utf-8') as filehandle:
+        data=json.load(filehandle)
 
-    print("data2 here")
-    print(temp2)
 
-    result[location] = temp
-    result[location2] = temp2
-    print("result here")
+    result[location] = data[location][c]
+    result[location2] = data[location2][c]
     print(result)
+
     return HttpResponse(json.dumps(result))
 
 @csrf_exempt

@@ -1,3 +1,9 @@
+# Author: Mohammad Marwan Qaiser
+# Last Modified Date: 15/9/2019
+
+# The following code is used to define the database schema
+
+
 from django.db import models
 
 class Providers(models.Model):
