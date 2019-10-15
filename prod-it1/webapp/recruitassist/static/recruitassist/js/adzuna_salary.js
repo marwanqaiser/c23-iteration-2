@@ -94,7 +94,7 @@ $('#salary_submit').click(function() {
 	    interval: 1,
         intervalType: "month",
 	    title: "Date",
-	    labelAngle: 90
+	    labelAngle: -90
 
 	},
 

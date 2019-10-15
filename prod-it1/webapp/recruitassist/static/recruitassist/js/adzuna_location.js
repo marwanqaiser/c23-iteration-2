@@ -41,7 +41,7 @@ $('#location_submit').click(function() {
         console.log("start piechart")
         if (len.length == 0) {
                 x.style.display = "none";
-                alert("Oops！" + $("#location_input").val() + " seems doesn't have job shortage! Do you want to try other place?")
+                alert("Oops！" + $("#location_input").val() + " seems doesn't have skill shortage! Please try another.")
         }
         else {
 
@@ -60,7 +60,7 @@ $('#location_submit').click(function() {
             },
          	axisX:{
 	    interval: 1,
-	    labelAngle: 90
+	    labelAngle: -90
 
 	},
             data: [{

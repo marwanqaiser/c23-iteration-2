@@ -1,4 +1,4 @@
-// This function is send the user input to backend and get data from backend to do the visualization of job shortage.
+// This function sends the user input to backend and get data from backend to do the visualization of skill shortage.
 $('#location_submit').click(function() {
     $.ajax({
         url: "location_choose/",
@@ -31,7 +31,7 @@ $('#location_submit').click(function() {
         console.log("start piechart")
         if (len.length == 0) {
                 x.style.display = "none";
-                alert("Oops！" + $("#location_input").val() + " seems doesn't have job shortage! Do you want to try other place?")
+                alert("Oops！" + $("#location_input").val() + " seems doesn't have Skill shortage! Do you want to try another place?")
         }
         else {
 

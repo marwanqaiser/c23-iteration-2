@@ -35,7 +35,7 @@ $('#job_submit_without_mel').click(function() {
         console.log("start piechart")
         if (len.length == 0) {
                 x.style.display = "none";
-                alert("Oops！This place seems doesn't have job shortage! Do you want to try other place?")
+                alert("Oops！This place seems doesn't have skill shortage! Do you want to try another place?")
         }
         else {
         var dps1 = [];
@@ -50,6 +50,11 @@ $('#job_submit_without_mel').click(function() {
             title: {
                 text: "Top suburbs for " + $("#job_input").val()
             },
+               	axisX:{
+	    interval: 1,
+	    labelAngle: -90
+
+	},
             data: [{
                 type: "column",
                 indexLabel: "{y}",

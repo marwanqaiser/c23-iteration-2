@@ -38,13 +38,7 @@
             background-image: url("{% static 'recruitassist/img/intro-carousel/result_bg.jpg'%}");
         }
 
-        #chartContainer {
-           height: 400px;
-           width: 1200px;
-           margin:auto;
-           position: relative;
-           opacity: 0.8;
-       }
+
     </style>
 </head>
 <body>
@@ -104,7 +98,7 @@
 
 <section id="intro">
 	<!--<div class="carousel-background"> -->
-    <div class="container-table100">       
+    <div class="container-table100">
 	<div class="container">
 		<p>	<br>
 		<br></p>
@@ -144,20 +138,24 @@
                     {% endfor %}
                     </tbody>
                 </table>
-            </div>
-            </div>
+         </div>
 
-                                            <div class="container text-left">
+                                           <a href="#nearby" class="btn-get-started scrollto">See nearby providers</a>
+                                           <button id="find_submit" class="btn-get-started scrollto">View jobs in this area</button>
 
-                                             <a href="#nearby" class="btn-get-started scrollto">see nearby providers</a>
-                                                <button id="find_submit" class="btn-get-started scrollto">see avalaible jobs in this area</button>
-                                            </div>
-                    <div id="chartContainer" style="poaition:relative"></div>
+                    <div id="chartContainer">
+
                     </div>
+
+            </div>
+
+      </div>
+
 </section>
+
 <section id="nearby">
 	<!--<div class="carousel-background"> -->
-    <div class="container-table100" style="display:block;">
+    <div class="container-table100">
         <div class="container">
 		<p>	<br>
 		<br></p>

@@ -52,7 +52,7 @@ def load_region(request):   #this function returns the list of regions in which 
     for job in all_jobs:
         jd=job.split(',')
         if jd[3] not  in dict_of_region:
-                dict_of_region[jd[3]]=1
+                dict_of_region[jd[3].replace(" Region","")]=1
 
     print(list(dict_of_region.keys()))
     return HttpResponse(json.dumps(list(dict_of_region.keys())))
@@ -122,11 +122,15 @@ def access_jobs(suburb):            # this returns the count of different jobs a
             # add item to the list
             all_jobs.append(j)
 
+    suburb = suburb +" "+ "Region"
+    print("here one",suburb)
+
 
     count=0
     for job in all_jobs:
         jd=job.split(',')
-        if jd[1]== suburb :
+        print()
+        if jd[3]== suburb :
             if jd[0] not  in dict_of_jobs:
                 dict_of_jobs[jd[0]]=1
             else:
@@ -455,8 +459,9 @@ def salary_information(request): #This function used in the first one show the j
         data=json.load(filehandle)
 
 
-    result[location] = data[location][c]
-    result[location2] = data[location2][c]
+    result[location] = data[location][0]
+    result[location2] = data[location2][1]
+
     print(result)
 
     return HttpResponse(json.dumps(result))
