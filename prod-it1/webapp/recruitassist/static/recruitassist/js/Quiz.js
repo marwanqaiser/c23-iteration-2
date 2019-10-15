@@ -52,6 +52,9 @@ function myFunction() {
     if (q1[1].checked && q2[1].checked && q3[1].checked && q4[1].checked ) {
         recommendation1.style.display = 'none';
         recommendation2.style.display = 'block';
+    } else {
+        recommendation1.style.display = 'block';
+        recommendation2.style.display = 'none';
     }
 
 }

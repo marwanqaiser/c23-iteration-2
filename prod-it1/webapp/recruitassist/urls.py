@@ -23,6 +23,7 @@ urlpatterns = [
     url(r'^password.html/',views.password, name= 'password'),
     url(r'^details/',views.jobs, name= 'jobs'),
     url(r'^suburbs/',views.load_region, name= 'suburbs'),
+    url(r'^providers/',views.load_providers, name= 'providers'),
 
 #try to keep the naming same..avoids confusion
 

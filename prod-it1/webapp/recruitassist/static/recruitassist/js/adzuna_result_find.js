@@ -26,7 +26,7 @@ $('#find_submit').click(function() {
 
         console.log("start piechart")
         if (len.length == 0) {
-                alert("Oops！" + $("#location_input").val() + " seems doesn't have job shortage!")
+                alert("Oops！There seems doesn't have job shortage!")
         }
         else {
         var chart = new CanvasJS.Chart("chartContainer", {

@@ -58,8 +58,9 @@ def load_region(request):   #this function returns the list of regions in which 
     return HttpResponse(json.dumps(list(dict_of_region.keys())))
 
 
-
-def load_providers():   #this fucntion returns the list of providers where training services are available
+@csrf_exempt
+def load_providers(request):   #this fucntion returns the list of providers where training services are available
+    print(request.POST)
     dict_of_providers={}
     objall = Providers.objects.all()
     list_of_obj = []
@@ -72,8 +73,9 @@ def load_providers():   #this fucntion returns the list of providers where train
             dict_of_providers[location.capitalize()]=1
 
         i+=1
-
-    return(list(dict_of_providers.keys()))
+    print("cnm")
+    print(list(dict_of_providers.keys()))
+    return HttpResponse(json.dumps(list(dict_of_providers.keys())))
 
 
 
@@ -416,6 +418,7 @@ def listprovider(request):  #This lists the training providers by using data sto
 
 @csrf_exempt
 def location_choose(request): #This function used in the first one show the job shortage in one location
+    print(request.POST)
     result = {}
     totaljobs=0
     location_name = request.POST.get('suburb')
