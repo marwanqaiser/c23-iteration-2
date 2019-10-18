@@ -81,8 +81,10 @@ def load_providers(request):   #this fucntion returns the list of providers wher
 
         i+=1
     print("cnm")
-    print(list(dict_of_providers.keys()))
-    return HttpResponse(json.dumps(list(dict_of_providers.keys())))
+
+    l=list(sorted(dict_of_providers.keys()))
+    print(l)
+    return HttpResponse(json.dumps(list(sorted(dict_of_providers.keys()))))
 
 
 

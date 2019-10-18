@@ -215,10 +215,6 @@ function setMail(){
        textBox.options.add(option);
 
        var option = document.createElement('option');
-       option.text = option.value = "Bendigo Region";
-       textBox.options.add(option);
-
-       var option = document.createElement('option');
        option.text = option.value = "La Trobe Region";
        textBox.options.add(option);
 
@@ -227,9 +223,6 @@ function setMail(){
        option.text = option.value = "Geelong Region";
        textBox2.options.add(option);
 
-       var option = document.createElement('option');
-       option.text = option.value = "Bendigo Region";
-       textBox2.options.add(option);
 
        var option = document.createElement('option');
        option.text = option.value = "La Trobe Region";
