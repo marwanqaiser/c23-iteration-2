@@ -76,8 +76,6 @@ def fetch_all():
         json.dump(result, filehandle)
 
 
-
-
 def main():
     fetch_all()
 

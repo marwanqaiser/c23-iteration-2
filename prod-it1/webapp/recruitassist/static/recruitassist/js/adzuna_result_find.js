@@ -24,11 +24,19 @@ $('#find_submit').click(function() {
             console.log(dic_count[0])
             console.log(dic_name[0])
 
-        console.log("start piechart")
+console.log("start piechart")
         if (len.length == 0) {
-                alert("Oops！There seems doesn't have job shortage!")
+                x.style.display = "none";
+                alert("Oops！" + $("#location_input").val() + " does not seem to have skill shortage! Please try another.")
         }
         else {
+
+        var dps1 = [];
+        for(var i = 0; i < dic_count.length; i++) {
+        dps1.push({y: dic_count[i], label: dic_name[i]});
+
+        }
+        // this is the chart creating part.
         var chart = new CanvasJS.Chart("chartContainer", {
 
 //            animationEnabled: true,
@@ -36,23 +44,17 @@ $('#find_submit').click(function() {
                 text: "Number of Available Jobs!",
                 fontSize : 20
             },
+         	axisX:{
+	    interval: 1,
+	    labelAngle: -90
+
+	},
             data: [{
                  type: "column",
                 indexLabel: "{y}",
                 indexLabelPlacement: "outside",
                 indexLabelOrientation: "horizontal",
-                dataPoints: [
-                    {y: dic_count[0], label: dic_name[0]},
-                    {y: dic_count[1] , label: dic_name[1]},
-                    {y: dic_count[2] , label: dic_name[2]},
-                    {y: dic_count[3] , label: dic_name[3]},
-                    {y: dic_count[4] , label: dic_name[4]},
-                    {y: dic_count[5] , label: dic_name[5]},
-                    {y: dic_count[6] , label: dic_name[6]},
-                    {y: dic_count[7] , label: dic_name[7]},
-                    {y: dic_count[8] , label: dic_name[8]},
-                    {y: dic_count[9] , label: dic_name[9]}
-                ]
+                dataPoints: dps1
             }]
         });
 

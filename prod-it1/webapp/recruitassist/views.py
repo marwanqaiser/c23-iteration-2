@@ -22,12 +22,11 @@ def index(request):
 
 
 def Homepage_fianl_version(request):
+
     return render(request, 'recuritassist/Homepage_final_version.html')   # this returns to the home page
 
 def Homepage_job(request):
-    # regions_list=load_region()
-    # providers_list=load_providers()
-
+    test=load_sal_region(request)
     return render(request, 'recuritassist/Homepage_job.html')   # this returns to job section of the website
 
 def Homepage_skill(request):
@@ -57,6 +56,14 @@ def load_region(request):   #this function returns the list of regions in which 
     print(list(dict_of_region.keys()))
     return HttpResponse(json.dumps(list(dict_of_region.keys())))
 
+@csrf_exempt
+def load_sal_region(request):   #this function returns the list of regions in which jobs are available
+    file_path = os.path.join(settings.BASE_DIR, 'recruitassist/api_salary.txt')
+    with open(file_path, 'r', encoding='utf-8') as filehandle:
+        data=json.load(filehandle)
+    print(data)
+
+    return HttpResponse(json.dumps((data)))
 
 @csrf_exempt
 def load_providers(request):   #this fucntion returns the list of providers where training services are available
@@ -462,10 +469,10 @@ def salary_information(request): #This function used in the first one show the j
         data=json.load(filehandle)
 
 
-    result[location] = data[location][0]
-    result[location2] = data[location2][1]
+    result[location] = data[location][c]
+    result[location2] = data[location2][c]
 
-    print(result)
+    print("going from here")
 
     return HttpResponse(json.dumps(result))
 

@@ -236,8 +236,6 @@
             <div class="portfolio-wrap">
               <figure>
                   <a href="#Salary"><img src="{% static 'recruitassist/img/How-to-determine-annual-salary-for-a-company_2.jpg'%}" class="img-fluid" alt=""></a>
-<!--                <a href="#salary" class="link-preview" data-lightbox="portfolio" data-title="App 2" title="Preview"><i class="ion ion-eye"></i></a>-->
-<!--                <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>-->
               </figure>
 
               <div class="portfolio-info">
@@ -252,8 +250,6 @@
             <div class="portfolio-wrap">
               <figure>
                 <img src="{% static 'recruitassist/img/portfolio/test3.jpg'%}" class="img-fluid" alt="">
-<!--                <a href="#Shortage" class="link-preview" data-lightbox="portfolio" data-title="Web 1" title="Preview"><i class="ion ion-eye"></i></a>-->
-<!--                <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>-->
               </figure>
 
               <div class="portfolio-info">
@@ -267,8 +263,6 @@
             <div class="portfolio-wrap">
               <figure>
                 <img src="{% static 'recruitassist/img/portfolio/test4.jpg'%}" class="img-fluid" alt="">
-<!--                <a href="#top10_container" class="link-preview" data-lightbox="portfolio" data-title="Web 2" title="Preview"><i class="ion ion-eye"></i></a>-->
-<!--                <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>-->
               </figure>
 
               <div class="portfolio-info">
@@ -303,7 +297,6 @@
                                     	<div class="row justify-content-center">
 
                             			<div class="col-lg-10 align-items-end">
-<!--                                            <a style="font-size: 15px;"><input type="radio" class="box" name="box" value="Melb">Including Melbourne region</a>-->
                                     <a style="font-size: 15px; color:white;"><input type="checkbox" class="box" name="box" value="noMelb">Excluding Melbourne region</a>
 		        				<div class="form-group">
 		          				<div class="form-field">
@@ -373,12 +366,7 @@
            </div>
          </div>
 
-    </section><!-- #call-to-action -->
-
-      <!--==========================
-      Facts Section
-    ============================-->
-
+    </section>
       <!--==========================
       Shortage
     ============================-->
@@ -442,9 +430,11 @@
                             			<div class="col-lg-10 align-items-end">
 		        				<div class="form-group">
 		          				<div class="form-field">
-                                <div class="row">
-                                    <select style="width: 50%;height: 50%;padding: 8px 32px;border-radius: 50px" list="category" name="suburbs" id="job_title_input" placeholder="e.g IT" required pattern="[a-z-A-Z\s]+">
+ <div class="row">
+                                    <select style="width: 50%;height: 50%;padding: 8px 32px;border-radius: 50px" list="category" name="suburbs" id="job_title_input" placeholder="e.g IT" required pattern="[a-z-A-Z\s]+"  onChange="return setMail()">
 <!--                                    <datalist id="category">-->
+                                            <option disabled selected value> -- select an option -- </option>
+
                                             <option value="it-jobs">IT</option>
                                             <option value="admin-jobs">Admin</option>
                                             <option value="healthcare-nursing-jobs">Healthcare</option>
@@ -455,31 +445,12 @@
 <!--                                    </datalist>-->
                                     </select>
                                     <select style="width: 25%;height: 50%;padding: 8px 32px;border-radius: 50px" name="suburbs" id="suburb_input">
-                                        <option value="Melbourne Region"> Melbourne Region</option>
-                                            <option value="Geelong Region"> Geelong Region</option>
-                                            <option value="La Trobe Region"> La Trobe Region</option>
-                                            <option value="Bendigo Region"> Bendigo Region</option>
-                                            <option value="Shepparton Region"> Shepparton Region</option>
-                                            <option value="Ballarat Region"> Ballarat Region</option>
-                                            <option value="Mildura Region"> Mildura Region</option>
-                                            <option value="Warrnambool Region"> Warrnambool Region</option>
-                                            <option value="Horsham Region"> Horsham Region</option>
-                                            <option value="Wodonga Region"> Wodonga Region</option>
 
                                     </select>
 
-                                     </select>
+
                                     <select style="width: 25%;height: 50%;padding: 8px 32px;border-radius: 50px" name="suburbs" id="suburb_input2">
-                                        <option value="Melbourne Region"> Melbourne Region</option>
-                                            <option value="Geelong Region"> Geelong Region</option>
-                                            <option value="La Trobe Region"> La Trobe Region</option>
-                                            <option value="Bendigo Region"> Bendigo Region</option>
-                                            <option value="Shepparton Region"> Shepparton Region</option>
-                                            <option value="Ballarat Region"> Ballarat Region</option>
-                                            <option value="Mildura Region"> Mildura Region</option>
-                                            <option value="Warrnambool Region"> Warrnambool Region</option>
-                                            <option value="Horsham Region" > Horsham Region</option>
-                                            <option value="Wodonga Region"> Wodonga Region</option>
+
 
                                     </select>
 
@@ -504,30 +475,15 @@
 
     </section>
 
-
-  <!--
-    <div class="container">
-      <div class="copyright">
-        &copy; <strong>Recruit Assist - 2019</strong>.
-      </div>
-      <div class="credits">
-          All the links in the footer should remain intact.
-          You can delete the links only if you purchased the pro version.
-          Licensing information: https://bootstrapmade.com/license/
-          Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=BizPage
-        -->
-<!--        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>-->
-<!-- #footer -->
-
   <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
-  <!-- Uncomment below i you want to use a preloader -->
-  <!-- <div id="preloader"></div> -->
+
 
   <!-- JavaScript Libraries -->
   <script type="text/javascript" src="{% static 'recruitassist/lib/jquery/jquery.min.js'%}"></script>
   <!--pie chart for the 1st function-->
   <script src="{% static 'recruitassist/js/adzuna_location.js'%}"></script>
   <script src="{% static 'recruitassist/js/load_suburb.js'%}"></script>
+  <script src="{% static 'recruitassist/js/salary_loc.js'%}"></script>
 <!--  pie chart for the 2nd function-->
   <script src="{% static 'recruitassist/js/adzuna_jobs_whitout_mel.js'%}"></script>
   <script src="{% static 'recruitassist/js/shortage_provider.js'%}"></script>

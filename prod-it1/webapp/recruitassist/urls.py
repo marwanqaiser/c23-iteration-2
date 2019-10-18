@@ -24,6 +24,7 @@ urlpatterns = [
     url(r'^details/',views.jobs, name= 'jobs'),
     url(r'^suburbs/',views.load_region, name= 'suburbs'),
     url(r'^providers/',views.load_providers, name= 'providers'),
+    url(r'^sal/',views.load_sal_region, name= 'sal'),
 
 #try to keep the naming same..avoids confusion
 

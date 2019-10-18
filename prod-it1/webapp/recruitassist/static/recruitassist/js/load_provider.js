@@ -1,4 +1,4 @@
-// This function is changing the provders drop down list dynamic
+// This function is changing the providers drop down list dynamic
 window.onload = function(){
 　　$.ajax({      // using ajax to send POST request to backend
         url: "/providers/",
