@@ -26,7 +26,7 @@ $('#find_submit').click(function() {
 
 console.log("start piechart")
         if (len.length == 0) {
-                x.style.display = "none";
+
                 alert("Oops！" + $("#location_input").val() + " does not seem to have skill shortage! Please try another.")
         }
         else {

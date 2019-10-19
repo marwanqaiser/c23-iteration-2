@@ -90,7 +90,7 @@ def load_providers(request):   #this fucntion returns the list of providers wher
 
 
 
-def job_advert(title,location):   # this fucntion returns the job ads from the API_cache
+def job_advert(title,location):   # this function returns the job ads from the API_cache
     all_jobs=[]
     dict_of_jobs={}
     print(title)
@@ -104,7 +104,7 @@ def job_advert(title,location):   # this fucntion returns the job ads from the A
     job_name=title.strip(' ')
     t=job_name.split(' ')
     print(t)
-    print(location)
+    print("here again th",location)
 
 
     for job in all_jobs:
@@ -115,7 +115,7 @@ def job_advert(title,location):   # this fucntion returns the job ads from the A
         for vac in t:
             p = re.compile(r'\b'+vac.upper()+'\\b')
 
-            if  p.search(vacanay):
+            if  p.search(vacanay) and jd[1]==location :
 
                 dict_of_jobs[jd[len(jd)-1]]= jd[2]+','+jd[4]+','+ jd[1]+','+ jd[5]
 
@@ -329,14 +329,16 @@ def listprovider(request):  #This lists the training providers by using data sto
 
     if 'suburb' in request.POST:
         suburb=request.POST.get('suburb')
-
+        print("Suburb we got",suburb)
         objall=Providers.objects.all()
         list_of_obj= []
         total= objall.count()
         i=1
         postcode = 0
         while(i< total):
-            if suburb.upper() == objall.get(ID=i).SITE_SUBURB:
+            print(suburb.upper())
+
+            if suburb.upper() == objall.get(ID=i).SITE_SUBURB.upper():
                 o1=objall.get(ID=i)
                 postcode = o1.POSTCODE
                 str1=o1.URL
@@ -482,6 +484,7 @@ def salary_information(request): #This function used in the first one show the j
 def jobs(request): #This function used to get the job details
 
     job_desc= job_advert(request.POST.get('title'),request.POST.get('location'))
+    print("idk",request.POST.get('location'))
     for k in job_desc.keys():
         print("dict content")
         # alist = []

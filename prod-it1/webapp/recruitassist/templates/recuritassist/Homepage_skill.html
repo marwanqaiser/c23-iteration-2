@@ -13,6 +13,7 @@
   <link href="{% static 'recruitassist/img/apple-touch-icon.png'%}" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700" rel="stylesheet">
 
   <!-- Bootstrap CSS File -->
@@ -177,7 +178,7 @@
           <div class="col-lg-4 col-md-6 portfolio-item filter-app wow fadeInUp">
             <div class="portfolio-wrap">
               <figure>
-                <a href="#team"><img src="{% static 'recruitassist/img/portfolio/test1.jpg'%}" class="img-fluid" alt=""></a>
+                <a href="#team" class="btn-get-started scrollto"><img src="{% static 'recruitassist/img/portfolio/test1.jpg'%}" class="img-fluid" alt=""></a>
 <!--                <a href="#team" data-lightbox="portfolio" data-title="App 1" class="link-preview" title="Preview"><i class="ion ion-eye"></i></a>-->
 <!--                <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>-->
               </figure>
@@ -210,7 +211,7 @@
           <div class="col-lg-4 col-md-6 portfolio-item filter-card wow fadeInUp">
             <div class="portfolio-wrap">
               <figure>
-                <a href="#facts"><img src="{% static 'recruitassist/img/portfolio/test5.jpg'%}" class="img-fluid" alt=""></a>
+                <a href="#facts" class="btn-get-started scrollto"> <img src="{% static 'recruitassist/img/portfolio/test5.jpg'%}" class="img-fluid" alt=""></a>
 <!--                <a href="#facts" class="link-preview" data-lightbox="portfolio" data-title="Card 2" title="Preview"><i class="ion ion-eye"></i></a>-->
 <!--                <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>-->
               </figure>
@@ -342,7 +343,7 @@
 
   			</div>
 
-           <form action="/listprovider/" class="search-location mt-md-5" method="post">{% csrf_token %}
+           <form action="/listprovider/" class="search-location mt-md-5" method="post" onsubmit="return doSomething();">{% csrf_token %}
 
 
                                     	<div class="row justify-content-center">
@@ -409,6 +410,7 @@
   <script src="{% static 'recruitassist/js/adzuna_jobs_whitout_mel.js'%}"></script>
 <!--  <script src="{% static 'recruitassist/js/adzuna_jobs.js'%}"></script>-->
   <script src="{% static 'recruitassist/js/load_provider.js'%}"></script>
+ <script src="{% static 'recruitassist/js/valid.js'%}"></script>
   <script src="{% static 'recruitassist/lib/jquery/jquery.min.js'%}"></script>
   <script src="{% static 'recruitassist/lib/jquery/jquery-migrate.min.js'%}"></script>
   <script src="{% static 'recruitassist/lib/bootstrap/js/bootstrap.bundle.min.js'%}"></script>

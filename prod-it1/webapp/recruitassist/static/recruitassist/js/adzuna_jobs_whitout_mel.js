@@ -88,7 +88,7 @@ $('#job_submit_without_mel').click(function() {
                     title: $("#job_input").val(),
                 },
                 success: function (data) {
-                 table_shortage.style.display = "block"
+                 table_shortage.style.display = ""
                   var detail_list = []
                  $.each(JSON.parse(data),function(key,value) {
                        detail_list.push(value)
