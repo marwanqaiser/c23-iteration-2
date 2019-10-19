@@ -11,10 +11,11 @@ $('#job_submit_without_mel').click(function() {
             area: box
         },
         success: function (data) {
-
+            var table_shortage = document.getElementById("shortage_table")
             var location_count = new Array()
             var location_name = new Array()
             var len = new Array()
+            table_shortage.style.display = "none"
             $.each(JSON.parse(data),function(key,value) {
 
                 location_name.push(key)
@@ -87,6 +88,7 @@ $('#job_submit_without_mel').click(function() {
                     title: $("#job_input").val(),
                 },
                 success: function (data) {
+                 table_shortage.style.display = "block"
                   var detail_list = []
                  $.each(JSON.parse(data),function(key,value) {
                        detail_list.push(value)

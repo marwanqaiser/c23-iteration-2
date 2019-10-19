@@ -9,10 +9,13 @@ function setMail(){
         textBox2.options.length=0
        var option = document.createElement('option');
        option.text = option.value = "Melbourne Region";
+       console.log("cnm")
+//       textBox.appendChild(option);
        textBox.options.add(option);
 
        var option = document.createElement('option');
        option.text = option.value = "Geelong Region";
+//       textBox2.appendChild(option);
        textBox2.options.add(option);
     }
     else if(mailValue=="admin-jobs"){
@@ -20,37 +23,46 @@ function setMail(){
        textBox2.options.length=0
        var option = document.createElement('option');
        option.text = option.value = "Melbourne Region";
+//       textBox.appendChild(option);
        textBox.options.add(option);
        var option = document.createElement('option');
        option.text = option.value = "Geelong Region";
+//       textBox.appendChild(option);
        textBox.options.add(option);
 
        var option = document.createElement('option');
        option.text = option.value = "Bendigo Region";
+//       textBox.appendChild(option);
        textBox.options.add(option);
 
        var option = document.createElement('option');
        option.text = option.value = "La Trobe Region";
+//       textBox.appendChild(option);
        textBox.options.add(option);
 
        var option = document.createElement('option');
        option.text = option.value = "Ballarat Region";
+//       textBox.appendChild(option);
        textBox.options.add(option);
 
        var option = document.createElement('option');
        option.text = option.value = "Geelong Region";
+//       textBox2.appendChild(option);
        textBox2.options.add(option);
 
        var option = document.createElement('option');
        option.text = option.value = "Bendigo Region";
+//       textBox2.appendChild(option);
        textBox2.options.add(option);
 
        var option = document.createElement('option');
        option.text = option.value = "La Trobe Region";
+//       textBox2.appendChild(option);
        textBox2.options.add(option);
 
        var option = document.createElement('option');
        option.text = option.value = "Ballarat Region";
+//       textBox2.appendChild(option);
        textBox2.options.add(option);
 
 
@@ -60,49 +72,61 @@ function setMail(){
        textBox2.options.length=0
        var option = document.createElement('option');
        option.text = option.value = "Melbourne Region";
+//       textBox.appendChild(option);
        textBox.options.add(option);
        var option = document.createElement('option');
        option.text = option.value = "Geelong Region";
+//       textBox.appendChild(option);
        textBox.options.add(option);
 
        var option = document.createElement('option');
        option.text = option.value = "Bendigo Region";
+//       textBox.appendChild(option);
        textBox.options.add(option);
 
        var option = document.createElement('option');
        option.text = option.value = "La Trobe Region";
+//       textBox.appendChild(option);
        textBox.options.add(option);
 
        var option = document.createElement('option');
        option.text = option.value = "Ballarat Region";
+//       textBox.appendChild(option);
        textBox.options.add(option);
 
        var option = document.createElement('option');
        option.text = option.value = "Shepparton Region";
        textBox.options.add(option);
+//        textBox.appendChild(option);
 
        var option = document.createElement('option');
        option.text = option.value = "Mildura Region";
+//       textBox.appendChild(option);
        textBox.options.add(option);
 
        var option = document.createElement('option');
        option.text = option.value = "Geelong Region";
+//       textBox2.appendChild(option);
        textBox2.options.add(option);
 
        var option = document.createElement('option');
        option.text = option.value = "Bendigo Region";
+//       textBox2.appendChild(option);
        textBox2.options.add(option);
 
        var option = document.createElement('option');
        option.text = option.value = "La Trobe Region";
+//       textBox2.appendChild(option);
        textBox2.options.add(option);
 
        var option = document.createElement('option');
        option.text = option.value = "Ballarat Region";
+//       textBox2.appendChild(option);
        textBox2.options.add(option);
 
        var option = document.createElement('option');
        option.text = option.value = "Shepparton Region";
+//       textBox2.appendChild(option);
        textBox2.options.add(option);
 
         var option = document.createElement('option');
