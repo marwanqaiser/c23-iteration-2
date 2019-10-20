@@ -11,7 +11,7 @@ def fetch_all():
 
     ls=[]
     jobs=[]
-    for i in range (1,10):
+    for i in range (1,220):
         print(i)
         page= str(i)
         api_data= "https://api.adzuna.com/v1/api/jobs/au/search/"+page+"?app_id=4cb38e73&app_key=ca142ad047eb88bae578bdca2a3eef4f&where=victoria&results_per_page=50&&content-type=application/json"
@@ -41,14 +41,14 @@ def fetch_all():
                 else:
                    jobs.append(i[j]['category']['label'] +','+ i[j]['location']['area'][3] +','+ i[j]['title']+ ','+ i[j]['location']['area'][2] +','+ i[j]['company']['display_name']+','+ i[j]['redirect_url']+ ','+ str(i[j]['id']))
 
-    with open('api_data.txt', 'w', encoding='utf-8') as filehandle:
+    with open('/home/cp4/django/webapp/recruitassist/api_data.txt', 'w', encoding='utf-8') as filehandle:
         for listitem in jobs:
             filehandle.write('%s\n' % listitem)
     filehandle.close()
 
 
     loc=["Melbourne Region","Geelong Region","La Trobe Region","Bendigo Region","Shepparton Region","Ballarat Region","Mildura Region",
-              "Warrnambool Region","Horsham Region","Wodonga Region"]
+              "Warrnambool Region"]
 
     cat=["it-jobs","admin-jobs","healthcare-nursing-jobs","accounting-finance-jobs",
         "teaching-jobs","sales-jobs","Engineering-jobs"]
@@ -72,7 +72,7 @@ def fetch_all():
             salary_list.append(temp)
         result[l] = salary_list
 
-    with open('api_salary.txt', 'w', encoding='utf-8') as filehandle:
+    with open('/home/cp4/django/webapp/recruitassist/api_salary.txt', 'w', encoding='utf-8') as filehandle:
         json.dump(result, filehandle)
 
 
