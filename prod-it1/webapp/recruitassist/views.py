@@ -50,8 +50,11 @@ def load_region(request):   #this function returns the list of regions in which 
             all_jobs.append(j)
     for job in all_jobs:
         jd=job.split(',')
-        if jd[3] not  in dict_of_region:
+        if "Region" in jd[3]:
+            if jd[3] not  in dict_of_region:
                 dict_of_region[jd[3].replace(" Region","")]=1
+        else:
+            print("discard",jd[3])
 
     print(list(dict_of_region.keys()))
     return HttpResponse(json.dumps(list(dict_of_region.keys())))
